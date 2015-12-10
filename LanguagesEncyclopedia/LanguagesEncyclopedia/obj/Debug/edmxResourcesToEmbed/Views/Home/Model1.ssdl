@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EncyclopediaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="EncyclopediaModelStoreContainer">
+    <EntitySet Name="IDE" EntityType="EncyclopediaModel.Store.IDE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Language" EntityType="EncyclopediaModel.Store.Language" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LanguageIDE" EntityType="EncyclopediaModel.Store.LanguageIDE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LanguageParadigm" EntityType="EncyclopediaModel.Store.LanguageParadigm" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LanguageRelationship" EntityType="EncyclopediaModel.Store.LanguageRelationship" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LanguageTask" EntityType="EncyclopediaModel.Store.LanguageTask" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="License" EntityType="EncyclopediaModel.Store.License" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LicenseIDE" EntityType="EncyclopediaModel.Store.LicenseIDE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Paradigm" EntityType="EncyclopediaModel.Store.Paradigm" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Solution" EntityType="EncyclopediaModel.Store.Solution" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Task" EntityType="EncyclopediaModel.Store.Task" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_LanguageIDE_IDE" Association="EncyclopediaModel.Store.FK_LanguageIDE_IDE">
+      <End Role="IDE" EntitySet="IDE" />
+      <End Role="LanguageIDE" EntitySet="LanguageIDE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LanguageIDE_Language" Association="EncyclopediaModel.Store.FK_LanguageIDE_Language">
+      <End Role="Language" EntitySet="Language" />
+      <End Role="LanguageIDE" EntitySet="LanguageIDE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LanguageParadigm_Language" Association="EncyclopediaModel.Store.FK_LanguageParadigm_Language">
+      <End Role="Language" EntitySet="Language" />
+      <End Role="LanguageParadigm" EntitySet="LanguageParadigm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LanguageParadigm_Paradigm" Association="EncyclopediaModel.Store.FK_LanguageParadigm_Paradigm">
+      <End Role="Paradigm" EntitySet="Paradigm" />
+      <End Role="LanguageParadigm" EntitySet="LanguageParadigm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LanguageRelationship_Language" Association="EncyclopediaModel.Store.FK_LanguageRelationship_Language">
+      <End Role="Language" EntitySet="Language" />
+      <End Role="LanguageRelationship" EntitySet="LanguageRelationship" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LanguageRelationship_Language1" Association="EncyclopediaModel.Store.FK_LanguageRelationship_Language1">
+      <End Role="Language" EntitySet="Language" />
+      <End Role="LanguageRelationship" EntitySet="LanguageRelationship" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LanguageTask_Language" Association="EncyclopediaModel.Store.FK_LanguageTask_Language">
+      <End Role="Language" EntitySet="Language" />
+      <End Role="LanguageTask" EntitySet="LanguageTask" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LanguageTask_Task" Association="EncyclopediaModel.Store.FK_LanguageTask_Task">
+      <End Role="Task" EntitySet="Task" />
+      <End Role="LanguageTask" EntitySet="LanguageTask" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LicenseIDE_IDE" Association="EncyclopediaModel.Store.FK_LicenseIDE_IDE">
+      <End Role="IDE" EntitySet="IDE" />
+      <End Role="LicenseIDE" EntitySet="LicenseIDE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LicenseIDE_License" Association="EncyclopediaModel.Store.FK_LicenseIDE_License">
+      <End Role="License" EntitySet="License" />
+      <End Role="LicenseIDE" EntitySet="LicenseIDE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Solution_LanguageTask" Association="EncyclopediaModel.Store.FK_Solution_LanguageTask">
+      <End Role="LanguageTask" EntitySet="LanguageTask" />
+      <End Role="Solution" EntitySet="Solution" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="IDE">
+    <Key>
+      <PropertyRef Name="IDEID" />
+    </Key>
+    <Property Name="IDEID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="URL" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="LanguageID" />
+    </Key>
+    <Property Name="LanguageID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Image" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="LanguageIDE">
+    <Key>
+      <PropertyRef Name="LanguageIDEID" />
+    </Key>
+    <Property Name="LanguageIDEID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LanguageID" Type="int" Nullable="false" />
+    <Property Name="IDEID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LanguageParadigm">
+    <Key>
+      <PropertyRef Name="LanguageParadigmID" />
+    </Key>
+    <Property Name="LanguageParadigmID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LanguageID" Type="int" Nullable="false" />
+    <Property Name="ParadigmID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LanguageRelationship">
+    <Key>
+      <PropertyRef Name="LanguageRelationshipID" />
+    </Key>
+    <Property Name="LanguageRelationshipID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LanguageID" Type="int" Nullable="false" />
+    <Property Name="ParentID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LanguageTask">
+    <Key>
+      <PropertyRef Name="LanguageTaskID" />
+    </Key>
+    <Property Name="LanguageTaskID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LanguageID" Type="int" Nullable="false" />
+    <Property Name="TaskID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="License">
+    <Key>
+      <PropertyRef Name="LicenseID" />
+    </Key>
+    <Property Name="LicenseID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="LicenseIDE">
+    <Key>
+      <PropertyRef Name="LicenseIDEID" />
+    </Key>
+    <Property Name="LicenseIDEID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LicenseID" Type="int" Nullable="false" />
+    <Property Name="IDEID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Paradigm">
+    <Key>
+      <PropertyRef Name="ParadigmID" />
+    </Key>
+    <Property Name="ParadigmID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Solution">
+    <Key>
+      <PropertyRef Name="SolutionID" />
+    </Key>
+    <Property Name="SolutionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="1000" />
+    <Property Name="LanguageTaskID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="TaskID" />
+    </Key>
+    <Property Name="TaskID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="1000" />
+  </EntityType>
+  <Association Name="FK_LanguageIDE_IDE">
+    <End Role="IDE" Type="EncyclopediaModel.Store.IDE" Multiplicity="1" />
+    <End Role="LanguageIDE" Type="EncyclopediaModel.Store.LanguageIDE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IDE">
+        <PropertyRef Name="IDEID" />
+      </Principal>
+      <Dependent Role="LanguageIDE">
+        <PropertyRef Name="IDEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LanguageIDE_Language">
+    <End Role="Language" Type="EncyclopediaModel.Store.Language" Multiplicity="1" />
+    <End Role="LanguageIDE" Type="EncyclopediaModel.Store.LanguageIDE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageID" />
+      </Principal>
+      <Dependent Role="LanguageIDE">
+        <PropertyRef Name="LanguageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LanguageParadigm_Language">
+    <End Role="Language" Type="EncyclopediaModel.Store.Language" Multiplicity="1" />
+    <End Role="LanguageParadigm" Type="EncyclopediaModel.Store.LanguageParadigm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageID" />
+      </Principal>
+      <Dependent Role="LanguageParadigm">
+        <PropertyRef Name="LanguageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LanguageParadigm_Paradigm">
+    <End Role="Paradigm" Type="EncyclopediaModel.Store.Paradigm" Multiplicity="1" />
+    <End Role="LanguageParadigm" Type="EncyclopediaModel.Store.LanguageParadigm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paradigm">
+        <PropertyRef Name="ParadigmID" />
+      </Principal>
+      <Dependent Role="LanguageParadigm">
+        <PropertyRef Name="ParadigmID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LanguageRelationship_Language">
+    <End Role="Language" Type="EncyclopediaModel.Store.Language" Multiplicity="1" />
+    <End Role="LanguageRelationship" Type="EncyclopediaModel.Store.LanguageRelationship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageID" />
+      </Principal>
+      <Dependent Role="LanguageRelationship">
+        <PropertyRef Name="ParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LanguageRelationship_Language1">
+    <End Role="Language" Type="EncyclopediaModel.Store.Language" Multiplicity="1" />
+    <End Role="LanguageRelationship" Type="EncyclopediaModel.Store.LanguageRelationship" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageID" />
+      </Principal>
+      <Dependent Role="LanguageRelationship">
+        <PropertyRef Name="LanguageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LanguageTask_Language">
+    <End Role="Language" Type="EncyclopediaModel.Store.Language" Multiplicity="1" />
+    <End Role="LanguageTask" Type="EncyclopediaModel.Store.LanguageTask" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="LanguageID" />
+      </Principal>
+      <Dependent Role="LanguageTask">
+        <PropertyRef Name="LanguageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LanguageTask_Task">
+    <End Role="Task" Type="EncyclopediaModel.Store.Task" Multiplicity="1" />
+    <End Role="LanguageTask" Type="EncyclopediaModel.Store.LanguageTask" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Task">
+        <PropertyRef Name="TaskID" />
+      </Principal>
+      <Dependent Role="LanguageTask">
+        <PropertyRef Name="TaskID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LicenseIDE_IDE">
+    <End Role="IDE" Type="EncyclopediaModel.Store.IDE" Multiplicity="1" />
+    <End Role="LicenseIDE" Type="EncyclopediaModel.Store.LicenseIDE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IDE">
+        <PropertyRef Name="IDEID" />
+      </Principal>
+      <Dependent Role="LicenseIDE">
+        <PropertyRef Name="IDEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LicenseIDE_License">
+    <End Role="License" Type="EncyclopediaModel.Store.License" Multiplicity="1" />
+    <End Role="LicenseIDE" Type="EncyclopediaModel.Store.LicenseIDE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="License">
+        <PropertyRef Name="LicenseID" />
+      </Principal>
+      <Dependent Role="LicenseIDE">
+        <PropertyRef Name="LicenseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Solution_LanguageTask">
+    <End Role="LanguageTask" Type="EncyclopediaModel.Store.LanguageTask" Multiplicity="1" />
+    <End Role="Solution" Type="EncyclopediaModel.Store.Solution" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LanguageTask">
+        <PropertyRef Name="LanguageTaskID" />
+      </Principal>
+      <Dependent Role="Solution">
+        <PropertyRef Name="LanguageTaskID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
