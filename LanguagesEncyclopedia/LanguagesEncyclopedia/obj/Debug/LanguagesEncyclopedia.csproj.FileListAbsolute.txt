@@ -61,3 +61,4 @@ C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\L
 C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\obj\Debug\LanguagesEncyclopedia.csprojResolveAssemblyReference.cache
 C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\obj\Debug\LanguagesEncyclopedia.dll
 C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\obj\Debug\LanguagesEncyclopedia.pdb
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\Microsoft.Web.Mvc.dll
