@@ -26,3 +26,38 @@ C:\Users\User\Desktop\DU\.NET ASP\4_task\LanguagesEncyclopedia\LanguagesEncyclop
 C:\Users\User\Desktop\DU\.NET ASP\4_task\LanguagesEncyclopedia\LanguagesEncyclopedia\obj\Debug\LanguagesEncyclopedia.csprojResolveAssemblyReference.cache
 C:\Users\User\Desktop\DU\.NET ASP\4_task\LanguagesEncyclopedia\LanguagesEncyclopedia\obj\Debug\LanguagesEncyclopedia.dll
 C:\Users\User\Desktop\DU\.NET ASP\4_task\LanguagesEncyclopedia\LanguagesEncyclopedia\obj\Debug\LanguagesEncyclopedia.pdb
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\LanguagesEncyclopedia.dll.config
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\LanguagesEncyclopedia.dll
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\LanguagesEncyclopedia.pdb
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\Antlr3.Runtime.dll
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\EntityFramework.dll
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\Newtonsoft.Json.dll
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Net.Http.dll
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Net.Http.Formatting.dll
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Net.Http.WebRequest.dll
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.Http.dll
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.Http.WebHost.dll
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.Mvc.dll
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.Optimization.dll
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.Providers.dll
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.Razor.dll
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.WebPages.dll
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.WebPages.Razor.dll
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\WebGrease.dll
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\EntityFramework.xml
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\Newtonsoft.Json.xml
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Net.Http.xml
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Net.Http.Formatting.xml
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Net.Http.WebRequest.xml
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.Http.xml
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.Http.WebHost.xml
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.Mvc.xml
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.Razor.xml
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.WebPages.xml
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.WebPages.Razor.xml
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\obj\Debug\LanguagesEncyclopedia.csprojResolveAssemblyReference.cache
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\obj\Debug\LanguagesEncyclopedia.dll
+C:\Users\Zan\Desktop\GitBase\4_HomeWork_DreamTeam-master\LanguagesEncyclopedia\LanguagesEncyclopedia\obj\Debug\LanguagesEncyclopedia.pdb
