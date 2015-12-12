@@ -1,0 +1,38 @@
+﻿@model IEnumerable<LanguagesEncyclopedia.Views.Home.License>
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>  
+
+<script>
+        $(document).ready(function () {
+            //function will be called on button click having id btnsave
+            $("#btnAdd").click(function () {
+                $.ajax(
+                {
+                    type: "POST", //HTTP POST Method
+                    url: "@Url.Action("AddLicense","Home")", // Controller/View
+                    data: { //Passing data
+                        Name: $("#n_license").val(), //Reading text box values using Jquery
+                    }
+
+                });
+
+            });
+        });
+
+</script> 
+
+
+<h2>Create</h2>
+Hello Dream Team!!
+</br>
+<input type="text" id="n_license"></br><input type="button" id="btnAdd" value="Add" />
+
+</br></br>
+
+
+
+

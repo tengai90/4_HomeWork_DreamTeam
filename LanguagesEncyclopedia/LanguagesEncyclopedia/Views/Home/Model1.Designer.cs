@@ -351,6 +351,11 @@ namespace LanguagesEncyclopedia.Views.Home
 
         #endregion
 
+
+        internal void AddToLicenses(string p)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     #endregion
