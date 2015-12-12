@@ -1,0 +1,36 @@
+﻿
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        //function will be called on button click having id btnsave
+        $("#btnEdit").click(function () {
+            $.ajax(
+            {
+                type: "POST", //HTTP POST Method
+                url: "@Url.Action("EditLicense","Home")", // Controller/View
+                    data: { //Passing data
+                        Name: $("#e_license").val(), //Reading text box values using Jquery
+                        id: @ViewBag.Id,
+                    }
+
+                });
+
+            });
+        });
+
+</script>
+
+
+<h2>Edit</h2>
+Hello Dream Team!!
+</br>
+<input type="text" value="@ViewBag.Name" id="e_license"></br><input type="button" id="btnEdit" value="Edit" />
+
+</br></br>
+@Html.ActionLink("Return to Licenses", "Licenses", "Home"); 

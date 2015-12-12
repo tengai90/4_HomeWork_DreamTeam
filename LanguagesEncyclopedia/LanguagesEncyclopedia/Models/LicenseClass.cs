@@ -8,6 +8,6 @@ namespace LanguagesEncyclopedia.Models
     public class LicenseClass
     {
         public string Name { get; set; }
-
+        public string id { get; set; }
     }
 }

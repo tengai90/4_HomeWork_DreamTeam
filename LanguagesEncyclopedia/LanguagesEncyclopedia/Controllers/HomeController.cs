@@ -34,6 +34,71 @@ namespace LanguagesEncyclopedia.Controllers
             return View(licenses);
         }
 
+        //Edit License
+        public ActionResult Edit(int? id)
+        {
+            int idt = id.GetValueOrDefault();
+
+            connection();
+            con.Open();
+            SqlCommand com = con.CreateCommand();
+
+            com.CommandText = "Select Name from License where LicenseID=@Id";
+            com.Parameters.AddWithValue("@Id", idt);
+            SqlDataReader reader = com.ExecuteReader();
+            string name="";
+
+            while(reader.Read())
+             name=reader["Name"].ToString();
+
+            reader.Close();
+            con.Close();
+
+            ViewBag.Name = name;
+            ViewBag.Id = idt;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult EditLicense(LicenseClass obj)
+        {
+            EditDetails(obj);
+            return View();
+        }
+
+        public void EditDetails(LicenseClass obj)
+        {
+            connection();
+            con.Open();
+
+            SqlCommand com = con.CreateCommand();
+            com.CommandText = "SELECT Name from License";
+            com.CommandType = CommandType.Text;
+
+            SqlDataReader reader = com.ExecuteReader();
+
+            bool edit = true;
+
+            while (reader.Read())
+                if (reader["Name"].ToString() == obj.Name) edit = false;
+
+            reader.Close();
+            if (edit)
+            {
+                com = con.CreateCommand();
+
+                com.CommandText = "Update License set Name=@Name where LicenseID=@Id";
+                com.Parameters.AddWithValue("@Id", obj.id);
+                com.Parameters.AddWithValue("@Name", obj.Name);
+                com.ExecuteNonQuery();
+
+
+                con.Close();                         
+            }
+        }
+
+        //End Edit License
+
 
        //Delete License
         public ActionResult DeleteLicense(int? id)
@@ -50,7 +115,7 @@ namespace LanguagesEncyclopedia.Controllers
 
     
                 con.Close();
-
+               
                return RedirectToAction("Licenses", "Home");
         }
 
@@ -103,6 +168,7 @@ namespace LanguagesEncyclopedia.Controllers
                 com.Parameters.AddWithValue("@Name", obj.Name);
                 
                 com.ExecuteNonQuery();
+                
                 
             }
 
