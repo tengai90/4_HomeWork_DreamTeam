@@ -23,9 +23,9 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.LicenseID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.LicenseID }) |
-            @Html.ActionLink("Delete", "DeleteLicense", new { id=item.LicenseID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.LicenseID, name = item.Name }) |
+            @Html.ActionLink("Details", "Details", new { id=item.LicenseID}) |
+            @Html.ActionLink("Delete", "DeleteLicense", new { id=item.LicenseID})
         </td>
     </tr>
 }

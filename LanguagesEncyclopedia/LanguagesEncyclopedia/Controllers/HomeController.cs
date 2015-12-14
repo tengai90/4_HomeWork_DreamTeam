@@ -15,7 +15,7 @@ namespace LanguagesEncyclopedia.Controllers
     {
         //
         // GET: /Home/
-        private SqlConnection con;
+
 
         EncyclopediaEntities db = new EncyclopediaEntities();
        
@@ -35,24 +35,10 @@ namespace LanguagesEncyclopedia.Controllers
         }
 
         //Edit License
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id, string name)
         {
             int idt = id.GetValueOrDefault();
 
-            connection();
-            con.Open();
-            SqlCommand com = con.CreateCommand();
-
-            com.CommandText = "Select Name from License where LicenseID=@Id";
-            com.Parameters.AddWithValue("@Id", idt);
-            SqlDataReader reader = com.ExecuteReader();
-            string name="";
-
-            while(reader.Read())
-             name=reader["Name"].ToString();
-
-            reader.Close();
-            con.Close();
 
             ViewBag.Name = name;
             ViewBag.Id = idt;
@@ -62,40 +48,19 @@ namespace LanguagesEncyclopedia.Controllers
         [HttpPost]
         public ActionResult EditLicense(LicenseClass obj)
         {
-            EditDetails(obj);
+            License check = db.Licenses.SingleOrDefault(License => License.Name == obj.Name);
+            if (check == null)
+            {
+                License toedit = db.Licenses.SingleOrDefault(License => License.LicenseID == obj.id);
+                toedit.Name = obj.Name;
+                db.SaveChanges();
+                
+            }
+
             return View();
         }
 
-        public void EditDetails(LicenseClass obj)
-        {
-            connection();
-            con.Open();
 
-            SqlCommand com = con.CreateCommand();
-            com.CommandText = "SELECT Name from License";
-            com.CommandType = CommandType.Text;
-
-            SqlDataReader reader = com.ExecuteReader();
-
-            bool edit = true;
-
-            while (reader.Read())
-                if (reader["Name"].ToString() == obj.Name) edit = false;
-
-            reader.Close();
-            if (edit)
-            {
-                com = con.CreateCommand();
-
-                com.CommandText = "Update License set Name=@Name where LicenseID=@Id";
-                com.Parameters.AddWithValue("@Id", obj.id);
-                com.Parameters.AddWithValue("@Name", obj.Name);
-                com.ExecuteNonQuery();
-
-
-                con.Close();                         
-            }
-        }
 
         //End Edit License
 
@@ -104,19 +69,16 @@ namespace LanguagesEncyclopedia.Controllers
         public ActionResult DeleteLicense(int? id)
         {
             int idt = id.GetValueOrDefault();
+            LicenseIDE check = db.LicenseIDEs.SingleOrDefault(LicenseIDE => LicenseIDE.LicenseID == idt);
+            if (check == null)
+            {
+                License todelete= db.Licenses.SingleOrDefault(License =>License.LicenseID ==idt);
+                db.Licenses.DeleteObject(todelete);
+                db.SaveChanges();
+            }
 
-            connection();
-            con.Open();
-            SqlCommand com = con.CreateCommand();
-            
-                com.CommandText = "delete from License where LicenseID=@Id";
-                com.Parameters.AddWithValue("@Id", idt);
-                com.ExecuteNonQuery();
 
-    
-                con.Close();
-               
-               return RedirectToAction("Licenses", "Home");
+           return RedirectToAction("Licenses", "Home");
         }
 
         //End Delete License
@@ -124,56 +86,31 @@ namespace LanguagesEncyclopedia.Controllers
         //Add License
 
         
- public ActionResult Create()    
+ public ActionResult Create(int? id)    
     {    
-           
+     int idt = id.GetValueOrDefault();
+     ViewBag.AID = idt;
+
         return View();    
     } 
         
         [HttpPost]
         public ActionResult AddLicense(LicenseClass obj)
         {
-           AddDetails(obj);
-            
-            return View();
-        }
-
-        //To Handle connection related activities    
-        private void connection()
-        {
-            con = new SqlConnection("Data Source=SQL5018.Smarterasp.net;Initial Catalog=DB_9E5584_encyclopediadb;user id=DB_9E5584_encyclopediadb_admin;password=P@ssw0rd12345;");
-
-        }
-        //To add Records into database     
-        private void AddDetails(LicenseClass obj)
-        {
-            connection();
-            con.Open();
-            SqlCommand com = con.CreateCommand();
-            com.CommandText = "SELECT Name from License";
-            com.CommandType = CommandType.Text;
-           
-            SqlDataReader reader = com.ExecuteReader();
-
-            bool add = true;
-
-            while (reader.Read())
-                if (reader["Name"].ToString() == obj.Name) add = false;
-
-            reader.Close();
-            if (add)
+            License check = db.Licenses.SingleOrDefault(License => License.Name == obj.Name);
+            if (check == null)
             {
-                 com = new SqlCommand("AddLicense", con);
-                com.CommandType = CommandType.StoredProcedure;
-                com.Parameters.AddWithValue("@Name", obj.Name);
-                
-                com.ExecuteNonQuery();
-                
-                
+                License toadd=new License();
+                toadd.Name=obj.Name;
+                db.Licenses.AddObject(toadd);
+                db.SaveChanges();
+
             }
 
-            con.Close();
+            return View();
         }
+   
+
   
         //End Add License
 

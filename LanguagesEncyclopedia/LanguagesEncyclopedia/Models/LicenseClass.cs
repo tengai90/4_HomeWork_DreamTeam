@@ -7,7 +7,8 @@ namespace LanguagesEncyclopedia.Models
 {
     public class LicenseClass
     {
+        public int id { get; set; }
         public string Name { get; set; }
-        public string id { get; set; }
+        
     }
 }
