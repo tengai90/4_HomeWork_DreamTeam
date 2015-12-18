@@ -1,0 +1,38 @@
+﻿@model IEnumerable<LanguagesEncyclopedia.Views.Home.IDE>
+
+@{
+    ViewBag.Title = "IDE";
+}
+
+<h2>IDE</h2>
+
+<p>
+    @Html.ActionLink("Create New", "IDECreate", "Home")
+</p>
+<table class="table table-bordered">
+    <tr class="btn-warning">
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.URL)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a href="@Html.DisplayFor(modelItem => item.URL)">@Html.DisplayFor(modelItem => item.URL)</a> 
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "IDEEdit", new { id = item.IDEID, name = item.Name, url=item.URL }) |
+                @Html.ActionLink("Details", "Details", new { id = item.IDEID }) |
+                @Html.ActionLink("Delete", "DeleteIDE", new { id = item.IDEID })
+            </td>
+        </tr>
+    }
+</table>

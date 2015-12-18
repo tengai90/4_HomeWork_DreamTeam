@@ -8,6 +8,8 @@ using System.Data.SqlClient;
 using LanguagesEncyclopedia.Models;
 using System.Data;
 using System.Configuration;
+using System.Data.EntityClient;
+
 
 namespace LanguagesEncyclopedia.Controllers
 {
@@ -24,7 +26,142 @@ namespace LanguagesEncyclopedia.Controllers
         {
             return View();
         }
-        
+        //IDE Control
+        //IDE DELETE
+        public ActionResult DeleteIDE(int? id)
+        {
+            int idt = id.GetValueOrDefault();
+            
+
+            var todelete = db.LicenseIDEs.Where(p => p.IDEID == idt).ToList();
+            foreach (var item in todelete)
+            {
+                db.LicenseIDEs.DeleteObject(item);
+                db.SaveChanges();
+            }
+
+            IDE dIDE = db.IDEs.SingleOrDefault(p => p.IDEID == idt);
+            db.IDEs.DeleteObject(dIDE);
+            db.SaveChanges();
+            return RedirectToAction("IDE", "Home");
+        }
+
+
+
+       //IDE DELETE
+
+
+        //IDE Edit
+        public ActionResult IDEEdit(int? id, string name, string url)
+        {
+            List<License> licenses = new List<License>();
+            ViewModel DoubleModel = new ViewModel();
+            licenses = db.Licenses.ToList();
+
+            int idt = id.GetValueOrDefault();
+
+
+            DoubleModel.LicensesIDE = db.LicenseIDEs.Where(r => r.IDEID == idt);
+
+
+            DoubleModel.Licenses = licenses;
+            ViewBag.eURL = url;
+            ViewBag.eName = name;
+            ViewBag.IDID = idt;
+
+            return View(DoubleModel);
+        }
+    
+
+        [HttpPost]
+        public ActionResult EditIDE(IDEClass obj)
+        {
+            
+                IDE eIDE = db.IDEs.SingleOrDefault(IDE => IDE.IDEID == obj.id);
+                eIDE.Name = obj.Name;
+                eIDE.URL = obj.url;
+                db.SaveChanges();
+
+                var todelete = db.LicenseIDEs.Where(p => p.IDEID == obj.id).ToList();
+                foreach(var item in todelete)
+                {
+                    db.LicenseIDEs.DeleteObject(item);
+                    db.SaveChanges();
+                }
+
+                if (obj.licensesIDs != null)
+                {
+                    
+                    foreach (int i in obj.licensesIDs)
+                    {
+                        LicenseIDE addIDE = new LicenseIDE();
+                        addIDE.IDEID = obj.id;
+                        addIDE.LicenseID = i;
+
+                        db.LicenseIDEs.AddObject(addIDE);
+                        db.SaveChanges();
+                    }
+                }
+                
+     
+            return View();
+        }
+        //IDE Edit END
+        //IDE ADD
+        public ActionResult IDE()
+        {
+            List<IDE> IDEss = new List<IDE>();
+
+            IDEss = db.IDEs.ToList();
+
+            return View(IDEss);
+        }
+
+        public ActionResult IDECreate()
+        {
+
+            List<License> licenses = new List<License>();
+
+            licenses = db.Licenses.ToList();
+
+            return View(licenses);
+        }
+
+        [HttpPost]
+        public ActionResult CreateIDE(IDEClass obj)
+        {
+            IDE check = db.IDEs.SingleOrDefault(IDE =>IDE.Name == obj.Name);
+            if (check == null)
+            {
+                IDE toadd = new IDE();
+                toadd.Name = obj.Name;
+                toadd.URL = obj.url;
+
+                db.IDEs.AddObject(toadd);
+
+                db.SaveChanges();
+                if (obj.licensesIDs!=null)
+                {
+                    IDE newIDE = db.IDEs.SingleOrDefault(IDE => IDE.Name == obj.Name);
+                   foreach(int i in obj.licensesIDs)
+                    {
+                        LicenseIDE addIDE = new LicenseIDE();
+                        addIDE.IDEID = newIDE.IDEID;
+                        addIDE.LicenseID = i;
+
+                        db.LicenseIDEs.AddObject(addIDE);
+                        db.SaveChanges();
+                    }
+                }
+
+               
+
+            }
+            return View();
+        }
+
+        //IDE ADD END
+        //IDE Control END
         public ActionResult Licenses()
         {
             List<License> licenses = new List<License>();
@@ -35,7 +172,7 @@ namespace LanguagesEncyclopedia.Controllers
         }
 
         //Edit License
-        public ActionResult Edit(int? id, string name)
+        public ActionResult LicenseEdit(int? id, string name)
         {
             int idt = id.GetValueOrDefault();
 

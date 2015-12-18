@@ -1,0 +1,84 @@
+﻿
+@model  LanguagesEncyclopedia.Models.ViewModel
+
+@{
+    ViewBag.Title = "IDEEdit";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        //function will be called on button click having id btnsave
+        $("#btnEdit").click(function () {
+            var ids=[];
+
+            var inputs = document.getElementsByTagName("input");
+            for(var i = 0; i < inputs.length; i++) {
+                if(inputs[i].type == "checkbox" && inputs[i].checked == true ) {
+
+                    ids.push(inputs[i].id);
+                }
+            }
+
+            $.ajax(
+            {
+                type: "POST", //HTTP POST Method
+                url: "@Url.Action("EditIDE","Home")", // Controller/View
+                dataType: "json",
+                traditional: true,
+                data: { //Passing data
+                        Name: $("#new_IDE").val(), //Reading text box values using Jquery
+                        url: $("#new_URL").val(),
+                        licensesIDs: ids,
+                    id: @ViewBag.IDID,
+                    }
+
+                });
+
+            });
+        });
+
+
+</script>
+<h2>IDEEdit</h2>
+
+Name: <input type="text" id="new_IDE" value="@ViewBag.eName"></br>
+URL: <input type="text" id="new_URL" value="@ViewBag.eUrl"></br>
+<input type="button" id="btnEdit" value="Edit" />
+</br></br>
+@Html.ActionLink("Return to IDE List", "IDE", "Home") 
+</br>
+<table class="table table-hover">
+    <tr>
+        <th>
+            
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Licenses) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+       
+        <td id="@item.LicenseID">
+            <script>
+
+                var c = document.getElementById('@item.LicenseID');
+                var checkbox = document.createElement('input');
+                checkbox.type = "checkbox";
+                checkbox.name = "@item.Name";
+                checkbox.value = "@item.Name";
+                checkbox.id = "@item.LicenseID";
+
+                    checkbox.checked = @Model.GetTickLiceneses(item.LicenseID,Model);
+
+                
+                   c.appendChild(checkbox);
+
+            </script>
+        </td>
+    </tr>
+}
+
+</table>
