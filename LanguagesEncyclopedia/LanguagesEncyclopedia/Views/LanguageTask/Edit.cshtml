@@ -1,4 +1,4 @@
-﻿@model LanguagesEncyclopedia.Views.Home.Task
+﻿@model LanguagesEncyclopedia.Views.Home.LanguageTask
 
 @{
     ViewBag.Title = "Edit";
@@ -10,24 +10,24 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Task</legend>
+        <legend>LanguageTask</legend>
 
-        @Html.HiddenFor(model => model.TaskID)
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Name)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Name)
-            @Html.ValidationMessageFor(model => model.Name)
-        </div>
+        @Html.HiddenFor(model => model.LanguageTaskID)
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Description)
+            @Html.LabelFor(model => model.LanguageID, "Language")
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Description)
-            @Html.ValidationMessageFor(model => model.Description)
+            @Html.DropDownList("LanguageID", String.Empty)
+            @Html.ValidationMessageFor(model => model.LanguageID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TaskID, "Task")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("TaskID", String.Empty)
+            @Html.ValidationMessageFor(model => model.TaskID)
         </div>
 
         <p>

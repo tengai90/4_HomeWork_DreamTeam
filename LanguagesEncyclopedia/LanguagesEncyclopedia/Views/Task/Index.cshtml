@@ -1,28 +1,26 @@
-﻿@model IEnumerable<LanguagesEncyclopedia.Models.Task>
+﻿@model IEnumerable<LanguagesEncyclopedia.Views.Home.Task>
+
 @{
-    ViewBag.Title = "Tasks";
+    ViewBag.Title = "Index";
 }
 
-<h2>Licenses</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create","Task")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table>
-    <tr class="btn-warning">
+    <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
-
         <th></th>
     </tr>
 
-
-
-    @foreach (var item in Model) {
+@foreach (var item in Model) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Name)
@@ -31,9 +29,9 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.TaskID, name = item.Name }) |
-            @Html.ActionLink("Details", "Details", new { id = item.TaskID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.TaskID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.TaskID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TaskID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TaskID })
         </td>
     </tr>
 }

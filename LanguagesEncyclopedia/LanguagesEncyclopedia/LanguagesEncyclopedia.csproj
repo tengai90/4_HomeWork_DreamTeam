@@ -137,6 +137,8 @@
     <Compile Include="BootstrapSupport\ViewHelperExtensions.cs" />
     <Compile Include="Controllers\BootstrapBaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LanguageTaskController.cs" />
+    <Compile Include="Controllers\SolutionController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -305,11 +307,21 @@
     <Content Include="Views\Home\IDECreate.cshtml" />
     <Content Include="Views\Home\IDEEdit.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Task\Create.cshtml" />
-    <Content Include="Views\Task\Delete.cshtml" />
-    <Content Include="Views\Task\Details.cshtml" />
-    <Content Include="Views\Task\Edit.cshtml" />
     <Content Include="Views\Task\Index.cshtml" />
+    <Content Include="Views\Task\Details.cshtml" />
+    <Content Include="Views\Task\Create.cshtml" />
+    <Content Include="Views\Task\Edit.cshtml" />
+    <Content Include="Views\Task\Delete.cshtml" />
+    <Content Include="Views\LanguageTask\Index.cshtml" />
+    <Content Include="Views\LanguageTask\Details.cshtml" />
+    <Content Include="Views\LanguageTask\Create.cshtml" />
+    <Content Include="Views\LanguageTask\Edit.cshtml" />
+    <Content Include="Views\LanguageTask\Delete.cshtml" />
+    <Content Include="Views\Solution\Index.cshtml" />
+    <Content Include="Views\Solution\Details.cshtml" />
+    <Content Include="Views\Solution\Create.cshtml" />
+    <Content Include="Views\Solution\Edit.cshtml" />
+    <Content Include="Views\Solution\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
