@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using LanguagesEncyclopedia.Views.Home;
 using System.Data.SqlClient;
 using LanguagesEncyclopedia.Models;
 using System.Data;
@@ -95,7 +94,7 @@ namespace LanguagesEncyclopedia.Controllers
     } 
         
         [HttpPost]
-        public ActionResult AddLicense(LicenseClass obj)
+        public ActionResult AddLicense(License obj)
         {
             License check = db.Licenses.SingleOrDefault(License => License.Name == obj.Name);
             if (check == null)

@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EncyclopediaModelStoreContainer" CdmEntityContainer="EncyclopediaEntities">
+    <EntitySetMapping Name="IDEs">
+      <EntityTypeMapping TypeName="EncyclopediaModel.IDE">
+        <MappingFragment StoreEntitySet="IDE">
+          <ScalarProperty Name="IDEID" ColumnName="IDEID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="EncyclopediaModel.Language">
+        <MappingFragment StoreEntitySet="Language">
+          <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LanguageIDEs">
+      <EntityTypeMapping TypeName="EncyclopediaModel.LanguageIDE">
+        <MappingFragment StoreEntitySet="LanguageIDE">
+          <ScalarProperty Name="LanguageIDEID" ColumnName="LanguageIDEID" />
+          <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+          <ScalarProperty Name="IDEID" ColumnName="IDEID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LanguageParadigms">
+      <EntityTypeMapping TypeName="EncyclopediaModel.LanguageParadigm">
+        <MappingFragment StoreEntitySet="LanguageParadigm">
+          <ScalarProperty Name="LanguageParadigmID" ColumnName="LanguageParadigmID" />
+          <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+          <ScalarProperty Name="ParadigmID" ColumnName="ParadigmID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LanguageRelationships">
+      <EntityTypeMapping TypeName="EncyclopediaModel.LanguageRelationship">
+        <MappingFragment StoreEntitySet="LanguageRelationship">
+          <ScalarProperty Name="LanguageRelationshipID" ColumnName="LanguageRelationshipID" />
+          <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LanguageTasks">
+      <EntityTypeMapping TypeName="EncyclopediaModel.LanguageTask">
+        <MappingFragment StoreEntitySet="LanguageTask">
+          <ScalarProperty Name="LanguageTaskID" ColumnName="LanguageTaskID" />
+          <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+          <ScalarProperty Name="TaskID" ColumnName="TaskID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Licenses">
+      <EntityTypeMapping TypeName="EncyclopediaModel.License">
+        <MappingFragment StoreEntitySet="License">
+          <ScalarProperty Name="LicenseID" ColumnName="LicenseID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LicenseIDEs">
+      <EntityTypeMapping TypeName="EncyclopediaModel.LicenseIDE">
+        <MappingFragment StoreEntitySet="LicenseIDE">
+          <ScalarProperty Name="LicenseIDEID" ColumnName="LicenseIDEID" />
+          <ScalarProperty Name="LicenseID" ColumnName="LicenseID" />
+          <ScalarProperty Name="IDEID" ColumnName="IDEID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Paradigms">
+      <EntityTypeMapping TypeName="EncyclopediaModel.Paradigm">
+        <MappingFragment StoreEntitySet="Paradigm">
+          <ScalarProperty Name="ParadigmID" ColumnName="ParadigmID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Solutions">
+      <EntityTypeMapping TypeName="EncyclopediaModel.Solution">
+        <MappingFragment StoreEntitySet="Solution">
+          <ScalarProperty Name="SolutionID" ColumnName="SolutionID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="LanguageTaskID" ColumnName="LanguageTaskID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tasks">
+      <EntityTypeMapping TypeName="EncyclopediaModel.Task">
+        <MappingFragment StoreEntitySet="Task">
+          <ScalarProperty Name="TaskID" ColumnName="TaskID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
