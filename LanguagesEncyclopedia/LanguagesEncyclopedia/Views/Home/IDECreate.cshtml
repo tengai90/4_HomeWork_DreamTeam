@@ -1,6 +1,9 @@
 ﻿@model IEnumerable<LanguagesEncyclopedia.Views.Home.License>
 
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
     ViewBag.Title = "IDECreate";
 }
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -38,9 +41,14 @@
 
 </script>
 
-<html>
-<body>
-<h2>IDECreate</h2>
+<div id="page-wrapper">
+  <div class="container-fluid">
+       <div class="row">
+           <div class="col-mg-12">
+                <h1 class="page-header">Create IDE</h1>
+            </div>
+       </div>
+    </div>
 </br>
 Name: <input type="text"  id="new_IDE"></br>
 URL: <input type="text" id="new_URL"></br>
@@ -79,5 +87,4 @@ URL: <input type="text" id="new_URL"></br>
     }
 
 </table>
-</body>
-</html>
+    </div>

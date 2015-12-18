@@ -1,10 +1,21 @@
 ﻿@model LanguagesEncyclopedia.Views.Home.Solution
 
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<div id="page-wrapper">
+  <div class="container-fluid">
+       <div class="row">
+           <div class="col-mg-12">
+                <h1 class="page-header"> Solutions Details</h1>
+            </div>
+       </div>
+    </div>
 
 <fieldset>
     <legend>Solution</legend>
@@ -27,3 +38,4 @@
     @Html.ActionLink("Edit", "Edit", new { id=Model.SolutionID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+    </div>

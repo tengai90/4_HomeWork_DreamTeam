@@ -2,6 +2,9 @@
 @model  LanguagesEncyclopedia.Models.ViewModel
 
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
     ViewBag.Title = "IDEEdit";
 }
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -39,7 +42,14 @@
 
 
 </script>
-<h2>IDEEdit</h2>
+<div id="page-wrapper">
+  <div class="container-fluid">
+       <div class="row">
+           <div class="col-mg-12">
+                <h1 class="page-header">Edit IDE</h1>
+            </div>
+       </div>
+    </div>
 
 Name: <input type="text" id="new_IDE" value="@ViewBag.eName"></br>
 URL: <input type="text" id="new_URL" value="@ViewBag.eUrl"></br>
@@ -82,3 +92,4 @@ URL: <input type="text" id="new_URL" value="@ViewBag.eUrl"></br>
 }
 
 </table>
+    </div>

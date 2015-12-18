@@ -1,10 +1,21 @@
 ﻿@model LanguagesEncyclopedia.Views.Home.Solution
 
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 @{
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<div id="page-wrapper">
+  <div class="container-fluid">
+       <div class="row">
+           <div class="col-mg-12">
+                <h1 class="page-header">Edit Solutions</h1>
+            </div>
+       </div>
+    </div>
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
@@ -43,3 +54,5 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+    </div>

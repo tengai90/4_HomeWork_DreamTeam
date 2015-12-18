@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <title>@ViewBag.Title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-         <link href="@Styles.Url("~/Content/bootstrap2.css")" rel="stylesheet"/>
+         <link href="@Styles.Url("~/Content/bootstrap.css")" rel="stylesheet"/>
          <link href="@Styles.Url("~/Content/main.css")" rel="stylesheet"/>
          <link href="@Styles.Url("~/Content/font-awesome.min.css")" rel="stylesheet"/>
         @* favicons and touch icons go here *@
@@ -21,13 +21,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">DRE<i class="fa fa-font"></i>M TE<i class="fa fa-font"></i>M</a>
+              <a class="navbar-brand" href="@Url.Action("Index", "Home")">DRE<i class="fa fa-font"></i>M TE<i class="fa fa-font"></i>M</a>
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav navbar-right">
                 <li>@Html.ActionLink("HOME", "Index", "Home")</li>
                 <li>@Html.ActionLink("ABOUT", "About", "Home")</li>
-                <li>@Html.ActionLink("SERVICE", "Index", "Home")</li>
+                <li>@Html.ActionLink("SERVICE", "Service", "Home")</li>
                 <li><a data-toggle="modal" data-target="#myModal" href="#myModal"><i class="fa fa-envelope-o"></i></a></li>
               </ul>
             </div><!--/.nav-collapse -->

@@ -30,6 +30,11 @@ namespace LanguagesEncyclopedia.Controllers
         {
             return View();
         }
+
+        public ActionResult Service()
+        {
+            return View();
+        }
         //IDE Control
         //IDE DELETE
         public ActionResult DeleteIDE(int? id)

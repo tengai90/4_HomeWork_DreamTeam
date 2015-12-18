@@ -1,20 +1,68 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+﻿@using System.Web.Optimization
+@using BootstrapSupport
+@using NavigationRoutes
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>@ViewBag.Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link href="@Styles.Url("~/Content/bootstrap.css")" rel="stylesheet"/>
+         <link href="@Styles.Url("~/Content/main.css")" rel="stylesheet"/>
+         <link href="@Styles.Url("~/Content/font-awesome.min.css")" rel="stylesheet"/>
+                  <link href="@Styles.Url("~/Content/Site.css")" rel="stylesheet"/>
+        @* favicons and touch icons go here *@
+    </head>
+    <body>
 
-    <link href="@Styles.Url("~/Content/bootstrap2.css")" rel="stylesheet"/>
-    <link href="@Styles.Url("~/Content/main.css")" rel="stylesheet"/>
-    <link href="@Styles.Url("~/Content/font-awesome.min.css")" rel="stylesheet"/>
-</head>
-<body>
-    @RenderBody()
+          <div id="wrapper">
 
-    @Scripts.Render("~/bundles/jquery")
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               <a class="navbar-brand" href="@Url.Action("Index", "Home")">DRE<i class="fa fa-font"></i>M TE<i class="fa fa-font"></i>M</a>
+            </div>
+
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>                      
+                        <a href="#"><i class="fa fa-fw fa-user"></i> Languages </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("IDE", "Home")"><i class="fa fa-fw fa-align-justify"></i> IDE</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Licenses", "Home")"><i class="fa fa-fw fa-table"></i> Licences </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Solution")"><i class="fa fa-fw fa-table"></i> Solutions </a>
+                    </li>
+                                        <li>
+                        <a href="@Url.Action("Index", "Task")"><i class="fa fa-fw fa-table"></i> Tasks </a>
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+
+   @RenderBody()
     @RenderSection("scripts", required: false)
-</body>
+
+
+       </div> 
+    <script src="~/Content/js/jquery.js"></script>
+
+
+    <script src="~/Content/js/bootstrap.min.js"></script>
+
+    </body>
 </html>
+
