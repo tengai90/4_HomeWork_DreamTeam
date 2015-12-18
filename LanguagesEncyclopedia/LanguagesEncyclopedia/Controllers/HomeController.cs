@@ -8,6 +8,7 @@ using LanguagesEncyclopedia.Models;
 using System.Data;
 using System.Configuration;
 using System.Data.EntityClient;
+using LanguagesEncyclopedia.Views.Home;
 
 
 namespace LanguagesEncyclopedia.Controllers
@@ -171,7 +172,7 @@ namespace LanguagesEncyclopedia.Controllers
         }
 
         //Edit License
-        public ActionResult LicenseEdit(int? id, string name)
+        public ActionResult Edit(int? id, string name)
         {
             int idt = id.GetValueOrDefault();
 
@@ -231,7 +232,7 @@ namespace LanguagesEncyclopedia.Controllers
     } 
         
         [HttpPost]
-        public ActionResult AddLicense(License obj)
+        public ActionResult AddLicense(LicenseClass obj)
         {
             License check = db.Licenses.SingleOrDefault(License => License.Name == obj.Name);
             if (check == null)

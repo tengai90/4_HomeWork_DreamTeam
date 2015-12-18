@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using LanguagesEncyclopedia.Models;
+using LanguagesEncyclopedia.Views.Home;
 
 namespace LanguagesEncyclopedia.Controllers
 {

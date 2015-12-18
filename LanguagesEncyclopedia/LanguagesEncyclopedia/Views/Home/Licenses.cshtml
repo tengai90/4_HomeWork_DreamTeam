@@ -1,4 +1,4 @@
-﻿@model IEnumerable<LanguagesEncyclopedia.Models.License>
+﻿@model IEnumerable<LanguagesEncyclopedia.Views.Home.License>
 
 @{
     ViewBag.Title = "Licenses";
@@ -23,7 +23,7 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "LicenseEdit", new { id = item.LicenseID, name = item.Name }) |
+            @Html.ActionLink("Edit", "Edit", new { id = item.LicenseID, name = item.Name }) |
             @Html.ActionLink("Details", "Details", new { id=item.LicenseID}) |
             @Html.ActionLink("Delete", "DeleteLicense", new { id=item.LicenseID})
         </td>
