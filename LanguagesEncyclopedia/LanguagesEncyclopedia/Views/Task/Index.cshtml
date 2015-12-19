@@ -19,8 +19,9 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table>
-    <tr>
+<table id="table" class="table table-bordered">
+ <thead>
+    <tr class="btn-warning">
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
@@ -29,7 +30,8 @@
         </th>
         <th></th>
     </tr>
-
+</thead>
+<tbody>
 @foreach (var item in Model) {
     <tr>
         <td>
@@ -45,6 +47,13 @@
         </td>
     </tr>
 }
-
+</tbody>
 </table>
     </div>
+
+<script type="text/javascript">
+        console.log("OK");
+        $(document).ready(function () {
+            $('#table').DataTable();
+        });
+</script>
