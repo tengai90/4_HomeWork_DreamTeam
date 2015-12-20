@@ -1,10 +1,18 @@
 ﻿@model LanguagesEncyclopedia.Views.Home.Paradigm
-
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 @{
     ViewBag.Title = "EditParadigm";
 }
-
-<h2>EditParadigm</h2>
+<div id="page-wrapper">
+  <div class="container-fluid">
+       <div class="row">
+           <div class="col-mg-12">
+                <h1 class="page-header">Edit Paradigm</h1>
+            </div>
+       </div>
+    </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
@@ -28,3 +36,4 @@
  Name: <input type="text" id="e_paradigm" value="@Model.Name" /></br>
 
 <input id="btnEdit" type="button" value="Edit" />
+</div>

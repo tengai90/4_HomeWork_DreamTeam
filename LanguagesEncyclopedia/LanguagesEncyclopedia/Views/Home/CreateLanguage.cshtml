@@ -1,10 +1,18 @@
 ﻿@model LanguagesEncyclopedia.Models.LanguageForWork
-
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 @{
     ViewBag.Title = "CreateLanguage";
 }
-
-<h2>CreateLanguage</h2>
+<div id="page-wrapper">
+  <div class="container-fluid">
+       <div class="row">
+           <div class="col-mg-12">
+                <h1 class="page-header">Create Language</h1>
+            </div>
+       </div>
+    </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
@@ -62,7 +70,7 @@
     Name: <input type="text" id="n_language_name" /></br>
     Description: <textarea id="n_language_desc"></textarea></br>
     Date (Year): <input type="text" id="n_language_date" /></br>
-    <input id="btnCreate" type="button" value="Create" />
+    
     </br><br><br>
     Available IDE's
 
@@ -182,5 +190,6 @@
             </tr>
         }
     </table>
-
+    <input id="btnCreate" type="button" value="Create" />
+    </div>
 

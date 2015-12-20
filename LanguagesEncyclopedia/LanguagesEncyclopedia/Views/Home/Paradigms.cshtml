@@ -1,23 +1,32 @@
 ﻿@model IEnumerable<LanguagesEncyclopedia.Views.Home.Paradigm>
-
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 @{
     ViewBag.Title = "Paradigms";
 }
 
-<h2>Paradigms</h2>
-
+<div id="page-wrapper">
+  <div class="container-fluid">
+       <div class="row">
+           <div class="col-mg-12">
+                <h1 class="page-header">Paradigms</h1>
+            </div>
+       </div>
+    </div>
 <p>
     @Html.ActionLink("Create New", "CreateParadigm")
 </p>
-<table class="table table-bordered">
+<table id ="table" class="table table-bordered">
+<thead>
     <tr class="btn-warning">
-    <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th></th>
     </tr>
-
+    </thead>
+    <tbody>
     @foreach (var item in Model)
     {
         <tr>
@@ -31,5 +40,12 @@
             </td>
         </tr>
     }
-
+    </tbody>
 </table>
+</div>
+<script type="text/javascript">
+    console.log("OK");
+    $(document).ready(function () {
+        $('#table').DataTable();
+    });
+</script>

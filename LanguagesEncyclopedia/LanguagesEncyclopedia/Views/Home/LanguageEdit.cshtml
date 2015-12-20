@@ -1,10 +1,19 @@
 ﻿@model LanguagesEncyclopedia.Models.LanguageForWork
-
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 @{
     ViewBag.Title = "EditLanguage";
 }
 
-<h2>EditLanguage</h2>
+<div id="page-wrapper">
+  <div class="container-fluid">
+       <div class="row">
+           <div class="col-mg-12">
+                <h1 class="page-header">Edit Language</h1>
+            </div>
+       </div>
+    </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
     $(document).ready(function () {
@@ -186,3 +195,4 @@ Available IDE's
         </tr>
     }
 </table>
+</div>

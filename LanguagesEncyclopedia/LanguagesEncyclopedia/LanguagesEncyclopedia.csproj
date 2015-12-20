@@ -188,6 +188,7 @@
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\cbpAnimatedHeader.js" />
     <Content Include="Content\js\cbpAnimatedHeader.min.js" />
+    <Content Include="Content\js\Chart.js" />
     <Content Include="Content\js\ckfinder.js" />
     <Content Include="Content\js\classie.js" />
     <Content Include="Content\js\contact_me.js" />
