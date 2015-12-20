@@ -20,14 +20,14 @@
     <legend>Task</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Name)
+         @Html.LabelFor(model => model.Name, "Task Name")
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Name)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Description)
+         @Html.LabelFor(model => model.Description, "Tas Description")
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Description)

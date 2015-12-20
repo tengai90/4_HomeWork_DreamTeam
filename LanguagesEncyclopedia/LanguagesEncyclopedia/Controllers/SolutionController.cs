@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -71,7 +73,10 @@ namespace LanguagesEncyclopedia.Controllers
             {
                 return HttpNotFound();
             }
+
             ViewBag.LanguageTaskID = new SelectList(db.LanguageTasks, "LanguageTaskID", "LanguageTaskID", solution.LanguageTaskID);
+
+
             return View(solution);
         }
 
@@ -88,7 +93,9 @@ namespace LanguagesEncyclopedia.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             ViewBag.LanguageTaskID = new SelectList(db.LanguageTasks, "LanguageTaskID", "LanguageTaskID", solution.LanguageTaskID);
+          
             return View(solution);
         }
 

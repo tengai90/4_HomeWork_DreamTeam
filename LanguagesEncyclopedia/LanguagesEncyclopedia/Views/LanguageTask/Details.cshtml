@@ -1,23 +1,33 @@
 ﻿@model LanguagesEncyclopedia.Views.Home.LanguageTask
 
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-mg-12">
+                <h1 class="page-header">Details</h1>
+            </div>
+        </div>
+    </div>
 <fieldset>
     <legend>LanguageTask</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Language.Name)
+         @Html.LabelFor(model => model.Language.Name, "Language Name"):
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Language.Name)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Task.Name)
+        @Html.LabelFor(model => model.Task.Name, "Task Name")
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Task.Name)
@@ -27,3 +37,5 @@
     @Html.ActionLink("Edit", "Edit", new { id=Model.LanguageTaskID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+</div>

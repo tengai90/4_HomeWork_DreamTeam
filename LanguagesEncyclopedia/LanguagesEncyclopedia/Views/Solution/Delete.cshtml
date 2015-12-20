@@ -21,18 +21,18 @@
     <legend>Solution</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Description)
+        @Html.LabelFor(model => model.LanguageTask.Task.Name, "Task Name")
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LanguageTask.Task.Name)
+    </div>
+    <div class="display-label">
+        @Html.LabelFor(model => model.Description, "Description")
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Description)
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.LanguageTask.LanguageTaskID)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.LanguageTask.LanguageTaskID)
-    </div>
 </fieldset>
 @using (Html.BeginForm()) {
     <p>

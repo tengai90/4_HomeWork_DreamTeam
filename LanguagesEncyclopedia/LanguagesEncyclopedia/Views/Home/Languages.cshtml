@@ -92,7 +92,15 @@
                 </td>
 
                 <td>
-                    Place for Raimi tasks! Don't miss it :D
+                    @{
+                        var listTasks = item.LanguageTasks.Where(p => p.LanguageTaskID == item.LanguageID);
+                                    
+                        foreach (var p in listTasks)
+                        {
+                            
+                          <p>@Html.DisplayFor(model => p.Task.Name);</p>  
+                        }
+                    }
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "LanguageEdit", new { id = item.LanguageID, name = item.Name, desc = item.Description, date=item.Date.Year }) |

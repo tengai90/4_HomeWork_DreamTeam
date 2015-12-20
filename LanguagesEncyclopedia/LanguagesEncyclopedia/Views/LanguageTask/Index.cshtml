@@ -1,39 +1,52 @@
 ﻿@model IEnumerable<LanguagesEncyclopedia.Views.Home.LanguageTask>
 
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-mg-12">
+                <h1 class="page-header">LanguageTask</h1>
+            </div>
+        </div>
+    </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
-        <th>
-            Language @Html.DisplayNameFor(model => model.Language.Name)
-        </th>
-        <th>
-            Task @Html.DisplayNameFor(model => model.Task.Name)
-        </th>
-        <th></th>
-    </tr>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Language.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Task.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.LanguageTaskID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.LanguageTaskID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.LanguageTaskID })
-        </td>
-    </tr>
-}
+    <table class="table table-bordered ">
+        <tr class="btn-warning">
+            <th>
+                Language @Html.DisplayNameFor(model => model.Language.Name)
+            </th>
+            <th>
+                Task @Html.DisplayNameFor(model => model.Task.Name)
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Language.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Task.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new {id = item.LanguageTaskID}) |
+                    @Html.ActionLink("Details", "Details", new {id = item.LanguageTaskID}) |
+                    @Html.ActionLink("Delete", "Delete", new {id = item.LanguageTaskID})
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

@@ -57,8 +57,8 @@ URL: <input type="text" id="new_URL"></br>
 
 @Html.ActionLink("Return to IDE List", "IDE", "Home") 
 </br>
-<table class="table table-hover" id="table">
-    <tr>
+<table id="table" class="table table-bordered">
+    <tr class="btn-warning">
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>

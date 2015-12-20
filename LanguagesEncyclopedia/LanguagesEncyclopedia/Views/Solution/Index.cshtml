@@ -16,17 +16,25 @@
        </div>
     </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+
 <table id="table" class="table table-bordered">
  <thead>
     <tr class="btn-warning">
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            Task @Html.DisplayNameFor(model => model.LanguageTask.Task.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LanguageTask.LanguageTaskID)
+            Task @Html.DisplayNameFor(model => model.LanguageTask.Task.Description)
+        </th>
+        <th>
+            Language @Html.DisplayNameFor(model => model.LanguageTask.Language.Name)
+        </th>
+
+        <th>
+            Task Solution
         </th>
         <th></th>
     </tr>
@@ -35,10 +43,16 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Description)
+            @Html.DisplayFor(modelItem => item.LanguageTask.Task.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.LanguageTask.LanguageTaskID)
+            @Html.DisplayFor(modelItem => item.LanguageTask.Task.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LanguageTask.Language.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.SolutionID }) |
