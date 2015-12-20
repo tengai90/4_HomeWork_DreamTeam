@@ -26,6 +26,299 @@ namespace LanguagesEncyclopedia.Controllers
         {
             return View();
         }
+        public ActionResult About()
+        {
+            return View();
+        }
+
+        public ActionResult Service()
+        {
+            return View();
+        }
+
+        //Paradigms
+        public ActionResult DeleteParadigm(int? id)
+        {
+            int idt = id.GetValueOrDefault();
+
+            var oldParadigms = db.LanguageParadigms.Where(p => p.ParadigmID == idt);
+            foreach(var item in oldParadigms)
+            {
+                db.DeleteObject(item);
+                db.SaveChanges();
+            }
+
+            Paradigm todelete = db.Paradigms.SingleOrDefault(p => p.ParadigmID == idt);
+            db.Paradigms.DeleteObject(todelete);
+            db.SaveChanges();
+
+            return RedirectToAction("Paradigms", "Home");
+        }
+
+        [HttpPost]
+        public ActionResult ParadigmEdit (Paradigm obj)
+        {
+            Paradigm check = db.Paradigms.SingleOrDefault(p => p.Name == obj.Name);
+            if (check == null)
+            {
+                Paradigm toedit = db.Paradigms.SingleOrDefault(p => p.ParadigmID == obj.ParadigmID);
+                toedit.Name = obj.Name;
+                db.SaveChanges();
+
+            }
+
+            return View();
+        }
+        public ActionResult EditParadigm(int? id)
+        {
+            int idt = id.GetValueOrDefault();
+            Paradigm toedit = db.Paradigms.SingleOrDefault(p => p.ParadigmID == idt);
+
+            return View(toedit);
+        }
+
+        [HttpPost]
+        public ActionResult ParadigmCreate (Paradigm obj)
+        {
+            Paradigm check = db.Paradigms.SingleOrDefault(p => p.Name == obj.Name);
+            if (check == null)
+            {
+                Paradigm toadd = new Paradigm();
+                toadd.Name = obj.Name;
+                db.Paradigms.AddObject(toadd);
+                db.SaveChanges();
+
+            }
+            return View();
+        }
+
+        public ActionResult CreateParadigm()
+        {
+
+            return View();
+        }
+
+        public ActionResult Paradigms()
+        {
+
+            return View(db.Paradigms.ToList());
+        }
+
+            //Paradigms
+        
+        //Language Control
+        [HttpPost]
+        public ActionResult EditLanguage(newLanguagePack obj)
+        {
+            if (obj.Name != null)
+            {
+                Language eLan = db.Languages.SingleOrDefault(p => p.LanguageID == obj.id);
+                eLan.Name = obj.Name;
+                eLan.Description = obj.Description;
+                eLan.Date = new DateTime(int.Parse(obj.Date), 01, 01);
+                db.SaveChanges();
+
+                var todeleteIDE = db.LanguageIDEs.Where(p => p.LanguageID == obj.id).ToList();
+                foreach (var item in todeleteIDE)
+                {
+                    db.LanguageIDEs.DeleteObject(item);
+                    db.SaveChanges();
+                }
+                var todeleteParadigms = db.LanguageParadigms.Where(p => p.LanguageID == obj.id).ToList();
+                foreach (var item in todeleteParadigms)
+                {
+                    db.LanguageParadigms.DeleteObject(item);
+                    db.SaveChanges();
+                }
+                var todeleteRelations = db.LanguageRelationships.Where(p => p.LanguageID == obj.id).ToList();
+                foreach (var item in todeleteRelations)
+                {
+                    db.LanguageRelationships.DeleteObject(item);
+                    db.SaveChanges();
+                }
+
+                if (obj.IDEId != null)
+                {
+
+                    foreach (int i in obj.IDEId)
+                    {
+                        LanguageIDE addLIDE = new LanguageIDE();
+                        addLIDE.LanguageID = obj.id;
+                        addLIDE.IDEID = i;
+
+                        db.LanguageIDEs.AddObject(addLIDE);
+                        db.SaveChanges();
+                    }
+                }
+                if (obj.ParadigmId != null)
+                {
+
+                    foreach (int i in obj.ParadigmId)
+                    {
+                        LanguageParadigm addPIDE = new LanguageParadigm();
+                        addPIDE.LanguageID = obj.id;
+                        addPIDE.ParadigmID = i;
+
+                        db.LanguageParadigms.AddObject(addPIDE);
+                        db.SaveChanges();
+                    }
+                }
+                if (obj.RelationshipId != null)
+                {
+
+                    foreach (int i in obj.RelationshipId)
+                    {
+                        LanguageRelationship addRIDE = new LanguageRelationship();
+                        addRIDE.LanguageID = obj.id;
+                        addRIDE.ParentID = i;
+
+                        db.LanguageRelationships.AddObject(addRIDE);
+                        db.SaveChanges();
+
+                    }
+
+                }
+            }
+
+            return View();
+        }
+
+        public ActionResult LanguageEdit(int? id, string name, string desc, string date)
+        {
+            LanguageForWork LanView = new LanguageForWork();
+            int idt = id.GetValueOrDefault();
+            LanView.Lan = db.Languages.SingleOrDefault(p => p.LanguageID == idt);
+            LanView.AllIDE = db.IDEs.ToList();
+            LanView.AllLIDE = db.LanguageIDEs.ToList();
+            LanView.AllParadigm = db.Paradigms.ToList();
+            LanView.LanList = db.Languages.ToList();
+            LanView.AllLParadigm = db.LanguageParadigms.ToList();
+            LanView.Rellist = db.LanguageRelationships.ToList();
+
+            ViewBag.name = name;
+            ViewBag.desc = desc;
+            ViewBag.date = date;
+            ViewBag.Id = idt;
+
+            return View(LanView);
+            
+        }
+
+        public ActionResult LanguageDelete(int? id)
+        {
+            int idt = id.GetValueOrDefault();
+
+
+            var todeleteIDE = db.LanguageIDEs.Where(p => p.LanguageID == idt).ToList();
+            foreach (var item in todeleteIDE)
+            {
+                db.LanguageIDEs.DeleteObject(item);
+                db.SaveChanges();
+            }
+            var todeleteParadigms = db.LanguageParadigms.Where(p => p.LanguageID == idt).ToList();
+            foreach (var item in todeleteParadigms)
+            {
+                db.LanguageParadigms.DeleteObject(item);
+                db.SaveChanges();
+            }
+            var todeleteRelations = db.LanguageRelationships.Where(p => p.LanguageID == idt).ToList();
+            foreach (var item in todeleteRelations)
+            {
+                db.LanguageRelationships.DeleteObject(item);
+                db.SaveChanges();
+            }
+
+            Language dLan = db.Languages.SingleOrDefault(p => p.LanguageID == idt);
+            db.Languages.DeleteObject(dLan);
+            db.SaveChanges();
+            return RedirectToAction("Languages", "Home");
+
+        }
+
+        [HttpPost]
+        public ActionResult LanguageCreate(newLanguagePack obj)
+        {
+            
+                Language check = db.Languages.SingleOrDefault(l => l.Name == obj.Name);
+                if (check == null)
+                {
+                    Language toadd = new Language();
+                    toadd.Name = obj.Name;
+                    toadd.Date = new DateTime(int.Parse(obj.Date), 01, 01);
+                    toadd.Description = obj.Description;
+
+                    db.Languages.AddObject(toadd);
+
+                    db.SaveChanges();
+                    if (obj.IDEId != null)
+                    {
+                        Language newLan = db.Languages.SingleOrDefault(l => l.Name == obj.Name);
+                        foreach (int i in obj.IDEId)
+                        {
+                            LanguageIDE addLIDE = new LanguageIDE();
+                            addLIDE.LanguageID = newLan.LanguageID;
+                            addLIDE.IDEID = i;
+
+                            db.LanguageIDEs.AddObject(addLIDE);
+                            db.SaveChanges();
+                        }
+                    }
+                    if (obj.ParadigmId != null)
+                    {
+                        Language newLan = db.Languages.SingleOrDefault(l => l.Name == obj.Name);
+                        foreach (int i in obj.ParadigmId)
+                        {
+                            LanguageParadigm addPIDE = new LanguageParadigm();
+                            addPIDE.LanguageID = newLan.LanguageID;
+                            addPIDE.ParadigmID = i;
+
+                            db.LanguageParadigms.AddObject(addPIDE);
+                            db.SaveChanges();
+                        }
+                    }
+                    if (obj.RelationshipId != null)
+                    {
+                        Language newLan = db.Languages.SingleOrDefault(l => l.Name == obj.Name);
+                        foreach (int i in obj.RelationshipId)
+                        {
+                            LanguageRelationship addRIDE = new LanguageRelationship();
+                            addRIDE.LanguageID = newLan.LanguageID;
+                            addRIDE.ParentID = i;
+
+                            db.LanguageRelationships.AddObject(addRIDE);
+                            db.SaveChanges();
+
+                        }
+
+                    }
+                }
+            
+                return View();
+
+            }
+
+        public ActionResult CreateLanguage(int? id)
+        {
+            LanguageForWork LanView = new LanguageForWork();
+            int idt = id.GetValueOrDefault();
+            LanView.Lan = db.Languages.SingleOrDefault(p => p.LanguageID == idt);
+            LanView.AllIDE = db.IDEs.ToList();
+            LanView.AllParadigm = db.Paradigms.ToList();
+            LanView.LanList = db.Languages.ToList();
+            LanView.Rellist = db.LanguageRelationships.ToList();
+           
+            
+            return View(LanView);
+        }
+
+        public ActionResult Languages()
+        {
+            return View(db.Languages.ToList());
+           
+        }
+
+        //Language Control end
+
         //IDE Control
         //IDE DELETE
         public ActionResult DeleteIDE(int? id)

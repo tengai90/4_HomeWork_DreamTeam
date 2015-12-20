@@ -1,0 +1,188 @@
+﻿@model LanguagesEncyclopedia.Models.LanguageForWork
+
+@{
+    ViewBag.Title = "EditLanguage";
+}
+
+<h2>EditLanguage</h2>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        //function will be called on button click having id btnsave
+        $("#btnEdit").click(function () {
+            var idsIDE=[];
+            var idsPARADIGM=[];
+            var idsRELATIONSHIP=[];
+
+            var inputs = document.getElementsByTagName("input");
+            for(var i = 0; i < inputs.length; i++) {
+                if (inputs[i].type == "checkbox" && inputs[i].checked == true && inputs[i].name == "IDE")
+                idsIDE.push(inputs[i].id);
+
+                else if (inputs[i].type == "checkbox" && inputs[i].checked == true && inputs[i].name == "Paradigm")
+                    idsPARADIGM.push(inputs[i].id);
+
+                else if(inputs[i].type == "checkbox" && inputs[i].checked == true && inputs[i].name == "Relationship")
+                    idsRELATIONSHIP.push(inputs[i].id);
+            }
+
+            $.ajax(
+            {
+                type: "POST", //HTTP POST Method
+                url: "@Url.Action("EditLanguage", "Home")", // Controller/View
+                dataType: "json",
+                traditional: true,
+                data: { //Passing data
+                    Name: $("#n_language_name").val(),
+                    Description: $("#n_language_desc").val(),
+                    Date: $("#n_language_date").val(),
+                    IDEId: idsIDE,
+                    ParadigmId: idsPARADIGM,
+                    RelationshipId: idsRELATIONSHIP,
+                    id: @ViewBag.Id,
+                    }
+
+                });
+
+            });
+        });
+
+
+</script>
+
+</br>
+Name: <input type="text" id="n_language_name" value="@ViewBag.name" /></br>
+Description: <textarea id="n_language_desc">@ViewBag.desc</textarea></br>
+Date (Year): <input type="text" id="n_language_date" value="@ViewBag.date" /></br>
+<input id="btnEdit" type="button" value="Edit" />
+</br><br><br>
+Available IDE's
+
+<br>
+
+<table class="table table-bordered">
+    <tr class="btn-warning">
+        <th>
+            Name
+        </th>
+        <th>
+            CheckIt
+        </th>
+    </tr>
+    @foreach (var a in Model.AllIDE)
+    {
+        <tr>
+            <td>
+                @a.Name
+            </td>
+            <td id="@a.IDEID">
+                <script>
+
+                        var c = document.getElementById("@a.IDEID");
+
+
+                            var checkbox = document.createElement('input');
+                            checkbox.type = "checkbox";
+                            checkbox.name = "IDE";
+                            checkbox.value = "@a.Name";
+                    checkbox.id = "@a.IDEID";
+                    
+
+                    @{ 
+
+                        var nIDE = Model.AllLIDE.SingleOrDefault(p => p.LanguageID == Model.Lan.LanguageID && p.IDEID==a.IDEID);
+                        if(nIDE== null) { nIDE= new LanguagesEncyclopedia.Views.Home.LanguageIDE(); nIDE.IDEID = 0; }
+                        }
+
+                        checkbox.checked=@Model.GetTickIDE(nIDE.IDEID, Model);
+                        c.appendChild(checkbox);
+
+
+                </script>
+            </td>
+        </tr>
+    }
+</table>
+    </br><br><br>
+    Available Paradigm's
+
+<br>
+<table class="table table-bordered">
+    <tr class="btn-warning">
+        <th>
+            Name
+        </th>
+        <th>
+            CheckIt
+        </th>
+    </tr>
+    @foreach (var b in Model.AllParadigm)
+    {
+        <tr>
+            <td>
+                @b.Name
+            </td>
+            <td id="@b.ParadigmID+10">
+                <script>
+
+                                    var c = document.getElementById("@b.ParadigmID+10");
+
+
+                                    var checkbox = document.createElement('input');
+                                    checkbox.type = "checkbox";
+                                    checkbox.name = "Paradigm";
+                                    checkbox.value = "@b.Name";
+                                    checkbox.id = "@b.ParadigmID";
+
+                    @{
+
+                        var nPara = Model.AllLParadigm.SingleOrDefault(p => p.LanguageID == Model.Lan.LanguageID && p.ParadigmID == b.ParadigmID);
+                        if (nPara == null) { nPara = new LanguagesEncyclopedia.Views.Home.LanguageParadigm(); nPara.ParadigmID = 0; }
+                        }
+                        checkbox.checked=@Model.GetTickParadigm(nPara.ParadigmID , Model);
+                        c.appendChild(checkbox);
+
+                </script>
+            </td>
+        </tr>
+    }
+</table>
+    </br><br><br>
+    Available Language's
+
+<br>
+<table class="table table-bordered">
+    <tr class="btn-warning">
+        <th>
+            Name
+        </th>
+        <th>
+            CheckIt
+        </th>
+    </tr>
+    @foreach (var b in Model.LanList)
+            {
+        <tr>
+            <td>
+                @b.Name
+            </td>
+            <td id="@b.LanguageID+20">
+                <script>
+
+                                    var c = document.getElementById("@b.LanguageID+20");
+
+
+                                    var checkbox = document.createElement('input');
+                                    checkbox.type = "checkbox";
+                                    checkbox.name = "Relationship";
+                                    checkbox.value = "@b.Name";
+                                    checkbox.id = "@b.LanguageID";
+                    
+                        checkbox.checked=@Model.GetTickLan(b.LanguageID, Model.Lan.LanguageID , Model);
+                                    c.appendChild(checkbox);
+
+                </script>
+            </td>
+        </tr>
+    }
+</table>

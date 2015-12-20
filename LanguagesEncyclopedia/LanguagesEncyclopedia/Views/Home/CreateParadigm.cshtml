@@ -1,0 +1,33 @@
+﻿
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        //function will be called on button click having id btnsave
+        $("#btnCreate").click(function () {
+         $.ajax(
+            {
+                type: "POST", //HTTP POST Method
+                url: "@Url.Action("ParadigmCreate", "Home")", // Controller/View
+                dataType: "json",
+                traditional: true,
+                data: { //Passing data
+                    Name: $("#n_paradigm_name").val(),
+                    }
+
+                });
+
+            });
+        });
+
+
+</script>
+@{
+    ViewBag.Title = "CreateParadigm";
+}
+
+<h2>CreateParadigm</h2>
+
+    </br>
+    Name: <input type="text" id="n_paradigm_name" /></br>
+
+<input id="btnCreate" type="button" value="Create" />

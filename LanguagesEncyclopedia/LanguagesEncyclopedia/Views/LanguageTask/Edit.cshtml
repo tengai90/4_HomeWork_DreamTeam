@@ -1,0 +1,45 @@
+﻿@model LanguagesEncyclopedia.Views.Home.LanguageTask
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>LanguageTask</legend>
+
+        @Html.HiddenFor(model => model.LanguageTaskID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LanguageID, "Language")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("LanguageID", String.Empty)
+            @Html.ValidationMessageFor(model => model.LanguageID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TaskID, "Task")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("TaskID", String.Empty)
+            @Html.ValidationMessageFor(model => model.TaskID)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

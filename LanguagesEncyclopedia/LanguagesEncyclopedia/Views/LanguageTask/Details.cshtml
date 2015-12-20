@@ -1,0 +1,29 @@
+﻿@model LanguagesEncyclopedia.Views.Home.LanguageTask
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>LanguageTask</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Language.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Language.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Task.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Task.Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.LanguageTaskID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

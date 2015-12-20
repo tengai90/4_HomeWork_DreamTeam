@@ -1,0 +1,50 @@
+﻿@model IEnumerable<LanguagesEncyclopedia.Views.Home.Solution>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="page-wrapper">
+  <div class="container-fluid">
+       <div class="row">
+           <div class="col-mg-12">
+                <h1 class="page-header"> Solutions</h1>
+            </div>
+       </div>
+    </div>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LanguageTask.LanguageTaskID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LanguageTask.LanguageTaskID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SolutionID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SolutionID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SolutionID })
+        </td>
+    </tr>
+}
+
+</table>
+    </div>

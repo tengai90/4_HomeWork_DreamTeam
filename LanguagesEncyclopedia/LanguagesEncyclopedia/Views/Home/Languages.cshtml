@@ -1,0 +1,102 @@
+﻿@model IEnumerable<LanguagesEncyclopedia.Views.Home.Language>
+
+@{
+    ViewBag.Title = "Languages";
+}
+
+<h2>Languages</h2>
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-mg-12">
+                <h1 class="page-header">Langauge</h1>
+            </div>
+        </div>
+    </div>
+
+    <p>
+        @Html.ActionLink("Create New Language", "CreateLanguage", "Home")
+    </p>
+    <table class="table table-bordered">
+        <tr class="btn-warning">
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            
+            <th>
+@Html.DisplayNameFor(model => model.Date)
+
+            </th>
+            <th>
+IDE List
+            </th>
+            <th>
+                Paradigm Type
+            </th>
+            <th>
+                Relationships
+            </th>
+            <th>
+                Tasks
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date.Year);
+                </td>
+
+                <td>
+                    @{
+                        var listIDE = item.LanguageIDEs.Where(p => p.LanguageID == item.LanguageID);
+                        foreach (var cur in listIDE)
+                        {
+                          <p>@Html.DisplayFor(model => cur.IDE.Name);</p>  
+                        }
+                    }
+                </td>
+                <td>
+                    @{
+                        var listPARADIGMID = item.LanguageParadigms.Where(p => p.LanguageID == item.LanguageID);
+                        foreach (var a in listPARADIGMID)
+                        {
+                            <p>@Html.DisplayFor(model => a.Paradigm.Name);</p>
+                        }
+
+                    }
+                </td>
+                <td>
+                    @{
+                        var listRELATIONSHIP = item.LanguageRelationships1.Where(p => p.LanguageID == item.LanguageID);
+                        foreach (var a in listRELATIONSHIP)
+                        {
+                            <p>@Html.DisplayFor(model => a.Language.Name);</p>
+                        }
+
+                    }
+                </td>
+
+                <td>
+                    Place for Raimi tasks! Don't miss it :D
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "LanguageEdit", new { id = item.LanguageID, name = item.Name, desc = item.Description, date=item.Date.Year }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.LanguageID }) |
+                    @Html.ActionLink("Delete", "LanguageDelete", new { id = item.LanguageID })
+                </td>
+            </tr>
+        }
+    </table>
+    
+</div>
