@@ -23,7 +23,10 @@
                     data: { //Passing data
                         Name: $("#e_license").val(), //Reading text box values using Jquery
                         id: @ViewBag.Id,
-                    }
+                    },
+                    success: function (response) {
+                        window.location.href = response.Url;
+                    },
 
                 });}
 

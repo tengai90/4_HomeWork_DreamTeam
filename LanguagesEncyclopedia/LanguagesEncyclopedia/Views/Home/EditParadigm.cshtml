@@ -30,7 +30,10 @@
                     data: { //Passing data
                         Name: $("#e_paradigm").val(), //Reading text box values using Jquery
                         ParadigmID: @Model.ParadigmID,
-                    }
+                    },
+                    success: function (response) {
+                        window.location.href = response.Url;
+                    },
 
                 });}
 

@@ -71,7 +71,10 @@
                            ParadigmId: idsPARADIGM,
                            RelationshipId: idsRELATIONSHIP,
                            id: 0,
-                       }
+                       },
+                       success: function (response) {
+                           window.location.href = response.Url;
+                       },
 
                    });
             }

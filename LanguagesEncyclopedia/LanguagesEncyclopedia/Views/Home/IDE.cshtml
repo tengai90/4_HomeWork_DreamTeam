@@ -19,11 +19,11 @@
 
 
 <p>
-    @Html.ActionLink("Create New", "IDECreate", "Home")
+    <button class="btn btn-primary">@Html.ActionLink("Create New", "IDECreate", "Home", new { @class = "txt_color" })</button>
 </p>
     <table id="table" class="table table-bordered">
          <thead>
-            <tr class="btn-warning">
+            <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.Name)
                 </th>
@@ -45,9 +45,9 @@
                         <a href="@Html.DisplayFor(modelItem => item.URL)">@Html.DisplayFor(modelItem => item.URL)</a> 
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "IDEEdit", new { id = item.IDEID, name = item.Name, url=item.URL }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.IDEID }) |
-                        @Html.ActionLink("Delete", "DeleteIDE", new { id = item.IDEID })
+                        <button class="btn btn-primary">@Html.ActionLink("Edit", "IDEEdit", new { id = item.IDEID, name = item.Name, url = item.URL }, new { @class = "txt_color" })</button>
+                        <button class="btn btn-info">@Html.ActionLink("Details", "Details", new { id = item.IDEID }, new { @class = "txt_color" })</button>
+                        <button class="btn btn-danger">@Html.ActionLink("Delete", "DeleteIDE", new { id = item.IDEID }, new { @class = "txt_color" })</button>
                     </td>
                 </tr>
             }

@@ -22,11 +22,11 @@
 
 
 <p>
-    @Html.ActionLink("Create New", "Create","Home")
+        <button class="btn btn-primary">@Html.ActionLink("Create New", "Create","Home", new { @class = "txt_color" })</button>
 </p>
 <table id="table" class="table table-bordered">
  <thead>
-    <tr class="btn-warning">
+    <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
@@ -40,9 +40,9 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.LicenseID, name = item.Name }) |
-            @Html.ActionLink("Details", "Details", new { id=item.LicenseID}) |
-            @Html.ActionLink("Delete", "DeleteLicense", new { id=item.LicenseID})
+            <button class="btn btn-primary">@Html.ActionLink("Edit", "Edit", new { id = item.LicenseID, name = item.Name }, new { @class = "txt_color" }) </button>
+            <button class="btn btn-info">@Html.ActionLink("Details", "Details", new { id = item.LicenseID }, new { @class = "txt_color" }) </button>
+            <button class="btn btn-danger">@Html.ActionLink("Delete", "DeleteLicense", new { id = item.LicenseID }, new { @class = "txt_color" })</button>
         </td>
     </tr>
 }

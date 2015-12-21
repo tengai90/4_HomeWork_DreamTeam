@@ -16,7 +16,10 @@
                        traditional: true,
                        data: { //Passing data
                            Name: $("#n_paradigm_name").val(),
-                       }
+                       },
+                       success: function (response) {
+                           window.location.href = response.Url;
+                       },
 
                    });
             }

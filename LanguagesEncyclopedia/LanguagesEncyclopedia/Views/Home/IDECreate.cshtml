@@ -34,7 +34,10 @@
                         Name: $("#new_IDE").val(), //Reading text box values using Jquery
                         url: $("#new_URL").val(),
                         licensesIDs: ids,
-                    }
+                    },
+                    success: function (response) {
+                        window.location.href = response.Url;
+                    },
 
                 });
             }
@@ -54,7 +57,7 @@
        </div>
     </div>
 </br>
-Name: <input type="text"  id="new_IDE"></br>
+    Name: <div style="color: red;">*</div> <input type="text"  id="new_IDE"></br>
 URL: <input type="text" id="new_URL"></br>
 <input type="button" id="btnCreate" value="Create" />
 </br></br>

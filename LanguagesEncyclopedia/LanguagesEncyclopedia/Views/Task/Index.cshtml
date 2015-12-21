@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Tasks";
 }
 
 <div id="page-wrapper">
@@ -17,11 +17,11 @@
     </div>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <button class="btn btn-primary">@Html.ActionLink("Create New", "Create", "Task", new { @class = "txt_color" })</button>
 </p>
 <table id="table" class="table table-bordered">
  <thead>
-    <tr class="btn-warning">
+    <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
@@ -41,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TaskID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TaskID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TaskID })
+            <button class="btn btn-primary">@Html.ActionLink("Edit", "Edit", new { id = item.TaskID }, new { @class = "txt_color" }) </button>
+            <button class="btn btn-info">@Html.ActionLink("Details", "Details", new { id = item.TaskID }, new { @class = "txt_color" }) </button>
+            <button class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.TaskID }, new { @class = "txt_color" }) </button>
         </td>
     </tr>
 }

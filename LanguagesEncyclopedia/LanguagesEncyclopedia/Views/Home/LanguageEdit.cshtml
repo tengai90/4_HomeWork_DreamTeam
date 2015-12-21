@@ -64,7 +64,10 @@
                              ParadigmId: idsPARADIGM,
                              RelationshipId: idsRELATIONSHIP,
                              id: @ViewBag.Id,
-                         }
+                         },
+                         success: function (response) {
+                             window.location.href = response.Url;
+                         },
 
                      });}
        

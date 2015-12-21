@@ -67,7 +67,8 @@ namespace LanguagesEncyclopedia.Controllers
 
             }
 
-            return RedirectToAction("Paradigms", "Home");
+            var redirectUrl = new UrlHelper(Request.RequestContext).Action("Paradigms", "Home");
+            return Json(new { Url = redirectUrl });
         }
 
         public ActionResult EditParadigm(int? id)
@@ -90,7 +91,8 @@ namespace LanguagesEncyclopedia.Controllers
                 db.SaveChanges();
 
             }
-            return RedirectToAction("Paradigms", "Home");
+            var redirectUrl = new UrlHelper(Request.RequestContext).Action("Paradigms", "Home");
+            return Json(new { Url = redirectUrl });
         }
 
         public ActionResult CreateParadigm()
@@ -181,7 +183,8 @@ namespace LanguagesEncyclopedia.Controllers
                 }
             }
 
-            return RedirectToAction("Languages","Home");
+            var redirectUrl = new UrlHelper(Request.RequestContext).Action("Languages", "Home");
+            return Json(new { Url = redirectUrl });
         }
 
         public ActionResult LanguageEdit(int? id, string name, string desc, string date)
@@ -294,9 +297,10 @@ namespace LanguagesEncyclopedia.Controllers
                     }
                 }
 
-            return RedirectToAction("Languages", "Home");
+            var redirectUrl = new UrlHelper(Request.RequestContext).Action("Languages", "Home");
+            return Json(new { Url = redirectUrl });
 
-            }
+        }
 
         public ActionResult CreateLanguage(int? id)
         {
@@ -398,7 +402,8 @@ namespace LanguagesEncyclopedia.Controllers
                 }
 
 
-            return RedirectToAction("ĪDE", "Home");
+            var redirectUrl = new UrlHelper(Request.RequestContext).Action("IDE", "Home");
+            return Json(new { Url = redirectUrl });
         }
         //IDE Edit END
         //IDE ADD
@@ -451,7 +456,8 @@ namespace LanguagesEncyclopedia.Controllers
                
 
             }
-            return RedirectToAction("IDE", "Home");
+            var redirectUrl = new UrlHelper(Request.RequestContext).Action("IDE", "Home");
+            return Json(new { Url = redirectUrl });
         }
 
         //IDE ADD END
@@ -473,7 +479,7 @@ namespace LanguagesEncyclopedia.Controllers
 
             ViewBag.Name = name;
             ViewBag.Id = idt;
-            return RedirectToAction("Licenses", "Home");
+            return View();
         }
 
         [HttpPost]
@@ -488,7 +494,8 @@ namespace LanguagesEncyclopedia.Controllers
                 
             }
 
-            return RedirectToAction("Licenses", "Home");
+            var redirectUrl = new UrlHelper(Request.RequestContext).Action("Licenses", "Home");
+            return Json(new { Url = redirectUrl });
         }
 
 
@@ -526,7 +533,7 @@ namespace LanguagesEncyclopedia.Controllers
     } 
         
         [HttpPost]
-        public ActionResult AddLicense(LicenseClass obj)
+        public ActionResult AddLicense (LicenseClass obj)
         {
             License check = db.Licenses.SingleOrDefault(License => License.Name == obj.Name);
             if (check == null)
@@ -538,7 +545,8 @@ namespace LanguagesEncyclopedia.Controllers
 
             }
 
-            return RedirectToAction("Licenses", "Home");
+            var redirectUrl = new UrlHelper(Request.RequestContext).Action("Licenses", "Home");
+            return Json(new { Url = redirectUrl });
         }
    
 

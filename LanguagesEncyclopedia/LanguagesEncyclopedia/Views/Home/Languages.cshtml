@@ -9,17 +9,17 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-mg-12">
-                <h1 class="page-header">Langauge</h1>
+                <h1 class="page-header">Language</h1>
             </div>
         </div>
     </div>
 
     <p>
-        @Html.ActionLink("Create New Language", "CreateLanguage", "Home")
+        <button class="btn btn-primary">@Html.ActionLink("Create New Language", "CreateLanguage", "Home", new { @class = "txt_color" })</button>
     </p>
     <table id="table" class="table table-bordered">
     <thead>
-        <tr class="btn-warning">
+        <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -39,9 +39,9 @@
             <th>
                 Relationships
             </th>
-            <th>
+            <!--<th>
                 Tasks
-            </th>
+            </th>-->
             <th>
              
             </th>
@@ -91,7 +91,7 @@
                     }
                 </td>
 
-                <td>
+                <!--<td>
                     @{
                         var listTasks = item.LanguageTasks.Where(p => p.LanguageTaskID == item.LanguageID);
                                     
@@ -101,11 +101,11 @@
                           <p>@Html.DisplayFor(model => p.Task.Name);</p>  
                         }
                     }
-                </td>
+                </td>-->
                 <td>
-                    @Html.ActionLink("Edit", "LanguageEdit", new { id = item.LanguageID, name = item.Name, desc = item.Description, date=item.Date.Year }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.LanguageID }) |
-                    @Html.ActionLink("Delete", "LanguageDelete", new { id = item.LanguageID })
+                     <button class="btn btn-primary">@Html.ActionLink("Edit", "LanguageEdit", new { id = item.LanguageID, name = item.Name, desc = item.Description, date = item.Date.Year }, new { @class = "txt_color" }) </button>
+                     <button class="btn btn-info">@Html.ActionLink("Details", "Details", new { id = item.LanguageID }, new { @class = "txt_color" }) </button>
+                     <button class="btn btn-danger">@Html.ActionLink("Delete", "LanguageDelete", new { id = item.LanguageID }, new { @class = "txt_color" }) </button>
                 </td>
             </tr>
         }

@@ -41,7 +41,10 @@
                         url: $("#new_URL").val(),
                         licensesIDs: ids,
                         id: @ViewBag.IDID,
-                    }
+                    },
+                    success: function (response) {
+                        window.location.href = response.Url;
+                    },
 
                 });}
 
