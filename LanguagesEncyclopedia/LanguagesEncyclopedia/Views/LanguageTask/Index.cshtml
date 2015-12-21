@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "LanguageTasks";
 }
 
 <div id="page-wrapper">
@@ -17,11 +17,12 @@
     </div>
 
     <p>
-        @Html.ActionLink("Create New", "Create")
+        <button class="btn btn-primary">@Html.ActionLink("Create New", "Create", "LanguageTask", new { @class = "txt_color" })</button>
     </p>
 
-    <table class="table table-bordered ">
-        <tr class="btn-warning">
+    <table id = "table" class="table table-bordered ">
+    <thead>
+        <tr>
             <th>
                 Language @Html.DisplayNameFor(model => model.Language.Name)
             </th>
@@ -30,7 +31,8 @@
             </th>
             <th></th>
         </tr>
-
+        </thead>
+        <tbody>
         @foreach (var item in Model)
         {
             <tr>
@@ -41,12 +43,19 @@
                     @Html.DisplayFor(modelItem => item.Task.Name)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new {id = item.LanguageTaskID}) |
-                    @Html.ActionLink("Details", "Details", new {id = item.LanguageTaskID}) |
-                    @Html.ActionLink("Delete", "Delete", new {id = item.LanguageTaskID})
+                     <button class="btn btn-primary">@Html.ActionLink("Edit", "Edit", new { id = item.LanguageTaskID }, new { @class = "txt_color" }) </button>
+                     <button class="btn btn-info">@Html.ActionLink("Details", "Details", new { id = item.LanguageTaskID }, new { @class = "txt_color" }) </button>
+                     <button class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.LanguageTaskID }, new { @class = "txt_color" }) </button>
                 </td>
             </tr>
         }
-
+        </tbody>
     </table>
 </div>
+
+<script type="text/javascript">
+    console.log("OK");
+    $(document).ready(function () {
+        $('#table').DataTable();
+    });
+</script>

@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Solutions";
 }
 
 <div id="page-wrapper">
@@ -17,12 +17,12 @@
     </div>
 
     <p>
-        @Html.ActionLink("Create New", "Create")
+        <button class="btn btn-primary">@Html.ActionLink("Create New", "Create", "Solution", new { @class = "txt_color" })</button>
     </p>
 
 <table id="table" class="table table-bordered">
  <thead>
-    <tr class="btn-warning">
+    <tr>
         <th>
             Task @Html.DisplayNameFor(model => model.LanguageTask.Task.Name)
         </th>
@@ -55,9 +55,9 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.SolutionID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.SolutionID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.SolutionID })
+            <button class="btn btn-primary">@Html.ActionLink("Edit", "Edit", new { id = item.SolutionID }, new { @class = "txt_color" }) </button>
+             <button class="btn btn-info">@Html.ActionLink("Details", "Details", new { id = item.SolutionID }, new { @class = "txt_color" }) </button>
+             <button class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.SolutionID }, new { @class = "txt_color" }) </button>
         </td>
     </tr>
 }

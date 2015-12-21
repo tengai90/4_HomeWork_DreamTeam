@@ -424,4 +424,11 @@ a:after {
 {
     background: url(img/pic4.jpg) no-repeat center top;
 }
-
+thead 
+{
+  	background-color: #9FB6CD;
+}
+.txt_color
+{
+	color: #fff;
+}
