@@ -67,8 +67,9 @@ namespace LanguagesEncyclopedia.Controllers
 
             }
 
-            return View();
+            return RedirectToAction("Paradigms", "Home");
         }
+
         public ActionResult EditParadigm(int? id)
         {
             int idt = id.GetValueOrDefault();
@@ -89,7 +90,7 @@ namespace LanguagesEncyclopedia.Controllers
                 db.SaveChanges();
 
             }
-            return View();
+            return RedirectToAction("Paradigms", "Home");
         }
 
         public ActionResult CreateParadigm()
@@ -180,7 +181,7 @@ namespace LanguagesEncyclopedia.Controllers
                 }
             }
 
-            return View();
+            return RedirectToAction("Languages","Home");
         }
 
         public ActionResult LanguageEdit(int? id, string name, string desc, string date)
@@ -292,8 +293,8 @@ namespace LanguagesEncyclopedia.Controllers
 
                     }
                 }
-            
-                return View();
+
+            return RedirectToAction("Languages", "Home");
 
             }
 
@@ -395,9 +396,9 @@ namespace LanguagesEncyclopedia.Controllers
                         db.SaveChanges();
                     }
                 }
-                
-     
-            return View();
+
+
+            return RedirectToAction("ĪDE", "Home");
         }
         //IDE Edit END
         //IDE ADD
@@ -450,7 +451,7 @@ namespace LanguagesEncyclopedia.Controllers
                
 
             }
-            return View();
+            return RedirectToAction("IDE", "Home");
         }
 
         //IDE ADD END
@@ -487,7 +488,7 @@ namespace LanguagesEncyclopedia.Controllers
                 
             }
 
-            return View();
+            return RedirectToAction("Licenses", "Home");
         }
 
 
@@ -537,7 +538,7 @@ namespace LanguagesEncyclopedia.Controllers
 
             }
 
-            return View();
+            return RedirectToAction("Licenses", "Home");
         }
    
 

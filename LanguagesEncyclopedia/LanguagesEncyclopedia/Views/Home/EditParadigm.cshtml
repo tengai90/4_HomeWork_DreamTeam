@@ -18,22 +18,27 @@
     $(document).ready(function () {
         //function will be called on button click having id btnsave
         $("#btnEdit").click(function () {
-            $.ajax(
-            {
-                type: "POST", //HTTP POST Method
-                url: "@Url.Action("ParadigmEdit","Home")", // Controller/View
+
+            var pass = 0;
+            var nam = document.getElementById('e_paradigm').value;
+            if (nam == '') { alert("Name is empty"); pass = 1; }
+            if(pass==0){
+                $.ajax(
+                {
+                    type: "POST", //HTTP POST Method
+                    url: "@Url.Action("ParadigmEdit","Home")", // Controller/View
                     data: { //Passing data
                         Name: $("#e_paradigm").val(), //Reading text box values using Jquery
                         ParadigmID: @Model.ParadigmID,
                     }
 
-                });
+                });}
 
             });
         });
 
 </script>
- Name: <input type="text" id="e_paradigm" value="@Model.Name" /></br>
+Name: <div style="color: red;">*</div> <input type="text" id="e_paradigm" value="@Model.Name" /></br>
 
 <input id="btnEdit" type="button" value="Edit" />
 </div>

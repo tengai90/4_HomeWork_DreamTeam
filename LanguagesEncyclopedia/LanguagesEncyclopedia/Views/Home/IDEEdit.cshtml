@@ -21,21 +21,29 @@
                     ids.push(inputs[i].id);
                 }
             }
+           
 
-            $.ajax(
-            {
-                type: "POST", //HTTP POST Method
-                url: "@Url.Action("EditIDE","Home")", // Controller/View
-                dataType: "json",
-                traditional: true,
-                data: { //Passing data
+            var pass=0;
+            var nam=document.getElementById('new_IDE').value;
+            if(nam==''){alert("Name is empty"); pass=1;}
+
+
+
+            if(pass==0){
+                $.ajax(
+                {
+                    type: "POST", //HTTP POST Method
+                    url: "@Url.Action("EditIDE","Home")", // Controller/View
+                    dataType: "json",
+                    traditional: true,
+                    data: { //Passing data
                         Name: $("#new_IDE").val(), //Reading text box values using Jquery
                         url: $("#new_URL").val(),
                         licensesIDs: ids,
-                    id: @ViewBag.IDID,
+                        id: @ViewBag.IDID,
                     }
 
-                });
+                });}
 
             });
         });
@@ -51,7 +59,7 @@
        </div>
     </div>
 
-Name: <input type="text" id="new_IDE" value="@ViewBag.eName"></br>
+Name: <div style="color: red;">*</div> <input type="text" id="new_IDE" value="@ViewBag.eName"></br>
 URL: <input type="text" id="new_URL" value="@ViewBag.eUrl"></br>
 <input type="button" id="btnEdit" value="Edit" />
 </br></br>

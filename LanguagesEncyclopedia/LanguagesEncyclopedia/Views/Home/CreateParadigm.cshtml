@@ -4,17 +4,22 @@
     $(document).ready(function () {
         //function will be called on button click having id btnsave
         $("#btnCreate").click(function () {
-         $.ajax(
-            {
-                type: "POST", //HTTP POST Method
-                url: "@Url.Action("ParadigmCreate", "Home")", // Controller/View
-                dataType: "json",
-                traditional: true,
-                data: { //Passing data
-                    Name: $("#n_paradigm_name").val(),
-                    }
+            var pass = 0;
+            var nam = document.getElementById('n_paradigm_name').value;
+            if (nam == '') { alert("Name is empty"); pass = 1; }
+            if (pass == 0) {
+                $.ajax(
+                   {
+                       type: "POST", //HTTP POST Method
+                       url: "@Url.Action("ParadigmCreate", "Home")", // Controller/View
+                       dataType: "json",
+                       traditional: true,
+                       data: { //Passing data
+                           Name: $("#n_paradigm_name").val(),
+                       }
 
-                });
+                   });
+            }
 
             });
         });

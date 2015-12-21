@@ -40,25 +40,41 @@
             }
 
 
-            alert(document.getElementById("n_language_name").value);
+            var d = new Date();
+            var n = d.getFullYear();
+            var pass=0;
+            var iy=document.getElementById('n_language_date').value;
+            if(iy!=''){
+                var ciy= new Date(iy,01,01);
+                var nn = ciy.getFullYear();
+            }
+            else { alert("Date is empty!"); pass = 1; }
 
-         $.ajax(
-            {
-                type: "POST", //HTTP POST Method
-                url: "@Url.Action("LanguageCreate", "Home")", // Controller/View
-                dataType: "json",
-                traditional: true,
-                data: { //Passing data
-                    Name: $("#n_language_name").val(),
-                    Description: $("#n_language_desc").val(),
-                    Date: $("#n_language_date").val(),
-                    IDEId: idsIDE,
-                    ParadigmId: idsPARADIGM,
-                    RelationshipId: idsRELATIONSHIP,
-                    id: 0,
-                    }
+            var nam=document.getElementById('n_language_name').value;
 
-                });
+            
+            if(nam==''){alert("Name is empty!"); pass=1;} 
+            if(n<nn){alert("Invalid year!"); pass=1;}
+            if (pass == 0) {
+
+                $.ajax(
+                   {
+                       type: "POST", //HTTP POST Method
+                       url: "@Url.Action("LanguageCreate", "Home")", // Controller/View
+                       dataType: "json",
+                       traditional: true,
+                       data: { //Passing data
+                           Name: $("#n_language_name").val(),
+                           Description: $("#n_language_desc").val(),
+                           Date: $("#n_language_date").val(),
+                           IDEId: idsIDE,
+                           ParadigmId: idsPARADIGM,
+                           RelationshipId: idsRELATIONSHIP,
+                           id: 0,
+                       }
+
+                   });
+            }
 
             });
         });
@@ -67,9 +83,9 @@
 </script>
 
     </br>
-    Name: <input type="text" id="n_language_name" /></br>
+    Name: <div style="color: red;">*</div> <input type="text" id="n_language_name" /></br>
     Description: <textarea id="n_language_desc"></textarea></br>
-    Date (Year): <input type="text" id="n_language_date" /></br>
+    Date (Year): <div style="color: red;">*</div> <input type="text" maxlength="4" onkeypress='return event.charCode >= 48 && event.charCode <= 57' id="n_language_date" /></br>
     
     </br><br><br>
     Available IDE's

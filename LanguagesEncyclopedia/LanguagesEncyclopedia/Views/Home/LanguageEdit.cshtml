@@ -35,24 +35,39 @@
                     idsRELATIONSHIP.push(inputs[i].id);
             }
 
-            $.ajax(
-            {
-                type: "POST", //HTTP POST Method
-                url: "@Url.Action("EditLanguage", "Home")", // Controller/View
-                dataType: "json",
-                traditional: true,
-                data: { //Passing data
-                    Name: $("#n_language_name").val(),
-                    Description: $("#n_language_desc").val(),
-                    Date: $("#n_language_date").val(),
-                    IDEId: idsIDE,
-                    ParadigmId: idsPARADIGM,
-                    RelationshipId: idsRELATIONSHIP,
-                    id: @ViewBag.Id,
-                    }
+            var d = new Date();
+            var n = d.getFullYear();
+            var pass=0;
+            var iy=document.getElementById('n_language_date').value;
+            if(iy!=''){
+                var ciy= new Date(iy,01,01);
+                var nn = ciy.getFullYear();
+            }
+            else{alert("Date is empty!"); pass=1;}
+            var nam=document.getElementById('n_language_name').value;
 
-                });
+            
+            if(nam==''){alert("Name is empty!"); pass=1;} 
+            if(n<nn){alert("Invalid year!"); pass=1;}
+            if(pass==0){
+                $.ajax(
+                     {
+                         type: "POST", //HTTP POST Method
+                         url: "@Url.Action("EditLanguage", "Home")", // Controller/View
+                         dataType: "json",
+                         traditional: true,
+                         data: { //Passing data
+                             Name: $("#n_language_name").val(),
+                             Description: $("#n_language_desc").val(),
+                             Date: $("#n_language_date").val(),
+                             IDEId: idsIDE,
+                             ParadigmId: idsPARADIGM,
+                             RelationshipId: idsRELATIONSHIP,
+                             id: @ViewBag.Id,
+                         }
 
+                     });}
+       
             });
         });
 
@@ -60,9 +75,9 @@
 </script>
 
 </br>
-Name: <input type="text" id="n_language_name" value="@ViewBag.name" /></br>
+Name: <div style="color: red;">*</div><input type="text" id="n_language_name" value="@ViewBag.name" /></br>
 Description: <textarea id="n_language_desc">@ViewBag.desc</textarea></br>
-Date (Year): <input type="text" id="n_language_date" value="@ViewBag.date" /></br>
+Date (Year): <div style="color: red;">*</div><input type="text" maxlength="4" onkeypress='return event.charCode >= 48 && event.charCode <= 57' id="n_language_date" value="@ViewBag.date" /></br>
 <input id="btnEdit" type="button" value="Edit" />
 </br><br><br>
 Available IDE's
@@ -169,7 +184,10 @@ Available IDE's
             CheckIt
         </th>
     </tr>
-    @foreach (var b in Model.LanList)
+    @{ 
+        var fixLanList = Model.LanList.Where(p => p.LanguageID != Model.Lan.LanguageID);
+    }
+    @foreach (var b in fixLanList)
             {
         <tr>
             <td>

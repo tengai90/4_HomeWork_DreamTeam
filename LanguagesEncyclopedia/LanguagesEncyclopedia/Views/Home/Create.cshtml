@@ -13,16 +13,20 @@
         $(document).ready(function () {
             //function will be called on button click having id btnsave
             $("#btnAdd").click(function () {
-                $.ajax(
-                {
-                    type: "POST", //HTTP POST Method
-                    url: "@Url.Action("AddLicense","Home")", // Controller/View
-                    data: { //Passing data
-                        Name: $("#n_license").val(), //Reading text box values using Jquery
-                        Id:@ViewBag.AID,
-                    }
+                var pass = 0;
+                var nam = document.getElementById('n_license').value;
+                if (nam == '') { alert("Name is empty"); pass = 1; }
+                if(pass==0){
+                    $.ajax(
+                    {
+                        type: "POST", //HTTP POST Method
+                        url: "@Url.Action("AddLicense","Home")", // Controller/View
+                        data: { //Passing data
+                            Name: $("#n_license").val(), //Reading text box values using Jquery
+                            Id:@ViewBag.AID,
+                        }
 
-                });
+                    });}
 
             });
         });
@@ -41,7 +45,7 @@
 
 Hello Dream Team!!
 </br>
-<input type="text" id="n_license"></br><input type="button" id="btnAdd" value="Add" />
+Name: <div style="color: red;">*</div><input type="text" id="n_license"></br><input type="button" id="btnAdd" value="Add" />
 
 </br></br>
 @Html.ActionLink("Return to Licenses", "Licenses", "Home"); 
