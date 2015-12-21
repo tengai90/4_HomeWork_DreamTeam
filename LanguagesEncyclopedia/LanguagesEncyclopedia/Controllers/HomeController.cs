@@ -473,7 +473,7 @@ namespace LanguagesEncyclopedia.Controllers
 
             ViewBag.Name = name;
             ViewBag.Id = idt;
-            return View();
+            return RedirectToAction("Licenses", "Home");
         }
 
         [HttpPost]
