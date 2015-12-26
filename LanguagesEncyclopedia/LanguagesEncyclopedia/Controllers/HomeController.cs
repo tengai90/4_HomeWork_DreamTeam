@@ -8,7 +8,7 @@ using LanguagesEncyclopedia.Models;
 using System.Data;
 using System.Configuration;
 using System.Data.EntityClient;
-using LanguagesEncyclopedia.Views.Home;
+
 
 
 namespace LanguagesEncyclopedia.Controllers

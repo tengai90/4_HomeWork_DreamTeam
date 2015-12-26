@@ -7,13 +7,13 @@ namespace LanguagesEncyclopedia.Models
 {
     public class LanguageForWork
     {
-        public LanguagesEncyclopedia.Views.Home.Language Lan { get; set; }
-        public IEnumerable<LanguagesEncyclopedia.Views.Home.IDE> AllIDE { get; set; }
-        public IEnumerable<LanguagesEncyclopedia.Views.Home.LanguageIDE> AllLIDE { get; set; }
-        public IEnumerable<LanguagesEncyclopedia.Views.Home.Paradigm> AllParadigm { get; set; }
-        public IEnumerable<LanguagesEncyclopedia.Views.Home.Language> LanList { get; set; }
-        public IEnumerable<LanguagesEncyclopedia.Views.Home.LanguageRelationship> Rellist { get; set; }
-        public IEnumerable<LanguagesEncyclopedia.Views.Home.LanguageParadigm> AllLParadigm { get; set; }
+        public LanguagesEncyclopedia.Language Lan { get; set; }
+        public IEnumerable<LanguagesEncyclopedia.IDE> AllIDE { get; set; }
+        public IEnumerable<LanguagesEncyclopedia.LanguageIDE> AllLIDE { get; set; }
+        public IEnumerable<LanguagesEncyclopedia.Paradigm> AllParadigm { get; set; }
+        public IEnumerable<LanguagesEncyclopedia.Language> LanList { get; set; }
+        public IEnumerable<LanguagesEncyclopedia.LanguageRelationship> Rellist { get; set; }
+        public IEnumerable<LanguagesEncyclopedia.LanguageParadigm> AllLParadigm { get; set; }
 
         public string GetTickIDE(int id, LanguageForWork model)
         {

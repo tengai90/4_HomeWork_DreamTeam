@@ -16,8 +16,8 @@ namespace LanguagesEncyclopedia.Models
 
     public class ViewModel
     {
-        public IEnumerable<LanguagesEncyclopedia.Views.Home.License>  Licenses { get; set; }
-        public IEnumerable<LanguagesEncyclopedia.Views.Home.LicenseIDE> LicensesIDE { get; set; }
+        public IEnumerable<LanguagesEncyclopedia.License>  Licenses { get; set; }
+        public IEnumerable<LanguagesEncyclopedia.LicenseIDE> LicensesIDE { get; set; }
 
         public string GetTickLiceneses( int lic, ViewModel model)
         {

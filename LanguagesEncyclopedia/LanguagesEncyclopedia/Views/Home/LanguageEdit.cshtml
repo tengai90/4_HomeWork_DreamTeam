@@ -1,6 +1,6 @@
 ﻿@model LanguagesEncyclopedia.Models.LanguageForWork
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_ServiceLayout.cshtml";
 }
 @{
     ViewBag.Title = "EditLanguage";
@@ -118,7 +118,7 @@ Available IDE's
                     @{ 
 
                         var nIDE = Model.AllLIDE.SingleOrDefault(p => p.LanguageID == Model.Lan.LanguageID && p.IDEID==a.IDEID);
-                        if(nIDE== null) { nIDE= new LanguagesEncyclopedia.Views.Home.LanguageIDE(); nIDE.IDEID = 0; }
+                        if(nIDE== null) { nIDE= new LanguagesEncyclopedia.LanguageIDE(); nIDE.IDEID = 0; }
                         }
 
                         checkbox.checked=@Model.GetTickIDE(nIDE.IDEID, Model);
@@ -164,7 +164,7 @@ Available IDE's
                     @{
 
                         var nPara = Model.AllLParadigm.SingleOrDefault(p => p.LanguageID == Model.Lan.LanguageID && p.ParadigmID == b.ParadigmID);
-                        if (nPara == null) { nPara = new LanguagesEncyclopedia.Views.Home.LanguageParadigm(); nPara.ParadigmID = 0; }
+                        if (nPara == null) { nPara = new LanguagesEncyclopedia.LanguageParadigm(); nPara.ParadigmID = 0; }
                         }
                         checkbox.checked=@Model.GetTickParadigm(nPara.ParadigmID , Model);
                         c.appendChild(checkbox);
