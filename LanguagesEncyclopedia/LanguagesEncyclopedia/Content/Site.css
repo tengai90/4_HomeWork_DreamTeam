@@ -73,7 +73,7 @@ textarea {
 
 #page-wrapper {
     width: 100%;
-    height: 1000px;
+    height: 100%;
     padding: 0;
 
 }
@@ -307,7 +307,7 @@ ul.alert-dropdown {
 
 /* Titles */
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Raleway";
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     font-weight: 300;
     color: #333;
 }
@@ -711,3 +711,842 @@ thead
 {
     color: #fff;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+header, footer, nav, section {
+    display: block;
+}
+
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+
+/*Service*/
+@media(min-width:768px) {
+    body {
+        margin-top: 50px;
+    }
+}
+
+#wrapper {
+    padding-left: 0;
+}
+
+
+
+.huge {
+    font-size: 50px;
+    line-height: normal;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 150px;
+    }
+
+    #page-wrapper {
+        padding-right: 40px;
+        padding-left: 30px;
+        padding-top: 30px;
+    }
+}
+
+/* Top Navigation */
+
+.top-nav {
+    padding: 0 15px;
+}
+
+.top-nav>li {
+    display: inline-block;
+    float: left;
+}
+
+.top-nav>li>a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 20px;
+    color: #999;
+}
+
+.top-nav>li>a:hover,
+.top-nav>li>a:focus,
+.top-nav>.open>a,
+.top-nav>.open>a:hover,
+.top-nav>.open>a:focus {
+    color: #fff;
+    background-color: #000;
+}
+
+.top-nav>.open>.dropdown-menu {
+    float: left;
+    position: absolute;
+    margin-top: 0;
+    border: 1px solid rgba(0,0,0,.15);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: #fff;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.top-nav>.open>.dropdown-menu>li>a {
+    white-space: normal;
+}
+
+ul.message-dropdown {
+    padding: 0;
+    max-height: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+li.message-preview {
+    width: 275px;
+    border-bottom: 1px solid rgba(0,0,0,.15);
+}
+
+li.message-preview>a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+li.message-footer {
+    margin: 5px 0;
+}
+
+ul.alert-dropdown {
+    width: 200px;
+}
+
+/* Side Navigation */
+
+@media(min-width:768px) {
+    .side-nav {
+        position: fixed;
+        top: 80px;
+        left: 225px;
+        width: 150px;
+        height: 1000px;
+        margin-left: -225px;
+        border: none;
+        border-radius: 0;
+        overflow-y: auto;
+        background-color: #2d2d2d;
+    }
+
+    .side-nav>li>a {
+        width: 225px;
+    }
+
+    .side-nav li a:hover,
+    .side-nav li a:focus {
+        outline: none;
+        color: #ff7878 !important;
+    }
+}
+
+.dropdown-toggle:hover
+{
+    background-color: #2c3e50 !important;
+   color: #ff7878 !important; 
+}
+.side-nav>li>ul {
+    padding: 0;
+}
+
+.side-nav>li>ul>li>a {
+    display: block;
+    padding: 10px 15px 10px 38px;
+    text-decoration: none;
+    color: #999;
+}
+
+.side-nav>li>ul>li>a:hover {
+    color: #fff;
+}
+
+/* Flot Chart Containers */
+
+.flot-chart {
+    display: block;
+    height: 400px;
+}
+
+.flot-chart-content {
+    width: 100%;
+    height: 100%;
+}
+
+/* Custom Colored Panels */
+
+.huge {
+    font-size: 40px;
+}
+
+.panel-green {
+    border-color: #5cb85c;
+}
+
+.panel-green .panel-heading {
+    border-color: #5cb85c;
+    color: #fff;
+    background-color: #5cb85c;
+}
+
+.panel-green a {
+    color: #5cb85c;
+}
+
+.panel-green a:hover {
+    color: #3d8b3d;
+}
+
+.panel-red {
+    border-color: #d9534f;
+}
+
+.panel-red .panel-heading {
+    border-color: #d9534f;
+    color: #fff;
+    background-color: #d9534f;
+}
+
+.panel-red a {
+    color: #d9534f;
+}
+
+.panel-red a:hover {
+    color: #b52b27;
+}
+
+.panel-yellow {
+    border-color: #f0ad4e;
+}
+
+.panel-yellow .panel-heading {
+    border-color: #f0ad4e;
+    color: #fff;
+    background-color: #f0ad4e;
+}
+
+.panel-yellow a {
+    color: #f0ad4e;
+}
+
+.panel-yellow a:hover {
+    color: #df8a13;
+}
+
+
+
+
+/* Helper Classes
+
+  8 8888        8 8 8888888888   8 8888         8 888888888o   8 8888888888   8 888888888o.     d888888o.   
+  8 8888        8 8 8888         8 8888         8 8888    `88. 8 8888         8 8888    `88.  .`8888:' `88. 
+  8 8888        8 8 8888         8 8888         8 8888     `88 8 8888         8 8888     `88  8.`8888.   Y8 
+  8 8888        8 8 8888         8 8888         8 8888     ,88 8 8888         8 8888     ,88  `8.`8888.     
+  8 8888        8 8 888888888888 8 8888         8 8888.   ,88' 8 888888888888 8 8888.   ,88'   `8.`8888.    
+  8 8888        8 8 8888         8 8888         8 888888888P'  8 8888         8 888888888P'     `8.`8888.   
+  8 8888888888888 8 8888         8 8888         8 8888         8 8888         8 8888`8b          `8.`8888.  
+  8 8888        8 8 8888         8 8888         8 8888         8 8888         8 8888 `8b.    8b   `8.`8888. 
+  8 8888        8 8 8888         8 8888         8 8888         8 8888         8 8888   `8b.  `8b.  ;8.`8888 
+  8 8888        8 8 888888888888 8 888888888888 8 8888         8 888888888888 8 8888     `88. `Y8888P ,88P' 
+
+*/
+
+/* -- Background Helper Classes */
+
+/* Use these to cuztomize the background color of a div. These are used along with tiles, or any other div you want to customize. */
+
+ .dark-blue {
+    background-color: #34495e;
+}
+
+. {
+    background-color: #16a085;
+}
+
+.blue {
+    background-color: #2980b9;
+}
+
+.orange {
+    background-color: #f39c12;
+}
+
+.red {
+    background-color: #e74c3c;
+}
+
+.purple {
+    background-color: #8e44ad;
+}
+
+.dark-gray {
+    background-color: #7f8c8d;
+}
+
+.gray {
+    background-color: #95a5a6;
+}
+
+.light-gray {
+    background-color: #bdc3c7;
+}
+
+.yellow {
+    background-color: #f1c40f;
+}
+
+/* -- Text Color Helper Classes */
+
+ .text-dark-blue {
+    color: #34495e;
+}
+
+.text-green {
+    color: #16a085;
+}
+
+.text-blue {
+    color: #2980b9;
+}
+
+.text-orange {
+    color: #f39c12;
+}
+
+.text-red {
+    color: #e74c3c;
+}
+
+.text-purple {
+    color: #8e44ad;
+}
+
+.text-faded {
+    color: rgba(255,255,255,0.7);
+}
+
+
+
+
+/* Flex Tile Styles
+
+  8888888 8888888888  8 8888 8 8888         8 8888888888     d888888o.   
+        8 8888        8 8888 8 8888         8 8888         .`8888:' `88. 
+        8 8888        8 8888 8 8888         8 8888         8.`8888.   Y8 
+        8 8888        8 8888 8 8888         8 8888         `8.`8888.     
+        8 8888        8 8888 8 8888         8 888888888888  `8.`8888.    
+        8 8888        8 8888 8 8888         8 8888           `8.`8888.   
+        8 8888        8 8888 8 8888         8 8888            `8.`8888.  
+        8 8888        8 8888 8 8888         8 8888        8b   `8.`8888. 
+        8 8888        8 8888 8 8888         8 8888        `8b.  ;8.`8888 
+        8 8888        8 8888 8 888888888888 8 888888888888 `Y8888P ,88P'
+
+/* -- Circle Tiles */
+
+.circle-tile {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.circle-tile-heading {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto -40px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-radius: 100%;
+    color: #fff;
+    transition: all ease-in-out .3s;
+}
+
+.circle-tile-heading .fa {
+    line-height: 80px;
+}
+
+.circle-tile-content {
+    padding-top: 50px;
+}
+
+.circle-tile-number {
+    padding: 5px 0 15px;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.circle-tile-description {
+    text-transform: uppercase;
+}
+
+.circle-tile-footer {
+    display: block;
+    padding: 5px;
+    color: rgba(255,255,255,0.5);
+    background-color: rgba(0,0,0,0.1);
+    transition: all ease-in-out .3s;
+}
+
+.circle-tile-footer:hover {
+    text-decoration: none;
+    color: rgba(255,255,255,0.5);
+    background-color: rgba(0,0,0,0.2);
+}
+
+.circle-tile-heading.dark-blue:hover {
+    background-color: #2e4154;
+}
+
+.circle-tile-heading.green:hover {
+    background-color: #138f77;
+}
+
+.circle-tile-heading.orange:hover {
+    background-color: #da8c10;
+}
+
+.circle-tile-heading.blue:hover {
+    background-color: #2473a6;
+}
+
+.circle-tile-heading.red:hover {
+    background-color: #cf4435;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Helper Classes
+
+  8 8888        8 8 8888888888   8 8888         8 888888888o   8 8888888888   8 888888888o.     d888888o.   
+  8 8888        8 8 8888         8 8888         8 8888    `88. 8 8888         8 8888    `88.  .`8888:' `88. 
+  8 8888        8 8 8888         8 8888         8 8888     `88 8 8888         8 8888     `88  8.`8888.   Y8 
+  8 8888        8 8 8888         8 8888         8 8888     ,88 8 8888         8 8888     ,88  `8.`8888.     
+  8 8888        8 8 888888888888 8 8888         8 8888.   ,88' 8 888888888888 8 8888.   ,88'   `8.`8888.    
+  8 8888        8 8 8888         8 8888         8 888888888P'  8 8888         8 888888888P'     `8.`8888.   
+  8 8888888888888 8 8888         8 8888         8 8888         8 8888         8 8888`8b          `8.`8888.  
+  8 8888        8 8 8888         8 8888         8 8888         8 8888         8 8888 `8b.    8b   `8.`8888. 
+  8 8888        8 8 8888         8 8888         8 8888         8 8888         8 8888   `8b.  `8b.  ;8.`8888 
+  8 8888        8 8 888888888888 8 888888888888 8 8888         8 888888888888 8 8888     `88. `Y8888P ,88P' 
+
+*/
+
+/* -- Background Helper Classes */
+
+/* Use these to cuztomize the background color of a div. These are used along with tiles, or any other div you want to customize. */
+
+ .dark-blue {
+    background-color: #34495e;
+}
+
+.green {
+    background-color: #16a085;
+}
+
+.blue {
+    background-color: #2980b9;
+}
+
+.orange {
+    background-color: #f39c12;
+}
+
+.red {
+    background-color: #e74c3c;
+}
+
+.purple {
+    background-color: #8e44ad;
+}
+
+.dark-gray {
+    background-color: #7f8c8d;
+}
+
+.gray {
+    background-color: #95a5a6;
+}
+
+.light-gray {
+    background-color: #bdc3c7;
+}
+
+.yellow {
+    background-color: #f1c40f;
+}
+
+/* -- Text Color Helper Classes */
+
+ .text-dark-blue {
+    color: #34495e;
+}
+
+.text-green {
+    color: #16a085;
+}
+
+.text-blue {
+    color: #2980b9;
+}
+
+.text-orange {
+    color: #f39c12;
+}
+
+.text-red {
+    color: #e74c3c;
+}
+
+.text-purple {
+    color: #8e44ad;
+}
+
+.text-faded {
+    color: rgba(255,255,255,0.7);
+}
+
+/* Wrappers
+
+  `8.`888b                 ,8' 8 888888888o.            .8.          8 888888888o   8 888888888o   8 8888888888   8 888888888o.     d888888o.   
+   `8.`888b               ,8'  8 8888    `88.          .888.         8 8888    `88. 8 8888    `88. 8 8888         8 8888    `88.  .`8888:' `88. 
+    `8.`888b             ,8'   8 8888     `88         :88888.        8 8888     `88 8 8888     `88 8 8888         8 8888     `88  8.`8888.   Y8 
+     `8.`888b     .b    ,8'    8 8888     ,88        . `88888.       8 8888     ,88 8 8888     ,88 8 8888         8 8888     ,88  `8.`8888.     
+      `8.`888b    88b  ,8'     8 8888.   ,88'       .8. `88888.      8 8888.   ,88' 8 8888.   ,88' 8 888888888888 8 8888.   ,88'   `8.`8888.    
+       `8.`888b .`888b,8'      8 888888888P'       .8`8. `88888.     8 888888888P'  8 888888888P'  8 8888         8 888888888P'     `8.`8888.   
+        `8.`888b8.`8888'       8 8888`8b          .8' `8. `88888.    8 8888         8 8888         8 8888         8 8888`8b          `8.`8888.  
+         `8.`888`8.`88'        8 8888 `8b.       .8'   `8. `88888.   8 8888         8 8888         8 8888         8 8888 `8b.    8b   `8.`8888. 
+          `8.`8' `8,`'         8 8888   `8b.    .888888888. `88888.  8 8888         8 8888         8 8888         8 8888   `8b.  `8b.  ;8.`8888 
+           `8.`   `8'          8 8888     `88. .8'       `8. `88888. 8 8888         8 8888         8 888888888888 8 8888     `88. `Y8888P ,88P' 
+
+*/
+
+
+
+#page-wrapper {
+    border: none;
+    background-color: #ecf0f1;
+}
+
+@media(min-width:768px) {
+    #page-wrapper {
+
+min-height: 1300px;
+
+border-left: 1px solid #2c3e50;
+
+}
+
+
+}
+
+
+
+/*Clock*/
+.main {
+    padding: 10px 10px;
+  /*  width: 700px;*/ 
+    height: 350px;
+    background-color: #f5f5f5;
+   /* margin: 100px auto;*/
+    @include border-radius(4px); 
+    -webkit-box-shadow: 0px 10px 10px rgba(47, 40, 39, 0.9),
+                        0px 15px 20px rgba(47, 40, 39, 0.4),
+                        0px 10px 15px rgba(69, 57, 62, 0.6); 
+    
+   }
+
+
+
+
+#clock {
+        padding:0;
+        position: relative;
+        list-style: none;
+        margin: -320px 0px 0 0;
+        height: 234px;
+        width: 234px;
+        display: block;
+        float: right;
+        background: url('https://dl.dropboxusercontent.com/u/13526976/clock_wid/clockFace.svg') 5% center no-repeat;
+    /*  -webkit-box-shadow: 0px 0px 20px rgba(47, 40, 39, 0.4);  */ 
+}
+
+#sec, #min, #hour {
+  position: absolute;
+  width: 24px;
+  height: 234px;
+  top: 0px;
+  left: 102px;
+}
+
+#sec {
+  background: url('https://dl.dropboxusercontent.com/u/13526976/clock_wid/sec.svg');
+  z-index: 3;
+}
+   
+#min {
+  background: url('https://dl.dropboxusercontent.com/u/13526976/clock_wid/min.svg');
+  z-index: 2;
+}
+   
+#hour {
+  background: url('https://dl.dropboxusercontent.com/u/13526976/clock_wid/hour.svg');
+  z-index: 1;
+}
+
+
+#date
+{
+    float: right;
+    padding: 0 30px 40px 0;
+    margin: -100px 0 0 0;
+}
+    
+#year
+{
+    margin: 8px 0 0 55px;
+    display: block;
+    text-height: 50%;
+    font-size: 36px;
+    color: rgba(188,185,184, 0.7);
+}
+    
+#monthDay
+{
+    display: block;
+    font-size: 60px;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*portlet*/
+
+
+
+.portlet {
+    @include border-radius(4px); 
+    -webkit-box-shadow: 0px 10px 10px rgba(47, 40, 39, 0.9),
+                        0px 15px 20px rgba(47, 40, 39, 0.4),
+                        0px 10px 15px rgba(69, 57, 62, 0.6); 
+}
+
+.portlet .portlet-heading {
+    padding: 0 15px;
+}
+
+
+
+
+
+
+
+
+
+.portlet .portlet-heading .portlet-title {
+    float: left;
+}
+
+
+.portlet .portlet-heading .portlet-widgets {
+    float: right;
+    margin: 8px 0;
+}
+
+
+
+
+
+.portlet .portlet-body {
+    padding: 15px;
+    background: #fff;
+    height: 270px;
+}
+
+.portlet .portlet-footer {
+    padding: 10px 15px;
+    background: #e0e7e8;
+}
+
+
+
+
+
+.portlet-green>.portlet-heading {
+    color: #fff;
+    background-color: #61D7C5;
+}
+
+.portlet-orange,
+.portlet-orange>.portlet-heading {
+    border-color: #f39c12;
+}
+
+.portlet-orange>.portlet-heading {
+    color: #fff;
+    background-color: #f39c12;
+}
+
+.portlet-blue,
+.portlet-blue>.portlet-heading {
+    border-color: #2980b9;
+}
+
+.portlet-blue>.portlet-heading {
+    color: #fff;
+    background-color: #2980b9;
+}
+
+.portlet-red,
+.portlet-red>.portlet-heading {
+    border-color: #e74c3c;
+}
+
+.portlet-red>.portlet-heading {
+    color: #fff;
+    background-color: #e74c3c;
+}
+
+.portlet-purple,
+.portlet-purple>.portlet-heading {
+    border-color: #8e44ad;
+}
+
+.portlet-purple>.portlet-heading {
+    color: #fff;
+    background-color: #8e44ad;
+}
+
+
+
+
+
+
+
+
+.page-title {
+    margin: 50px -10px;
+}
+
+.page-content
+{
+    margin-left: 30px;
+}
+
+
+
+
+
+
+
+
+
+

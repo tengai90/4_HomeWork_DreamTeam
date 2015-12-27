@@ -36,6 +36,21 @@ namespace LanguagesEncyclopedia.Controllers
             return View();
         }
 
+        //This function get quantity of records in a database
+        public ActionResult GetSummary()
+        {
+            SummaryModel model = new SummaryModel();
+
+            model.LanguageCount = db.Languages.Count();
+            model.IDECount = db.IDEs.Count();
+            model.LicenseCount = db.Licenses.Count();
+            model.ParadigmCount = db.Paradigms.Count();
+            model.TaskCount = db.Tasks.Count();
+            model.SolutionCount = db.Solutions.Count();
+
+            return Json(new { data = model }, JsonRequestBehavior.AllowGet);
+        }
+
         //Paradigms
         public ActionResult DeleteParadigm(int? id)
         {

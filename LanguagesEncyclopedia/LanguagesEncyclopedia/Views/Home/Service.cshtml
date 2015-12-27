@@ -6,12 +6,201 @@
     ViewBag.Title = "Service";
 }
 
+
 <div id="page-wrapper">
-  <div class="container-fluid">
+    <div class="page-content page-content-ease-in">
+
        <div class="row">
-           <div class="col-mg-12">
-                <h1 class="page-header"> Service</h1>
-            </div>
-       </div>
+           <div class="col-lg-12">
+               <div class="page-title">
+                <h1> Service  <small>Main page</small> </h1>
+                            <ol class="breadcrumb">
+                                <li><i class="fa fa-dashboard"></i>  <a href="@Url.Action("Service", "Home")">Service</a>
+                                </li>
+                                <li class="active">Main page</li>
+                            </ol>
+               </div>
+           </div>
+      @*  </div>*@
+        
+<div class="row">
+    <div class="col-lg-7">
+        <div class="portlet portlet-green">
+            <div class="portlet-heading">
+                <div class="portlet-title">
+                    <h4>Hello Admin</h4>
+                </div>
+                <div class="portlet-widgets">
+                    <span class="divider"></span>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#greenPortlet"><i class="fa fa-chevron-down"></i></a>
+                </div>
+                <div class="clearfix"></div>
+             </div>
+                <div id="greenPortlet" class="panel-collapse collapse in">
+                    <div class="portlet-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis tempus libero. Aliquam et dui at augue aliquet gravida at at est. Curabitur mattis sem sed dolor sagittis blandit. Nulla facilisi. Praesent eget nibh nisl. Sed scelerisque ligula sed justo lobortis, at pharetra ipsum ornare. Pellentesque non nisl sit amet erat venenatis semper tincidunt sit amet erat.</p>
+                    </div>
+                </div>
+                <div class="portlet-footer">
+                    Dream Team!
+                </div>
+        </div>
     </div>
+
+
+
+    <div class="col-lg-5">
+      <div class="main"> 
+         <div class="datepicker-here" data-language='en'></div>   
+            <ul id="clock">
+                <li id="hour"></li>
+                <li id="min"></li>
+                <li id="sec"></li>
+            </ul>
+        
+            <div id="date">
+                    <span id="monthDay"></span>
+                    <span id="year"></span>
+            </div>
+      </div>
+    </div>
+
+
 </div>
+
+ <div class="row">
+    <div class="col-lg-2 col-sm-6">
+        <div class="circle-tile">
+            <a href="#">
+                <div class="circle-tile-heading dark-blue">
+                    <i class="fa fa-language fa-fw fa-3x"></i>
+                </div>
+            </a>
+            <div class="circle-tile-content dark-blue">
+                <div class="circle-tile-description text-faded">
+                    Languages
+                </div>
+                <div class="circle-tile-number text-faded">
+                    <span id="LanCount"> </span>
+                </div>
+                <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-sm-6">
+        <div class="circle-tile">
+            <a href="#">
+                <div class="circle-tile-heading green">
+                    <i class="fa fa-star fa-fw fa-3x"></i>
+                </div>
+            </a>
+            <div class="circle-tile-content green">
+                <div class="circle-tile-description text-faded">
+                    Integrated development environment
+                </div>
+                <div class="circle-tile-number text-faded">
+                        <span id="IDECount">  </span>
+                </div>
+                <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-sm-6">
+        <div class="circle-tile">
+            <a href="#">
+                <div class="circle-tile-heading orange">
+                    <i class="fa fa-star-half-o fa-fw fa-3x"></i>
+                </div>
+            </a>
+            <div class="circle-tile-content orange">
+                <div class="circle-tile-description text-faded">
+                    Licenses
+                </div>
+                <div class="circle-tile-number text-faded">
+                    <span id="LicCount">  </span>
+                </div>
+                <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-sm-6">
+        <div class="circle-tile">
+            <a href="#">
+                <div class="circle-tile-heading blue">
+                    <i class="fa fa-object-group fa-fw fa-3x"></i>
+                </div>
+            </a>
+            <div class="circle-tile-content blue">
+                <div class="circle-tile-description text-faded">
+                    Paradigms
+                </div>
+                <div class="circle-tile-number text-faded">
+                    <span id="ParCount">  </span>
+                </div>
+                <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-sm-6">
+        <div class="circle-tile">
+            <a href="#">
+                <div class="circle-tile-heading red">
+                    <i class="fa fa-tasks fa-fw fa-3x"></i>
+                </div>
+            </a>
+            <div class="circle-tile-content red">
+                <div class="circle-tile-description text-faded">
+                    Tasks
+                </div>
+                <div class="circle-tile-number text-faded">
+                    <span id="TasCount">  </span>
+                </div>
+                <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-sm-6">
+        <div class="circle-tile">
+            <a href="#">
+                <div class="circle-tile-heading purple">
+                    <i class="fa fa-comments fa-fw fa-3x"></i>
+                </div>
+            </a>
+            <div class="circle-tile-content purple">
+                <div class="circle-tile-description text-faded">
+                    Solutions
+                </div>
+                <div class="circle-tile-number text-faded">
+                    <span id="SolCount">  </span>
+                </div>
+                <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
+            </div>
+        </div>
+    </div>
+ </div>
+
+</div> <!-- end row -->    
+
+</div> @*page-content page-content-ease-in*@
+</div> @*page-wrapper*@
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        console.log("ready!");
+        $.ajax({
+            url: "/Home/GetSummary",
+            success: function (result) {
+                $("#LanCount").html(result.data.LanguageCount);
+                $("#IDECount").html(result.data.IDECount);
+                $("#LicCount").html(result.data.LicenseCount);
+                $("#ParCount").html(result.data.ParadigmCount);
+                $("#TasCount").html(result.data.TaskCount);
+                $("#SolCount").html(result.data.SolutionCount);
+                console.log(result);
+            }
+        });
+    });
+</script>

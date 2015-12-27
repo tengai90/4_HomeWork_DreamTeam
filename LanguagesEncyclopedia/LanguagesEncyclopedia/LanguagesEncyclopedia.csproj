@@ -146,6 +146,7 @@
     <Compile Include="Models\IDEClass.cs" />
     <Compile Include="Models\LanguageCollection.cs" />
     <Compile Include="Models\LicenseClass.cs" />
+    <Compile Include="Models\SummaryModel.cs" />
     <Compile Include="NavigationRoutes\INavigationRouteFilter.cs" />
     <Compile Include="NavigationRoutes\NamedRoute.cs" />
     <Compile Include="NavigationRoutes\NavigationExtensions.cs" />
@@ -161,6 +162,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\datepicker.min.css" />
     <Content Include="Content\fonts\font-awesome\css\font-awesome.css" />
     <Content Include="Content\fonts\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\fonts\font-awesome\fonts\fontawesome-webfont.svg" />
@@ -172,6 +174,10 @@
     <Content Include="Content\img\pic4.jpg" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\Chart.js" />
+    <Content Include="Content\js\clock.js" />
+    <Content Include="Content\js\datepicker.en.js" />
+    <Content Include="Content\js\datepicker.js" />
+    <Content Include="Content\js\datepicker.min.js" />
     <Content Include="Content\js\jquery.js" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
