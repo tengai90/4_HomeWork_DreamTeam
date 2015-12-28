@@ -67,6 +67,9 @@
                            Name: $("#n_language_name").val(),
                            Description: $("#n_language_desc").val(),
                            Date: $("#n_language_date").val(),
+                           //image
+                           Image: $("#n_language_image").val(),
+                           //End
                            IDEId: idsIDE,
                            ParadigmId: idsPARADIGM,
                            RelationshipId: idsRELATIONSHIP,
@@ -89,7 +92,9 @@
     Name: <div style="color: red;">*</div> <input type="text" id="n_language_name" /></br>
     Description: <textarea id="n_language_desc"></textarea></br>
     Date (Year): <div style="color: red;">*</div> <input type="text" maxlength="4" onkeypress='return event.charCode >= 48 && event.charCode <= 57' id="n_language_date" /></br>
-    
+    <!--Image-->
+    Image URL:<input type="text" id="n_language_image" /></br>
+    <!--End-->
     </br><br><br>
     Available IDE's
 

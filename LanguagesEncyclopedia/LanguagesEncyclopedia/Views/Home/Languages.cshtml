@@ -39,9 +39,10 @@
             <th>
                 Relationships
             </th>
-            <!--<th>
-                Tasks
-            </th>-->
+            <!--image-->
+            <th>
+                Image
+            </th>
             <th>
              
             </th>
@@ -90,20 +91,12 @@
 
                     }
                 </td>
-
-                <!--<td>
-                    @{
-                        var listTasks = item.LanguageTasks.Where(p => p.LanguageTaskID == item.LanguageID);
-                                    
-                        foreach (var p in listTasks)
-                        {
-                            
-                          <p>@Html.DisplayFor(model => p.Task.Name);</p>  
-                        }
-                    }
-                </td>-->
+                <!--image-->
                 <td>
-                     <button class="btn btn-primary">@Html.ActionLink("Edit", "LanguageEdit", new { id = item.LanguageID, name = item.Name, desc = item.Description, date = item.Date.Year }, new { @class = "txt_color" }) </button>
+                        <img src= "@Html.DisplayFor(modelItem => item.Image)" alt="" width="100" height="80"/>
+                </td>
+                <td>
+                     <button class="btn btn-primary">@Html.ActionLink("Edit", "LanguageEdit", new { id = item.LanguageID, name = item.Name, desc = item.Description, date = item.Date.Year, image = item.Image }, new { @class = "txt_color" }) </button>
                      <button class="btn btn-info">@Html.ActionLink("Details", "Details", new { id = item.LanguageID }, new { @class = "txt_color" }) </button>
                      <button class="btn btn-danger">@Html.ActionLink("Delete", "LanguageDelete", new { id = item.LanguageID }, new { @class = "txt_color" }) </button>
                 </td>

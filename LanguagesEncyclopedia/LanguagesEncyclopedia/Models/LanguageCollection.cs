@@ -52,6 +52,9 @@ namespace LanguagesEncyclopedia.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public string Date { get; set; }
+        //Dian
+        public string Image { get; set; }
+        //End
         public int[] IDEId { get; set; }
         public int[] ParadigmId { get; set; }
         public int[] RelationshipId { get; set; }

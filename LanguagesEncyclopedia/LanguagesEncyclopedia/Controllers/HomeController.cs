@@ -135,6 +135,8 @@ namespace LanguagesEncyclopedia.Controllers
                 eLan.Name = obj.Name;
                 eLan.Description = obj.Description;
                 eLan.Date = new DateTime(int.Parse(obj.Date), 01, 01);
+                //image
+                eLan.Image = obj.Image;
                 db.SaveChanges();
 
                 var todeleteIDE = db.LanguageIDEs.Where(p => p.LanguageID == obj.id).ToList();
@@ -203,7 +205,7 @@ namespace LanguagesEncyclopedia.Controllers
             return Json(new { Url = redirectUrl });
         }
 
-        public ActionResult LanguageEdit(int? id, string name, string desc, string date)
+        public ActionResult LanguageEdit(int? id, string name, string desc, string date, string image)
         {
             LanguageForWork LanView = new LanguageForWork();
             int idt = id.GetValueOrDefault();
@@ -215,11 +217,15 @@ namespace LanguagesEncyclopedia.Controllers
             LanView.AllLParadigm = db.LanguageParadigms.ToList();
             LanView.Rellist = db.LanguageRelationships.ToList();
 
+            //image
+            ViewBag.image = image;
+
             ViewBag.name = name;
             ViewBag.desc = desc;
             ViewBag.date = date;
             ViewBag.Id = idt;
 
+            
             return View(LanView);
             
         }
@@ -267,6 +273,9 @@ namespace LanguagesEncyclopedia.Controllers
                     toadd.Date = new DateTime(int.Parse(obj.Date), 01, 01);
                     toadd.Description = obj.Description;
 
+                    //Image
+                    toadd.Image = obj.Image;
+                    //End
                     db.Languages.AddObject(toadd);
 
                     db.SaveChanges();

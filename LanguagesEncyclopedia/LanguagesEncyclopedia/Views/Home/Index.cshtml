@@ -47,7 +47,7 @@
 			    <h4>Languages</h4>
                     @foreach (var item in Model)
                     {
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <p>@Html.ActionLink(item.Name, "viewInfo", new {id = item.LanguageID})</p>
                         </div>
                     }
