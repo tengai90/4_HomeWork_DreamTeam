@@ -42,20 +42,17 @@
 
 
 	<div id="dg">
-		<div class="container">
+		<div class="container wb">
 			<div class="row centered">
-			    <h4>Languages</h4>
                     @foreach (var item in Model)
                     {
-                        <div class="col-md-2">
-                            <p>@Html.ActionLink(item.Name, "viewInfo", new {id = item.LanguageID})</p>
-                        </div>
+                      <div class="col-md-3">
+                        <a><b>@Html.ActionLink(item.Name, "viewInfo", new {id = item.LanguageID}, new {@class="button"})</b></a>
+                      </div>     
                     }
-				    <div class="clearfix"></div>
 			</div><!-- row -->
 		</div><!-- container -->
 	</div><!-- DG -->
-
 
 	<!-- FEATURE SECTION -->
 	<div class="container wb">
@@ -68,4 +65,3 @@
 			</div>
 		</div><!-- row -->
 	</div><!-- container -->
-

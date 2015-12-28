@@ -248,3 +248,31 @@ C:\Users\Raimonds\Desktop\test\4_HomeWork_DreamTeam\LanguagesEncyclopedia\Langua
 C:\Users\Raimonds\Desktop\test\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.WebPages.Razor.xml
 C:\Users\Raimonds\Desktop\test\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\obj\Debug\LanguagesEncyclopedia.dll
 C:\Users\Raimonds\Desktop\test\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\obj\Debug\LanguagesEncyclopedia.pdb
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\LanguagesEncyclopedia.dll
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\LanguagesEncyclopedia.pdb
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\Antlr3.Runtime.dll
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\EntityFramework.dll
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\Microsoft.Web.Mvc.dll
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\Newtonsoft.Json.dll
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Net.Http.dll
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Net.Http.WebRequest.dll
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.Mvc.dll
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.Optimization.dll
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.Providers.dll
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.Razor.dll
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.WebPages.Deployment.dll
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.WebPages.dll
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.WebPages.Razor.dll
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\WebGrease.dll
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\EntityFramework.xml
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\Newtonsoft.Json.xml
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Net.Http.xml
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Net.Http.WebRequest.xml
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.Mvc.xml
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.Razor.xml
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.WebPages.xml
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.WebPages.Deployment.xml
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.WebPages.Razor.xml
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\obj\Debug\LanguagesEncyclopedia.dll
+C:\Users\User\Desktop\ASP NET Dream Team\CURRRENT WORK\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\obj\Debug\LanguagesEncyclopedia.pdb
