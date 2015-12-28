@@ -24,7 +24,8 @@ namespace LanguagesEncyclopedia.Controllers
 
         public ActionResult Index()
         {
-            return View();
+
+            return View(db.Languages.ToList());
         }
         public ActionResult About()
         {
@@ -539,13 +540,13 @@ namespace LanguagesEncyclopedia.Controllers
         //Add License
 
         
- public ActionResult Create(int? id)    
-    {    
-     int idt = id.GetValueOrDefault();
-     ViewBag.AID = idt;
+        public ActionResult Create(int? id)    
+        {    
+            int idt = id.GetValueOrDefault();
+            ViewBag.AID = idt;
 
-        return View();    
-    } 
+            return View();    
+        } 
         
         [HttpPost]
         public ActionResult AddLicense (LicenseClass obj)
@@ -563,10 +564,19 @@ namespace LanguagesEncyclopedia.Controllers
             var redirectUrl = new UrlHelper(Request.RequestContext).Action("Licenses", "Home");
             return Json(new { Url = redirectUrl });
         }
-   
-
   
         //End Add License
+
+        public ActionResult viewInfo(int id = 0)
+        {
+            Language language = db.Languages.Single(s => s.LanguageID == id);
+
+            if (language == null)
+            {
+                return HttpNotFound();
+            }
+            return View(language);
+        }
 
     }
 }

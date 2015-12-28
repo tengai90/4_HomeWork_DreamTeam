@@ -8,6 +8,7 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.Collections;
 using System.ComponentModel;
 using System.Data.EntityClient;
 using System.Data.Objects;
@@ -518,7 +519,7 @@ namespace LanguagesEncyclopedia
     [EdmEntityTypeAttribute(NamespaceName="EncyclopediaModel", Name="Language")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class Language : EntityObject
+    public partial class Language : EntityObject, IEnumerable
     {
         #region Factory Method
     
@@ -781,6 +782,10 @@ namespace LanguagesEncyclopedia
 
         #endregion
 
+        public IEnumerator GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
     }
     
     /// <summary>

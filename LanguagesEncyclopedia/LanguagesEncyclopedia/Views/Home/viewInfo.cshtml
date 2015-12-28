@@ -1,0 +1,70 @@
+﻿@model LanguagesEncyclopedia.Language
+
+@{
+    ViewBag.Title = "Info";
+}
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-md-12">
+                <h1>@Html.DisplayFor(model => model.Name)</h1>
+                <hr/>
+                <p>@Html.DisplayFor(model => model.Description)</p>
+                <p>
+                    @Html.LabelFor(model => model.Date, "Year: ") 
+                    @Html.DisplayFor(model => model.Date.Year)
+                </p>
+                <p>
+                    @Html.LabelFor(model => model.LanguageParadigms, "Paradigm type: ")
+                </p>
+                    @{
+                        var listParadigma = Model.LanguageParadigms.Where(p => p.LanguageID == Model.LanguageID);
+
+                        foreach (var p in listParadigma)
+                        {
+                            <div class="col-md-3">
+                                <p>&bull; @Html.DisplayFor(model => p.Paradigm.Name)</p>
+                            </div>
+                        }
+                    }
+                <div class="clearfix"></div>
+                <p>
+                    @Html.LabelFor(model => model.LanguageIDEs, "IDE list: ")
+                </p>
+                    @{
+                        var listIDE = Model.LanguageIDEs.Where(p => p.LanguageID == Model.LanguageID);
+
+                        foreach (var p in listIDE)
+                        {
+                            <div class="col-md-3">
+                                <p>&bull; @Html.DisplayFor(model => p.IDE.Name)</p>
+                            </div>
+                        }
+                    }
+                <div class="clearfix"></div>
+                <p>
+                    @Html.LabelFor(model => model.LanguageRelationships, "Related languages: ")
+                </p>
+                    @{
+                        var listRelated = Model.LanguageRelationships1.Where(p => p.LanguageID == Model.LanguageID);
+
+                        foreach (var p in listRelated)
+                        {
+                            <div class="col-md-3">
+                                <p>&bull; @Html.DisplayFor(model => p.Language.Name)</p>
+                            </div>
+                        }
+                    }
+                <div class="clearfix"></div>
+            </div>
+
+        </div> @* row *@
+    </div>
+
+      
+</div>
+
+
+

@@ -124,7 +124,6 @@ C:\Users\Raimonds\Desktop\4_md_asp\4_HomeWork_DreamTeam\LanguagesEncyclopedia\La
 C:\Users\Raimonds\Desktop\4_md_asp\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.WebPages.xml
 C:\Users\Raimonds\Desktop\4_md_asp\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Raimonds\Desktop\4_md_asp\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\System.Web.WebPages.Razor.xml
-C:\Users\Raimonds\Desktop\4_md_asp\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\obj\Debug\LanguagesEncyclopedia.csprojResolveAssemblyReference.cache
 C:\Users\Raimonds\Desktop\4_md_asp\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\obj\Debug\LanguagesEncyclopedia.dll
 C:\Users\Raimonds\Desktop\4_md_asp\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\obj\Debug\LanguagesEncyclopedia.pdb
 C:\Users\Diana\Desktop\ASP_4_HW\4_HomeWork_DreamTeam\LanguagesEncyclopedia\LanguagesEncyclopedia\bin\LanguagesEncyclopedia.dll

@@ -280,6 +280,7 @@
     <Content Include="Views\Home\EditParadigm.cshtml" />
     <Content Include="Views\Shared\_MainLayout.cshtml" />
     <Content Include="Views\Shared\_ServiceLayout.cshtml" />
+    <None Include="Views\Home\viewInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

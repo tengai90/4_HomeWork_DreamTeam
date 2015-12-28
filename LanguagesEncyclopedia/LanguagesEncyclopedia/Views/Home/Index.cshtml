@@ -1,7 +1,9 @@
-﻿@{
+﻿@model IEnumerable<LanguagesEncyclopedia.Language>
+
+@{
     ViewBag.Title = "Index";
 }
-<div id="headerwrap">
+    <div id="headerwrap">
 		<div class="container">
 			<div class="row centered">
 				<div class="col-lg-8 col-lg-offset-2">
@@ -10,7 +12,7 @@
 				</div>
 			</div><!-- row -->
 		</div><!-- container -->
-	</div><!-- headerwrap -->
+    </div><!-- headerwrap -->
 
 
     <div class="container w">
@@ -39,12 +41,17 @@
 	    </div><!-- container -->
 
 
-	<!-- PORTFOLIO SECTION -->
 	<div id="dg">
 		<div class="container">
 			<div class="row centered">
-				<h4>Languages</h4>
-				<br/>Languages List
+			    <h4>Languages</h4>
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-3">
+                            <p>@Html.ActionLink(item.Name, "viewInfo", new {id = item.LanguageID})</p>
+                        </div>
+                    }
+				    <div class="clearfix"></div>
 			</div><!-- row -->
 		</div><!-- container -->
 	</div><!-- DG -->
