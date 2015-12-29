@@ -4,6 +4,8 @@
     $(document).ready(function () {
         //function will be called on button click having id btnsave
         $("#btnCreate").click(function () {
+            document.getElementById("btnCreate").disabled = true;
+
             var pass = 0;
             var nam = document.getElementById('n_paradigm_name').value;
             if (nam == '') { alert("Name is empty"); pass = 1; }

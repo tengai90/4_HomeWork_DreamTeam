@@ -12,6 +12,8 @@
     $(document).ready(function () {
         //function will be called on button click having id btnsave
         $("#btnEdit").click(function () {
+            document.getElementById("btnEdit").disabled = true;
+
             var ids=[];
 
             var inputs = document.getElementsByTagName("input");

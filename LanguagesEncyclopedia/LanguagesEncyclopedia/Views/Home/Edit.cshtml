@@ -12,6 +12,8 @@
     $(document).ready(function () {
         //function will be called on button click having id btnsave
         $("#btnEdit").click(function () {
+            document.getElementById("btnEdit").disabled = true;
+
             var pass = 0;
             var nam = document.getElementById('e_license').value;
             if (nam == '') { alert("Name is empty"); pass = 1; }

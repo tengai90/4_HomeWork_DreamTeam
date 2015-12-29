@@ -13,6 +13,8 @@
         $(document).ready(function () {
             //function will be called on button click having id btnsave
             $("#btnAdd").click(function () {
+                document.getElementById("btnAdd").disabled = true;
+
                 var pass = 0;
                 var nam = document.getElementById('n_license').value;
                 if (nam == '') { alert("Name is empty"); pass = 1; }
