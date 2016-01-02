@@ -14,7 +14,49 @@
                 <hr/>
                 <p>@Html.DisplayFor(model => model.Description)</p>
                 <!--<div class="clearfix"></div>-->
-                
+             <!--TASKS-->
+                <div class="row">
+
+                @{
+                    var listTasks = Model.LanguageTasks.Where(p => p.LanguageID == Model.LanguageID);
+
+                    foreach (var p in listTasks)
+                    {       
+                        <div class="col-md-6">
+                            <div class="portlet portlet-red">
+                            <div class="portlet-heading">
+                                <div class="portlet-title">
+                                    <h4>@Html.DisplayFor(model => p.Task.Name)</h4>
+                                </div>
+
+                                <div class="portlet-widgets">
+                                    <span class="divider"></span>
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#@Html.DisplayFor(model => p.Task.TaskID)"><i class="fa fa-chevron-down"></i></a>
+                                </div>
+                                <div class="clearfix"></div>
+                             </div>
+                    
+                                <div class="portlet-footer">
+                                   @Html.DisplayFor(model => p.Task.Description)               
+                                </div> 
+                    
+            
+                                <div id="@Html.DisplayFor(model => p.Task.TaskID)" class="panel-collapse collapse in">
+                                    <div class="portlet-body">
+                                         @{
+                                         var solutions = p.Solutions.Where(c => c.LanguageTaskID == p.LanguageTaskID);
+                                             foreach(var s in solutions)
+                                             {
+                                                @Html.Raw(System.Web.HttpUtility.HtmlDecode(s.Description)) <hr class="hr_color"/>
+                                             }
+                                         }
+                                    </div>
+                                </div>        
+                        </div>
+                        </div><!--col-md-6-->
+            }        //foreach
+         }               
+        </div><!--END OF TASKS-->   
              </div><!--col-md-8-->
              <div class="col-md-4">
              <div class="panel panel-default panel_top">
@@ -70,4 +112,22 @@
     </div>
 
       
+</div>
+<!--LANGUAGE LIST -->
+<div class="container wb other">
+		<div class="row centered">
+        <hr/>
+        <h4>Other Languages</h4>
+        <hr />
+			<div class="row">
+        @{
+              foreach(var l in ViewBag.AllLang)
+              {
+                <div class="col-md-1">
+                    <a><b>@Html.ActionLink((string)l.Name, "viewInfo", new { id = l.LanguageID })</b></a>
+                </div>     
+              }
+         }
+            </div><!-- row -->
+      </div>
 </div>

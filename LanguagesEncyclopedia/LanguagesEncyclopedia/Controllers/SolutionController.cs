@@ -75,7 +75,7 @@ namespace LanguagesEncyclopedia.Controllers
         //
         // POST: /Solution/Create
 
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult Create(MergedSolutionModel model)
         {
             if (ModelState.IsValid)
@@ -117,7 +117,7 @@ namespace LanguagesEncyclopedia.Controllers
         //
         // POST: /Solution/Edit/5
 
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult Edit(MergedSolutionModel model)
         {
             if (ModelState.IsValid)

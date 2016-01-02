@@ -584,6 +584,7 @@ namespace LanguagesEncyclopedia.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.AllLang = db.Languages.ToList();
             return View(language);
         }
 

@@ -51,7 +51,7 @@
          @Html.LabelFor(model => model.Description, "Description")
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Description)
+       @Html.Raw(System.Web.HttpUtility.HtmlDecode(Model.Description))
     </div>
 
 </div>

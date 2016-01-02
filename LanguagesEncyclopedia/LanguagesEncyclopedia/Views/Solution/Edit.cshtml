@@ -65,11 +65,13 @@
 
             <label class="control-label">@Html.LabelFor(model => model.solution.Description)</label><span style="color: red;"> *</span>
             <div>
-             @Html.TextBoxFor(model => model.solution.Description, new { @class = "form-control" })
+             @Html.TextAreaFor(model => model.solution.Description, new { @class = "form-control" })
             </div>
             @Html.ValidationMessageFor(model => model.solution.Description)
-            <small class="help-block">The name is required</small>
-        
+            <small class="help-block">The description is required</small>
+             <script>
+                 CKEDITOR.replace('solution_Description');
+            </script>
         </div>
          <div class="col-xs-6 has-feedback">
 
@@ -78,7 +80,7 @@
            @Html.DropDownListFor(m => m.solution.LanguageTaskID, Model.LanguageTasks, new { @class = "form-control" })
             </div>
            @Html.ValidationMessageFor(model => model.solution.LanguageTaskID)
-            <small class="help-block">The name is required</small>
+            <small class="help-block">The task is required</small>
         
         </div>
 

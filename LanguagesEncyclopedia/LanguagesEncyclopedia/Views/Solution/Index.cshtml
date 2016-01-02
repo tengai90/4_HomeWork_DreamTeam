@@ -69,7 +69,7 @@
             @Html.DisplayFor(modelItem => item.LanguageTask.Language.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Description)
+            @Html.Raw(System.Web.HttpUtility.HtmlDecode(item.Description))
         </td>
         <td>
             @Html.ActionLink(" ", "Edit", new { id = item.SolutionID }, new { @class = "btn btn-primary glyphicon glyphicon-edit" })
