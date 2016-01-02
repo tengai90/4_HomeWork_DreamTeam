@@ -9,18 +9,63 @@
 }
 
 <div id="page-wrapper">
-  <div class="container-fluid">
+  <div class="page-content page-content-ease-in">
        <div class="row">
            <div class="col-mg-12">
-                <h1 class="page-header">Edit Tasks</h1>
+            <div class="page-title">
+               <h1> Edit task</h1>
+                            <ol class="breadcrumb">
+                                <li><i class="fa fa-dashboard"></i>  <a href="@Url.Action("Service", "Home")"> Service </a>
+                                </li>
+                                <li class="active">Edit task</li>
+                            </ol>
             </div>
        </div>
-    </div>
+
+           <div class="row">
+
+                    <div class="col-mg-12">
+
+                        <div class="tableportlet portlet-default">
+                            <div class="portlet-heading">
+                                <div class="portlet-title">
+                                    <h4>Task data table</h4>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="portlet-tablebody">
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
-    <fieldset>
+        <div class="form-group">
+       <div class="row">
+
+         <div class="col-xs-6 has-feedback">
+
+          @Html.HiddenFor(model => model.TaskID)
+
+            <label class="control-label">@Html.LabelFor(model => model.Name)</label><span style="color: red;"> *</span>
+            <div>
+             @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+            </div>
+            @Html.ValidationMessageFor(model => model.Name)
+            <small class="help-block">The name is required</small>
+        
+        </div>
+
+        <div class="col-xs-6 has-feedback">
+
+            <label class="control-label">@Html.LabelFor(model => model.Description)</label><span style="color: red;"> *</span>
+            <div>
+            @Html.TextBoxFor(model => model.Description, new { @class = "form-control"})
+            </div>
+            @Html.ValidationMessageFor(model => model.Description)
+            <small class="help-block">The description is required</small>
+        
+        </div>
+    
+@*    <fieldset>
         <legend>Task</legend>
 
         @Html.HiddenFor(model => model.TaskID)
@@ -44,14 +89,30 @@
         <p>
             <input type="submit" value="Save" />
         </p>
-    </fieldset>
+    </fieldset>*@
+
+    <div class="col-xs-6" style="padding-top: 10px"> @Html.ActionLink("Back", "Index", "Task", new { @class = "btn btn-warning" }) <input type="submit" value="Save" class="btn btn-success" /> </div>
+
+        </div>
+   </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+                            </div>
+                            <!-- /.portlet-body -->
+                        </div>
+                        <!-- /.portlet -->
+
+                    </div>
+                    <!-- /.col-lg-12 -->
+
+                </div>
+
+
+</div>
+</div>
+
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
-    </div>

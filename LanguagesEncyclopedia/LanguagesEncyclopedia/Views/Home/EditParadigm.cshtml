@@ -5,15 +5,9 @@
 @{
     ViewBag.Title = "EditParadigm";
 }
-<div id="page-wrapper">
-  <div class="container-fluid">
-       <div class="row">
-           <div class="col-mg-12">
-                <h1 class="page-header">Edit Paradigm</h1>
-            </div>
-       </div>
-    </div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
 <script>
     $(document).ready(function () {
         //function will be called on button click having id btnsave
@@ -21,7 +15,7 @@
             document.getElementById("btnEdit").disabled = true;
             var pass = 0;
             var nam = document.getElementById('e_paradigm').value;
-            if (nam == '') { alert("Name is empty"); pass = 1; }
+            if (nam == '') { alert("Name is empty"); pass = 1; document.getElementById("btnEdit").disabled = false;}
             if(pass==0){
                 $.ajax(
                 {
@@ -41,7 +35,63 @@
         });
 
 </script>
-Name: <div style="color: red;">*</div> <input type="text" id="e_paradigm" value="@Model.Name" /></br>
+@*Name: <div style="color: red;">*</div> <input type="text" id="e_paradigm" value="@Model.Name" /></br>
 
 <input id="btnEdit" type="button" value="Edit" />
+</div>*@
+
+<div id="page-wrapper">
+  <div class="page-content page-content-ease-in">
+       <div class="row">
+           <div class="col-mg-12">
+            <div class="page-title">
+               <h1> Edit paradigm </h1>
+                            <ol class="breadcrumb">
+                                <li><i class="fa fa-dashboard"></i>  <a href="@Url.Action("Service", "Home")"> Service </a>
+                                </li>
+                                <li class="active">Edit paradigm </li>
+                            </ol>
+            </div>
+       </div>
+
+
+
+    <div class="row">
+
+                    <div class="col-mg-12">
+
+                        <div class="tableportlet portlet-default">
+                            <div class="portlet-heading">
+                                <div class="portlet-title">
+                                    <h4>Paradigm data table</h4>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="portlet-tablebody">
+
+
+<div class="form-group">
+        <div class="row">
+            <div class="col-xs-4 has-feedback">
+                <label class="control-label">Name</label><span style="color: red;"> *</span>
+                <input type="text" class="form-control" name="name" id="e_paradigm" value="@Model.Name"/>
+               <small class="help-block">The name is required</small></div>
+           
+        </div>
+    </div>
+
+ <p> @Html.ActionLink("Back", "Paradigms", "Home", new { @class = "btn btn-warning" })  <input id="btnEdit" type="button" value="Edit" class="btn btn-success"/> </p>
+
+                            </div>
+                            <!-- /.portlet-body -->
+                        </div>
+                        <!-- /.portlet -->
+
+                    </div>
+                    <!-- /.col-lg-12 -->
+
+                </div>
+
+
+</div>
 </div>

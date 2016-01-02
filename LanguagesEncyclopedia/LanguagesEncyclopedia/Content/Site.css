@@ -655,6 +655,17 @@ border-left: 1px solid #2c3e50;
 } 
 
 /*portlet*/
+.tableportlet
+{
+    border: 1px solid;    
+}
+
+.portlet-tablebody {
+    padding: 15px;
+    background: #fff;
+}
+
+
 .portlet {
     @include border-radius(4px); 
     -webkit-box-shadow: 0px 10px 10px rgba(47, 40, 39, 0.9),
@@ -668,6 +679,11 @@ border-left: 1px solid #2c3e50;
 
 .portlet .portlet-heading .portlet-title {
     float: left;
+}
+
+.portlet-title
+{
+  padding-left: 15px;    
 }
 
 .portlet .portlet-heading .portlet-widgets {

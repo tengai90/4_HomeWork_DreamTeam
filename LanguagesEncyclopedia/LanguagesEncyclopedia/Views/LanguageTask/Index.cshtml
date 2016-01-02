@@ -8,17 +8,34 @@
 }
 
 <div id="page-wrapper">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-mg-12">
-                <h1 class="page-header">LanguageTask</h1>
+  <div class="page-content page-content-ease-in">
+       <div class="row">
+           <div class="col-mg-12">
+            <div class="page-title">
+               <h1> Language && Tasks</h1>
+                            <ol class="breadcrumb">
+                                <li><i class="fa fa-dashboard"></i>  <a href="@Url.Action("Service", "Home")"> Service </a>
+                                </li>
+                                <li class="active">Language && Tasks</li>
+                            </ol>
             </div>
-        </div>
-    </div>
+       </div>
 
-    <p>
-        <button class="btn btn-primary">@Html.ActionLink("Create New", "Create", "LanguageTask", new { @class = "txt_color" })</button>
-    </p>
+
+
+    <div class="row">
+
+                    <div class="col-mg-12">
+
+                        <div class="tableportlet portlet-default">
+                            <div class="portlet-heading">
+                                <div class="portlet-title">
+                                    <h4>Language && Tasks data table</h4>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="portlet-tablebody">
+    <p> @Html.ActionLink("Create", "Create", "LanguageTask", new { @class = "btn btn-success" }) </p>
 
     <table id = "table" class="table table-bordered ">
     <thead>
@@ -43,16 +60,28 @@
                     @Html.DisplayFor(modelItem => item.Task.Name)
                 </td>
                 <td>
-                     <button class="btn btn-primary">@Html.ActionLink("Edit", "Edit", new { id = item.LanguageTaskID }, new { @class = "txt_color" }) </button>
-                     <button class="btn btn-info">@Html.ActionLink("Details", "Details", new { id = item.LanguageTaskID }, new { @class = "txt_color" }) </button>
-                     <button class="btn btn-danger">@Html.ActionLink("Delete", "Delete", new { id = item.LanguageTaskID }, new { @class = "txt_color" }) </button>
+                     @Html.ActionLink(" ", "Edit", new { id = item.LanguageTaskID }, new { @class = "btn btn-primary glyphicon glyphicon-edit" })
+                     @Html.ActionLink(" ", "Details", new { id = item.LanguageTaskID }, new { @class = "btn btn-info glyphicon glyphicon-comment" })
+                     @Html.ActionLink(" ", "Delete", new { id = item.LanguageTaskID }, new { @class = "btn btn-danger glyphicon glyphicon-remove" }) 
                 </td>
             </tr>
         }
         </tbody>
     </table>
-</div>
+                            </div>
+                            <!-- /.portlet-body -->
+                        </div>
+                        <!-- /.portlet -->
 
+                    </div>
+                    <!-- /.col-lg-12 -->
+
+                </div>
+
+
+</div>
+</div>
+</div>
 <script type="text/javascript">
     console.log("OK");
     $(document).ready(function () {

@@ -4,54 +4,120 @@
     Layout = "~/Views/Shared/_ServiceLayout.cshtml";
 }
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Create";
 }
 
 <div id="page-wrapper">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-mg-12">
-                <h1 class="page-header">Edit</h1>
+  <div class="page-content page-content-ease-in">
+       <div class="row">
+           <div class="col-mg-12">
+            <div class="page-title">
+               <h1> Create language && task</h1>
+                            <ol class="breadcrumb">
+                                <li><i class="fa fa-dashboard"></i>  <a href="@Url.Action("Service", "Home")"> Service </a>
+                                </li>
+                                <li class="active">Create language && task</li>
+                            </ol>
             </div>
-        </div>
-    </div>
+       </div>
+
+           <div class="row">
+
+                    <div class="col-mg-12">
+
+                        <div class="tableportlet portlet-default">
+                            <div class="portlet-heading">
+                                <div class="portlet-title">
+                                    <h4>Language && task data table</h4>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="portlet-tablebody">
 
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>LanguageTask</legend>
 
         @Html.HiddenFor(model => model.LanguageTaskID)
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.LanguageID, "Language")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("LanguageID", String.Empty)
-            @Html.ValidationMessageFor(model => model.LanguageID)
-        </div>
+     <div class="form-group">
+       <div class="row">
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.TaskID, "Task")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("TaskID", String.Empty)
-            @Html.ValidationMessageFor(model => model.TaskID)
-        </div>
+         <div class="col-xs-6 has-feedback">
 
-        <p>
-            <input type="submit" value="Save" />
-        </p>
-    </fieldset>
+            <label class="control-label">@Html.LabelFor(model => model.LanguageID, "Language")</label><span style="color: red;"> *</span>
+            <div>
+@*             @Html.DropDownList("LanguageID", String.Empty)*@
+             <select id="LanguageID" name="LanguageID" class="form-control">
+             @foreach (var option in ViewBag.Languages)
+             {
+                 if (Model.LanguageID == option.LanguageID)
+                 {
+                 <option value="@option.LanguageID" selected="selected">@option.Name </option>
+                 }
+                 else
+                 {
+                     <option value="@option.LanguageID">@option.Name </option>
+                 }
+             }
+  
+</select>
+            </div>
+             @Html.ValidationMessageFor(model => model.LanguageID)
+            <small class="help-block">The name is required</small>
+        
+        </div>
+ 
+
+         <div class="col-xs-6 has-feedback">
+
+            <label class="control-label">@Html.LabelFor(model => model.TaskID, "Task")</label><span style="color: red;"> *</span>
+            <div>
+
+             <select id="TaskID" name="TaskID" class="form-control">
+             @foreach (var option in ViewBag.Tasks)
+             {
+                 if (Model.TaskID == option.TaskID)
+                 {
+                 <option value="@option.TaskID" selected="selected">@option.Name </option>
+                 }
+                 else
+                 {
+                     <option value="@option.TaskID">@option.Name </option>
+                 }
+             }
+             </select>
+
+         </div>
+             @Html.ValidationMessageFor(model => model.TaskID)
+            <small class="help-block">The description is required</small>
+        </div>
+    
+    
+        <div class="col-xs-6" style="padding-top: 10px"> @Html.ActionLink("Back", "Index", "LanguageTask", new { @class = "btn btn-warning" }) <input type="submit" value="Edit" class="btn btn-success" /> </div>
+
+        </div>
+   </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+                            </div>
+                            <!-- /.portlet-body -->
+                        </div>
+                        <!-- /.portlet -->
+
+                    </div>
+                    <!-- /.col-lg-12 -->
+
+                </div>
+
+
 </div>
+</div>
+
+</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
-</div>

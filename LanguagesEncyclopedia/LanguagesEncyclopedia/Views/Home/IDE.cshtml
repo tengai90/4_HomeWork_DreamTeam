@@ -9,28 +9,45 @@
 }
 
 <div id="page-wrapper">
-  <div class="container-fluid">
+  <div class="page-content page-content-ease-in">
        <div class="row">
            <div class="col-mg-12">
-                <h1 class="page-header">IDE</h1>
+            <div class="page-title">
+               <h1> Integrated development environment</h1>
+                            <ol class="breadcrumb">
+                                <li><i class="fa fa-dashboard"></i>  <a href="@Url.Action("Service", "Home")"> Service </a>
+                                </li>
+                                <li class="active">IDE</li>
+                            </ol>
             </div>
-       </div>
-    </div>
+       
 
 
-<p>
-    <button class="btn btn-primary">@Html.ActionLink("Create New", "IDECreate", "Home", new { @class = "txt_color" })</button>
-</p>
-    <table id="table" class="table table-bordered">
+
+    <div class="row">
+
+                    <div class="col-mg-12">
+
+                        <div class="tableportlet">
+                            <div class="portlet-heading">
+                                <div class="portlet-title">
+                                    <h4>IDE data table</h4>
+                                </div>
+
+                            </div>
+                            <div class="portlet-tablebody">
+                              
+   <p> @Html.ActionLink("Create", "IDECreate", "Home", new { @class = "btn btn-success" })</p>  
+   <table id="table" class="table table-bordered">
          <thead>
-            <tr>
+            <tr style="width: 10%">
                 <th>
                     @Html.DisplayNameFor(model => model.Name)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.URL)
                 </th>
-                <th>Service</th>
+                <th style="width: 6%"> </th>
             </tr>
         </thead>
 
@@ -45,16 +62,33 @@
                         <a href="@Html.DisplayFor(modelItem => item.URL)">@Html.DisplayFor(modelItem => item.URL)</a> 
                     </td>
                     <td>
-                        <button class="btn btn-primary">@Html.ActionLink("Edit", "IDEEdit", new { id = item.IDEID, name = item.Name, url = item.URL }, new { @class = "txt_color" })</button>
-                        <button class="btn btn-info">@Html.ActionLink("Details", "Details", new { id = item.IDEID }, new { @class = "txt_color" })</button>
-                        <button class="btn btn-danger">@Html.ActionLink("Delete", "DeleteIDE", new { id = item.IDEID }, new { @class = "txt_color" })</button>
+                        @Html.ActionLink(" ", "IDEEdit", new { id = item.IDEID, name = item.Name, url = item.URL }, new { @class = "btn btn-primary glyphicon glyphicon-edit" })
+                       @* @Html.ActionLink("Details", "Details", new { id = item.IDEID }, new { @class = "btn btn-info" })*@
+                        @Html.ActionLink(" ", "DeleteIDE", new { id = item.IDEID }, new { @class = "btn btn-danger glyphicon glyphicon-remove" })
                     </td>
                 </tr>
             }
         </tbody>
     </table>
+
+                              
+                              
+                            </div>
+                            <!-- /.portlet-body -->
+                        </div>
+                        <!-- /.portlet -->
+</div>
+                    </div>
+                    <!-- /.col-lg-12 -->
+
+                </div>
+
+
 </div>
 
+</div>
+</div>
+</div>
 
 <script type="text/javascript">
     console.log("OK");

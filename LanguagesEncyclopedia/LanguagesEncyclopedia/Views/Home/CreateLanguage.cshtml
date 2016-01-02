@@ -5,16 +5,8 @@
 @{
     ViewBag.Title = "CreateLanguage";
 }
-<div id="page-wrapper">
-  <div class="container-fluid">
-       <div class="row">
-           <div class="col-mg-12">
-                <h1 class="page-header">Create Language</h1>
-            </div>
-       </div>
-    </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+@*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>*@
 <script>
     $(document).ready(function () {
         //function will be called on button click having id btnsave
@@ -55,8 +47,8 @@
             var nam=document.getElementById('n_language_name').value;
 
             
-            if(nam==''){alert("Name is empty!"); pass=1;} 
-            if(n<nn){alert("Invalid year!"); pass=1;}
+            if(nam==''){alert("Name is empty!"); pass=1; document.getElementById("btnCreate").disabled = false;} 
+            if(n<nn){alert("Invalid year!"); pass=1; document.getElementById("btnCreate").disabled = false;}
             if (pass == 0) {
 
                 $.ajax(
@@ -90,27 +82,89 @@
 
 </script>
 
+<div id="page-wrapper">
+  <div class="page-content page-content-ease-in">
+       <div class="row">
+           <div class="col-mg-12">
+            <div class="page-title">
+               <h1> Create language</h1>
+                            <ol class="breadcrumb">
+                                <li><i class="fa fa-dashboard"></i>  <a href="@Url.Action("Service", "Home")"> Service </a>
+                                </li>
+                                <li class="active">Create language</li>
+                            </ol>
+            </div>
+       </div>
+
+           <div class="row">
+
+                    <div class="col-mg-12">
+
+                        <div class="tableportlet portlet-default">
+                            <div class="portlet-heading">
+                                <div class="portlet-title">
+                                    <h4>Language data table</h4>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="portlet-tablebody">
+
+
+<div class="form-group">
+        <div class="row">
+            <div class="col-xs-4 has-feedback">
+                <label class="control-label">Name</label><span style="color: red;"> *</span>
+                <input type="text" class="form-control" name="name" id="n_language_name" />
+               <small class="help-block">The name is required</small>
+            </div>
+
+         <div class="col-xs-4 has-feedback">
+              <label class="control-label">Description</label>
+              <textarea class="form-control" rows="6" id="n_language_desc" style="resize: none"></textarea>
+              <small class="help-block">Maximal quantity of symbols is 1000</small>
+        </div>
+
+        <div class="col-xs-4 has-feedback">
+              <label class="control-label">Date</label><span style="color: red;"> *</span>
+              <input type="text" class="form-control" name="date" maxlength="4" onkeypress='return event.charCode >= 48 && event.charCode <= 57' id="n_language_date" />
+              <small class="help-block">The created year is required</small>
+        </div>
+
+        <div class="col-xs-4 has-feedback">
+              <label class="control-label">Image URL</label>
+              <input type="text" class="form-control" name="image" id="n_language_image"/>
+              <small class="help-block">Maximal length of reference is 50 symbols</small>
+
+        </div>
+
+    </div>
+</div>
+
+@*
     </br>
     Name: <div style="color: red;">*</div> <input type="text" id="n_language_name" /></br>
     Description: <textarea id="n_language_desc"></textarea></br>
     Date (Year): <div style="color: red;">*</div> <input type="text" maxlength="4" onkeypress='return event.charCode >= 48 && event.charCode <= 57' id="n_language_date" /></br>
     <!--Image-->
     Image URL:<input type="text" id="n_language_image" /></br>
-    <!--End-->
-    </br><br><br>
-    Available IDE's
+    <!--End-->*@
 
-    <br>
 
-    <table class="table table-bordered">
-        <tr class="btn-warning">
+
+<h3>Integrated development environment</h3>
+<hr/>
+    <table id="table" class="table table-bordered">
+       <thead>
+            <tr>
             <th>
-                Name
+               IDE Name
             </th>
             <th>
                 CheckIt
             </th>
         </tr>
+       </thead>
+       <tbody>
         @foreach (var a in Model.AllIDE)
         {
             <tr>
@@ -137,13 +191,16 @@
                 </td>
             </tr>
         }
-    </table>
-    </br><br><br>
-    Available Paradigm's
+ </tbody>
+</table>
 
-    <br>
-    <table class="table table-bordered">
-        <tr class="btn-warning">
+
+
+<h3>Paradigms</h3>
+<hr/>
+    <table id="table2" class="table table-bordered">
+        <thead>
+            <tr>
             <th>
                 Name
             </th>
@@ -151,6 +208,8 @@
                 CheckIt
             </th>
         </tr>
+               </thead>
+       <tbody>
         @foreach (var b in Model.AllParadigm)
             {
             <tr>
@@ -176,13 +235,15 @@
                 </td>
             </tr>
         }
+         </tbody>
     </table>
-    </br><br><br>
-    Available Language's
 
-    <br>
-    <table class="table table-bordered">
-        <tr class="btn-warning">
+
+<h3>Influenced by</h3>
+ <hr/>
+     <table id="table3" class="table table-bordered">
+         <thead>
+            <tr>
             <th>
                 Name
             </th>
@@ -190,6 +251,8 @@
                 CheckIt
             </th>
         </tr>
+       </thead>
+       <tbody>
         @foreach (var b in Model.LanList)
             {
             <tr>
@@ -215,7 +278,33 @@
                 </td>
             </tr>
         }
-    </table>
-    <input id="btnCreate" type="button" value="Create" />
-    </div>
+ </tbody>
+</table>
+
+   <p> @Html.ActionLink("Back", "Languages", "Home", new { @class = "btn btn-warning" }) <input id="btnCreate" type="button" value="Create" class="btn btn-success" /> </p>
+
+                            </div>
+                            <!-- /.portlet-body -->
+                        </div>
+                        <!-- /.portlet -->
+
+                    </div>
+                    <!-- /.col-lg-12 -->
+
+                </div>
+
+
+</div>
+</div>
+
+</div>
+
+<script type="text/javascript">
+        console.log("OK");
+        $(document).ready(function () {
+            $('#table').DataTable();
+            $('#table2').DataTable();
+            $('#table3').DataTable();
+        });
+</script>
 

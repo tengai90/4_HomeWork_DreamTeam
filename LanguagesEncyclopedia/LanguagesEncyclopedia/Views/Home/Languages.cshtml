@@ -6,44 +6,58 @@
     ViewBag.Title = "Languages";
 }
 <div id="page-wrapper">
-    <div class="container-fluid">
+    <div class="page-content page-content-ease-in">
         <div class="row">
             <div class="col-mg-12">
-                <h1 class="page-header">Language</h1>
+                <div class="page-title">
+               <h1> Languages</h1>
+                            <ol class="breadcrumb">
+                                <li><i class="fa fa-dashboard"></i>  <a href="@Url.Action("Service", "Home")"> Service </a>
+                                </li>
+                                <li class="active">Languages</li>
+                            </ol>
+                </div>
             </div>
-        </div>
-    </div>
+  
+   <div class="row">
+       <div class="col-mg-12">
+           <div class="tableportlet portlet-default">
+                            <div class="portlet-heading">
+                                <div class="portlet-title">
+                                    <h4>Languages data table</h4>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="portlet-tablebody">
 
-    <p>
-        <button class="btn btn-primary">@Html.ActionLink("Create New Language", "CreateLanguage", "Home", new { @class = "txt_color" })</button>
-    </p>
+    <p>@Html.ActionLink("Create", "CreateLanguage", "Home", new { @class = "btn btn-success" })</p>
     <table id="table" class="table table-bordered">
     <thead>
         <tr>
-            <th>
+            <th style="width: 5%">
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Description)
             </th>
             
-            <th>
+            <th style="width: 5%">
                 @Html.DisplayNameFor(model => model.Date)
             </th>
-            <th>
-                IDE List
+            <th style="width: 10%">
+                IDE
             </th>
-            <th>
-                Paradigm Type
+            <th style="width: 15%">
+                Paradigm
             </th>
-            <th>
-                Relationships
+            <th style="width: 5%">
+                Influenced by
             </th>
             <!--image-->
-            <th>
+            <th style="width: 5%">
                 Image
             </th>
-            <th>
+            <th style="width: 6%">
              
             </th>
         </tr>
@@ -59,7 +73,7 @@
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Date.Year);
+                    @Html.DisplayFor(modelItem => item.Date.Year)
                 </td>
 
                 <td>
@@ -67,7 +81,7 @@
                         var listIDE = item.LanguageIDEs.Where(p => p.LanguageID == item.LanguageID);
                         foreach (var cur in listIDE)
                         {
-                          <p>@Html.DisplayFor(model => cur.IDE.Name);</p>  
+                          @Html.DisplayFor(model => cur.IDE.Name) <br/>  
                         }
                     }
                 </td>
@@ -76,7 +90,7 @@
                         var listPARADIGMID = item.LanguageParadigms.Where(p => p.LanguageID == item.LanguageID);
                         foreach (var a in listPARADIGMID)
                         {
-                            <p>@Html.DisplayFor(model => a.Paradigm.Name);</p>
+                            @Html.DisplayFor(model => a.Paradigm.Name) <br/> 
                         }
 
                     }
@@ -86,26 +100,34 @@
                         var listRELATIONSHIP = item.LanguageRelationships1.Where(p => p.LanguageID == item.LanguageID);
                         foreach (var a in listRELATIONSHIP)
                         {
-                            <p>@Html.DisplayFor(model => a.Language.Name);</p>
+                            @Html.DisplayFor(model => a.Language.Name) <br/> 
                         }
 
                     }
                 </td>
                 <!--image-->
                 <td>
-                        <img src= "@Html.DisplayFor(modelItem => item.Image)" alt="" width="100" height="80"/>
+                    <img src= "@Html.DisplayFor(modelItem => item.Image)" alt="" width="100" height="80"/>
                 </td>
                 <td>
-                     <button class="btn btn-primary">@Html.ActionLink("Edit", "LanguageEdit", new { id = item.LanguageID, name = item.Name, desc = item.Description, date = item.Date.Year, image = item.Image }, new { @class = "txt_color" }) </button>
-                     <button class="btn btn-info">@Html.ActionLink("Details", "Details", new { id = item.LanguageID }, new { @class = "txt_color" }) </button>
-                     <button class="btn btn-danger">@Html.ActionLink("Delete", "LanguageDelete", new { id = item.LanguageID }, new { @class = "txt_color" }) </button>
+                     @Html.ActionLink(" ", "LanguageEdit", new { id = item.LanguageID, name = item.Name, desc = item.Description, date = item.Date.Year, image = item.Image }, new { @class = "btn btn-primary glyphicon glyphicon-edit" })
+                     @Html.ActionLink(" ", "LanguageDelete", new { id = item.LanguageID }, new { @class = "btn btn-danger glyphicon glyphicon-remove" })
                 </td>
             </tr>
         }
         </tbody>
     </table>
     
-</div>
+                            </div>
+                            <!-- /.portlet-body -->
+                        </div>
+                        <!-- /.portlet -->
+
+                    </div>
+                    <!-- /.col-lg-12 -->
+
+                </div>
+                </div>
 <script type="text/javascript">
     console.log("OK");
     $(document).ready(function () {

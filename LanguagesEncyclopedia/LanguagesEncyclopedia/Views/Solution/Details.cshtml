@@ -9,16 +9,36 @@
 }
 
 <div id="page-wrapper">
-  <div class="container-fluid">
+  <div class="page-content page-content-ease-in">
        <div class="row">
            <div class="col-mg-12">
-                <h1 class="page-header"> Solutions Details</h1>
+            <div class="page-title">
+               <h1> Solution details</h1>
+                            <ol class="breadcrumb">
+                                <li><i class="fa fa-dashboard"></i>  <a href="@Url.Action("Service", "Home")"> Service </a>
+                                </li>
+                                <li class="active">Solution details</li>
+                            </ol>
             </div>
        </div>
-    </div>
 
-<fieldset>
-    <legend>Solution</legend>
+           <div class="row">
+
+                    <div class="col-mg-12">
+
+                        <div class="tableportlet portlet-default">
+                            <div class="portlet-heading">
+                                <div class="portlet-title">
+                                    <h4>Solution data table</h4>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="portlet-tablebody">
+
+ <div class="form-group">
+       <div class="row">
+
+         <div class="col-xs-12 has-feedback">
 
     <div class="display-label">
         @Html.LabelFor(model => model.LanguageTask.Task.Name, "Task Name")
@@ -34,9 +54,26 @@
         @Html.DisplayFor(model => model.Description)
     </div>
 
-</fieldset>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.SolutionID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
-    </div>
+</div>
+
+         <div class="col-xs-6" style="padding-top: 10px"> @Html.ActionLink("Back", "Index", "Solution", new { @class = "btn btn-warning" }) @Html.ActionLink("Edit", "Edit", "Solution",new { id=Model.SolutionID }, new { @class = "btn btn-primary" }) </div>
+
+        </div>
+   </div>
+
+
+                            </div>
+                            <!-- /.portlet-body -->
+                        </div>
+                        <!-- /.portlet -->
+
+                    </div>
+                    <!-- /.col-lg-12 -->
+
+                </div>
+
+
+</div>
+</div>
+
+</div>

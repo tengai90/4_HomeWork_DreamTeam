@@ -6,15 +6,8 @@
     ViewBag.Title = "EditLanguage";
 }
 
-<div id="page-wrapper">
-  <div class="container-fluid">
-       <div class="row">
-           <div class="col-mg-12">
-                <h1 class="page-header">Edit Language</h1>
-            </div>
-       </div>
-    </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+@*<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>*@
 <script>
     $(document).ready(function () {
         //function will be called on button click having id btnsave
@@ -49,8 +42,8 @@
             var nam=document.getElementById('n_language_name').value;
 
             
-            if(nam==''){alert("Name is empty!"); pass=1;} 
-            if(n<nn){alert("Invalid year!"); pass=1;}
+            if(nam==''){alert("Name is empty!"); pass=1; document.getElementById("btnEdit").disabled = false;} 
+            if(n<nn){alert("Invalid year!"); pass=1; document.getElementById("btnEdit").disabled = false;}
             if(pass==0){
                 $.ajax(
                      {
@@ -81,27 +74,91 @@
 
 </script>
 
-</br>
+<div id="page-wrapper">
+  <div class="page-content page-content-ease-in">
+       <div class="row">
+           <div class="col-mg-12">
+            <div class="page-title">
+               <h1> Edit language</h1>
+                            <ol class="breadcrumb">
+                                <li><i class="fa fa-dashboard"></i>  <a href="@Url.Action("Service", "Home")"> Service </a>
+                                </li>
+                                <li class="active">Edit language</li>
+                            </ol>
+            </div>
+       </div>
+
+           <div class="row">
+
+                    <div class="col-mg-12">
+
+                        <div class="tableportlet portlet-default">
+                            <div class="portlet-heading">
+                                <div class="portlet-title">
+                                    <h4>Language data table</h4>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="portlet-tablebody">
+
+
+
+
+@*</br>
 Name: <div style="color: red;">*</div><input type="text" id="n_language_name" value="@ViewBag.name" /></br>
 Description: <textarea id="n_language_desc">@ViewBag.desc</textarea></br>
 Date (Year): <div style="color: red;">*</div><input type="text" maxlength="4" onkeypress='return event.charCode >= 48 && event.charCode <= 57' id="n_language_date" value="@ViewBag.date" /></br>
 <!--image-->
 Image URL: <input type="text" id="n_language_image" value="@ViewBag.image"/></br>
-<input id="btnEdit" type="button" value="Edit" />
-</br><br><br>
-Available IDE's
+<input id="btnEdit" type="button" value="Edit" />*@
 
-<br>
+<div class="form-group">
+        <div class="row">
+            <div class="col-xs-4 has-feedback">
+                <label class="control-label">Name</label><span style="color: red;"> *</span>
+                <input type="text" class="form-control" name="name" id="n_language_name" value="@ViewBag.name" />
+               <small class="help-block">The name is required</small>
+            </div>
 
-<table class="table table-bordered">
-    <tr class="btn-warning">
-        <th>
+         <div class="col-xs-4 has-feedback">
+              <label class="control-label">Description</label>
+              <textarea class="form-control" rows="6" id="n_language_desc" style="resize: none"> @ViewBag.desc </textarea>
+              <small class="help-block">Maximal quantity of symbols is 100</small>
+        </div>
+
+        <div class="col-xs-4 has-feedback">
+              <label class="control-label">Date</label><span style="color: red;"> *</span>
+              <input type="text" class="form-control" name="date" maxlength="4" onkeypress='return event.charCode >= 48 && event.charCode <= 57' id="n_language_date" value="@ViewBag.date" />
+              <small class="help-block">The created year is required</small>
+        </div>
+
+        <div class="col-xs-4 has-feedback">
+              <label class="control-label">Image URL</label>
+              <input type="text" class="form-control" name="image" id="n_language_image"/>
+              <small class="help-block">Maximal length of reference is 50 symbols</small>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<h3>Integrated development environment</h3>
+<hr>
+    <table id="table" class="table table-bordered">
+       <thead>
+            <tr>
+            <th>
             Name
         </th>
         <th>
             CheckIt
         </th>
     </tr>
+           </thead>
+       <tbody>
     @foreach (var a in Model.AllIDE)
     {
         <tr>
@@ -135,20 +192,25 @@ Available IDE's
             </td>
         </tr>
     }
+ </tbody>
 </table>
-    </br><br><br>
-    Available Paradigm's
 
-<br>
-<table class="table table-bordered">
-    <tr class="btn-warning">
-        <th>
+
+
+<h3>Paradigms</h3>
+<hr/>
+    <table id="table2" class="table table-bordered">
+        <thead>
+            <tr>
+            <th>
             Name
         </th>
         <th>
             CheckIt
         </th>
     </tr>
+                   </thead>
+       <tbody>
     @foreach (var b in Model.AllParadigm)
     {
         <tr>
@@ -179,14 +241,16 @@ Available IDE's
             </td>
         </tr>
     }
-</table>
-    </br><br><br>
-    Available Language's
+     </tbody>
+    </table>
 
-<br>
-<table class="table table-bordered">
-    <tr class="btn-warning">
-        <th>
+
+<h3>Influenced by</h3>
+ <hr/>
+     <table id="table3" class="table table-bordered">
+         <thead>
+            <tr>
+            <th>
             Name
         </th>
         <th>
@@ -196,6 +260,8 @@ Available IDE's
     @{ 
         var fixLanList = Model.LanList.Where(p => p.LanguageID != Model.Lan.LanguageID);
     }
+           </thead>
+       <tbody>
     @foreach (var b in fixLanList)
             {
         <tr>
@@ -221,5 +287,32 @@ Available IDE's
             </td>
         </tr>
     }
+ </tbody>
 </table>
+
+   <p> @Html.ActionLink("Back", "Languages", "Home", new { @class = "btn btn-warning" }) <input id="btnEdit" type="button" value="Edit" class="btn btn-success" /> </p>
+                            </div>
+                            <!-- /.portlet-body -->
+                        </div>
+                        <!-- /.portlet -->
+
+                    </div>
+                    <!-- /.col-lg-12 -->
+
+                </div>
+
+
 </div>
+</div>
+
+</div>
+
+<script type="text/javascript">
+    console.log("OK");
+    $(document).ready(function () {
+        $('#table').DataTable();
+        $('#table2').DataTable();
+        $('#table3').DataTable();
+    });
+</script>
+

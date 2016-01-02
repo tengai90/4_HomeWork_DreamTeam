@@ -42,6 +42,10 @@ namespace LanguagesEncyclopedia.Controllers
         {
             ViewBag.LanguageID = new SelectList(db.Languages, "LanguageID", "Name");
             ViewBag.TaskID = new SelectList(db.Tasks, "TaskID", "Name");
+
+            ViewBag.Languages = db.Languages.ToList();
+            ViewBag.Tasks = db.Tasks.ToList();
+
             return View();
         }
 
@@ -60,6 +64,10 @@ namespace LanguagesEncyclopedia.Controllers
 
             ViewBag.LanguageID = new SelectList(db.Languages, "LanguageID", "Name", languagetask.LanguageID);
             ViewBag.TaskID = new SelectList(db.Tasks, "TaskID", "Name", languagetask.TaskID);
+
+            ViewBag.Languages = db.Languages.ToList();
+            ViewBag.Tasks = db.Tasks.ToList();
+
             return View(languagetask);
         }
 
@@ -75,6 +83,10 @@ namespace LanguagesEncyclopedia.Controllers
             }
             ViewBag.LanguageID = new SelectList(db.Languages, "LanguageID", "Name", languagetask.LanguageID);
             ViewBag.TaskID = new SelectList(db.Tasks, "TaskID", "Name", languagetask.TaskID);
+
+            ViewBag.Languages = db.Languages.ToList();
+            ViewBag.Tasks = db.Tasks.ToList();
+
             return View(languagetask);
         }
 
@@ -93,6 +105,10 @@ namespace LanguagesEncyclopedia.Controllers
             }
             ViewBag.LanguageID = new SelectList(db.Languages, "LanguageID", "Name", languagetask.LanguageID);
             ViewBag.TaskID = new SelectList(db.Tasks, "TaskID", "Name", languagetask.TaskID);
+
+            ViewBag.Languages = db.Languages.ToList();
+            ViewBag.Tasks = db.Tasks.ToList();
+
             return View(languagetask);
         }
 

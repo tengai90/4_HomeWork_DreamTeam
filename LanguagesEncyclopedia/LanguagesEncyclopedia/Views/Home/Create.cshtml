@@ -17,7 +17,7 @@
 
                 var pass = 0;
                 var nam = document.getElementById('n_license').value;
-                if (nam == '') { alert("Name is empty"); pass = 1; }
+                if (nam == '') { alert("Name is empty"); pass = 1; document.getElementById("btnAdd").disabled = false;}
                 if(pass==0){
                     $.ajax(
                     {
@@ -40,25 +40,68 @@
 
 
 <div id="page-wrapper">
-  <div class="container-fluid">
+  <div class="page-content page-content-ease-in">
        <div class="row">
            <div class="col-mg-12">
-                <h1 class="page-header"> Create Licesnse</h1>
+            <div class="page-title">
+               <h1> Create license</h1>
+                            <ol class="breadcrumb">
+                                <li><i class="fa fa-dashboard"></i>  <a href="@Url.Action("Service", "Home")"> Service </a>
+                                </li>
+                                <li class="active">Create license</li>
+                            </ol>
             </div>
        </div>
-    </div>
 
-Hello Dream Team!!
-</br>
+           <div class="row">
+
+                    <div class="col-mg-12">
+
+                        <div class="tableportlet portlet-default">
+                            <div class="portlet-heading">
+                                <div class="portlet-title">
+                                    <h4>License data table</h4>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="portlet-tablebody">
 
 
-    Name: <div style="color: red;">*</div><input type="text" id="n_license"></br><input type="button" id="btnAdd" value="Add" />
-
+@*    Name: <input type="text" id="n_license"> </br> <input type="button" id="btnAdd" value="Add" />
 
             
 </br></br>
-@Html.ActionLink("Return to Licenses", "Licenses", "Home"); 
+@Html.ActionLink("Return to Licenses", "Licenses", "Home"); *@
 
+<div class="form-group">
+        <div class="row">
+            <div class="col-xs-4 has-feedback">
+                <label class="control-label">Name</label><span style="color: red;"> *</span>
+                <input type="text" class="form-control" name="website" id="n_license" />
+               <small class="help-block">The name is required</small></div>
+
+    </div>
+</div>
+
+
+   <p> @Html.ActionLink("Back", "Licenses", "Home", new { @class = "btn btn-warning" }) <input type="button" id="btnAdd" value="Create" class="btn btn-success" /> </p>
 
 
     </div>
+
+
+
+
+                            </div>
+                            <!-- /.portlet-body -->
+                        </div>
+                        <!-- /.portlet -->
+
+                    </div>
+                    <!-- /.col-lg-12 -->
+
+                </div>
+
+
+</div>
+</div>

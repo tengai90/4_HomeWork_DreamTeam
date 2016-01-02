@@ -9,28 +9,39 @@
 }
 
 <div id="page-wrapper">
-  <div class="container-fluid">
+  <div class="page-content page-content-ease-in">
        <div class="row">
            <div class="col-mg-12">
-                <h1 class="page-header">Licenses</h1>
+                <div class="page-title">
+               <h1> Licenses</h1>
+                            <ol class="breadcrumb">
+                                <li><i class="fa fa-dashboard"></i>  <a href="@Url.Action("Service", "Home")"> Service </a>
+                                </li>
+                                <li class="active">Licenses</li>
+                            </ol>
             </div>
-       </div>
-    </div>
+            </div>
+<div class="row">
 
+    <div class="col-mg-12">
 
+        <div class="tableportlet portlet-default">
+            <div class="portlet-heading">
+                <div class="portlet-title">
+                    <h4>Licenses data table</h4>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="portlet-tablebody">
 
-
-
-<p>
-        <button class="btn btn-primary">@Html.ActionLink("Create New", "Create","Home", new { @class = "txt_color" })</button>
-</p>
+<p>  @Html.ActionLink("Create", "Create", "Home", new { @class = "btn btn-success" }) </p>
 <table id="table" class="table table-bordered">
  <thead>
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
-        <th></th>
+        <th style="width: 6%"></th>
     </tr>
 </thead>
 <tbody>
@@ -40,14 +51,27 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            <button class="btn btn-primary">@Html.ActionLink("Edit", "Edit", new { id = item.LicenseID, name = item.Name }, new { @class = "txt_color" }) </button>
-            <button class="btn btn-info">@Html.ActionLink("Details", "Details", new { id = item.LicenseID }, new { @class = "txt_color" }) </button>
-            <button class="btn btn-danger">@Html.ActionLink("Delete", "DeleteLicense", new { id = item.LicenseID }, new { @class = "txt_color" })</button>
+            @Html.ActionLink(" ", "Edit", new { id = item.LicenseID, name = item.Name }, new { @class = "btn btn-primary glyphicon glyphicon-edit"})        
+            @Html.ActionLink(" ", "DeleteLicense", new { id = item.LicenseID }, new { @class = "btn btn-danger glyphicon glyphicon-remove"})
         </td>
     </tr>
 }
 </tbody>
 </table>
+
+                              
+                            </div>
+                            <!-- /.portlet-body -->
+                        </div>
+                        <!-- /.portlet -->
+
+                    </div>
+                    <!-- /.col-lg-12 -->
+
+                </div>
+
+
+</div>
 
 </div>
 

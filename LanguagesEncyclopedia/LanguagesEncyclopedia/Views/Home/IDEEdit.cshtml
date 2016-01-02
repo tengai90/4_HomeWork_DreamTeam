@@ -56,28 +56,69 @@
 
 </script>
 <div id="page-wrapper">
-  <div class="container-fluid">
+  <div class="page-content page-content-ease-in">
        <div class="row">
            <div class="col-mg-12">
-                <h1 class="page-header">Edit IDE</h1>
+            <div class="page-title">
+               <h1> Edit integrated development environment</h1>
+                            <ol class="breadcrumb">
+                                <li><i class="fa fa-dashboard"></i>  <a href="@Url.Action("Service", "Home")"> Service </a>
+                                </li>
+                                <li class="active">Edit IDE</li>
+                            </ol>
             </div>
        </div>
-    </div>
 
-Name: <div style="color: red;">*</div> <input type="text" id="new_IDE" value="@ViewBag.eName"></br>
+           <div class="row">
+
+                    <div class="col-mg-12">
+
+                        <div class="tableportlet portlet-default">
+                            <div class="portlet-heading">
+                                <div class="portlet-title">
+                                    <h4>Edit data table</h4>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="portlet-tablebody">
+
+
+
+@*Name: <div style="color: red;">*</div> <input type="text" id="new_IDE" value="@ViewBag.eName"></br>
 URL: <input type="text" id="new_URL" value="@ViewBag.eUrl"></br>
 <input type="button" id="btnEdit" value="Edit" />
 </br></br>
 @Html.ActionLink("Return to IDE List", "IDE", "Home") 
-</br>
-<table class="table table-bordered">
-    <tr class="btn-warning">
-        <th>
+</br>*@
+
+<div class="form-group">
+        <div class="row">
+            <div class="col-xs-4 has-feedback">
+                <label class="control-label">Name</label><span style="color: red;"> *</span>
+                <input type="text" class="form-control" name="website" id="new_IDE" value="@ViewBag.eName"/>
+               <small class="help-block">The name is required</small></div>
+
+            <div class="col-xs-7 has-feedback">
+                <label class="control-label">Website</label>
+                <input type="text" class="form-control" id="new_URL" value="@ViewBag.eUrl"/>
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+<table id="table" class="table table-bordered">
+    <thead>
+            <tr>
+            <th>
             Name
         </th>
         <th></th>
     </tr>
-
+     </thead>
+      <tbody>
 @foreach (var item in Model.Licenses) {
     <tr>
         <td>
@@ -103,6 +144,30 @@ URL: <input type="text" id="new_URL" value="@ViewBag.eUrl"></br>
         </td>
     </tr>
 }
-
+</tbody>
 </table>
-    </div>
+
+   <p> @Html.ActionLink("Back", "IDE", "Home", new { @class = "btn btn-warning" })  <input type="button" id="btnEdit" value="Edit" class="btn btn-success"/> </p>
+
+                            </div>
+                            <!-- /.portlet-body -->
+                        </div>
+                        <!-- /.portlet -->
+
+                    </div>
+                    <!-- /.col-lg-12 -->
+
+                </div>
+
+
+</div>
+</div>
+
+</div>
+
+@*<script type="text/javascript">
+        console.log("OK");
+        $(document).ready(function () {
+            $('#table').DataTable();
+        });
+</script>*@

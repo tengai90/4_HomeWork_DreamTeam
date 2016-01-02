@@ -24,7 +24,7 @@
             }
             var pass = 0;
             var nam = document.getElementById('new_IDE').value;
-            if (nam == '') { alert("Name is empty"); pass = 1; }
+            if (nam == '') { alert("Name is empty"); pass = 1; document.getElementById("btnCreate").disabled = false;}
             if (pass == 0) {
                 $.ajax(
                 {
@@ -51,29 +51,68 @@
 </script>
 
 <div id="page-wrapper">
-  <div class="container-fluid">
+  <div class="page-content page-content-ease-in">
        <div class="row">
            <div class="col-mg-12">
-                <h1 class="page-header">Create IDE</h1>
+            <div class="page-title">
+               <h1> Create integrated development environment</h1>
+                            <ol class="breadcrumb">
+                                <li><i class="fa fa-dashboard"></i>  <a href="@Url.Action("Service", "Home")"> Service </a>
+                                </li>
+                                <li class="active">Create IDE</li>
+                            </ol>
             </div>
        </div>
-    </div>
-</br>
+
+           <div class="row">
+
+                    <div class="col-mg-12">
+
+                        <div class="tableportlet portlet-default">
+                            <div class="portlet-heading">
+                                <div class="portlet-title">
+                                    <h4>IDE data table</h4>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="portlet-tablebody">
+@*
+<br/>
     Name: <div style="color: red;">*</div> <input type="text"  id="new_IDE"></br>
-URL: <input type="text" id="new_URL"></br>
-<input type="button" id="btnCreate" value="Create" />
-</br></br>
+    URL: <input type="text" id="new_URL"></br>*@
+ @*   <div class="row">*@
 
-@Html.ActionLink("Return to IDE List", "IDE", "Home") 
-</br>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-xs-4 has-feedback">
+                <label class="control-label">Name</label><span style="color: red;"> *</span>
+                <input type="text" class="form-control" name="website" id="new_IDE"/>
+               <small class="help-block">The name is required</small></div>
+
+            <div class="col-xs-7 has-feedback">
+                <label class="control-label">Website</label>
+                <input type="text" class="form-control" id="new_URL"/>
+            
+        </div>
+    </div>
+</div>
+
+
+
+
 <table id="table" class="table table-bordered">
-    <tr class="btn-warning">
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th></th>
-    </tr>
+    <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    TEST 
+                </th>
+            </tr>
+     </thead>
 
+     <tbody>
     @foreach (var item in Model)
     {
         <tr>
@@ -81,19 +120,43 @@ URL: <input type="text" id="new_URL"></br>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td id="@item.LicenseID">
-                <script>    
-                    var c =document.getElementById('@item.LicenseID');      
-                        var checkbox = document.createElement('input');
-                        checkbox.type = "checkbox";
-                        checkbox.name = "@item.Name";
-                        checkbox.value = "@item.Name";
-                        checkbox.id = "@item.LicenseID";
+                <script type="text/javascript">
+                    var c = document.getElementById('@item.LicenseID');
+                    var checkbox = document.createElement('input');
+                    checkbox.type = "checkbox";
+                    checkbox.name = "@item.Name";
+                    checkbox.value = "@item.Name";
+                    checkbox.id = "@item.LicenseID";
                     c.appendChild(checkbox);
                    
                 </script>
             </td>
         </tr>
     }
-
+</tbody>
 </table>
-    </div>
+
+   <p> @Html.ActionLink("Back", "IDE", "Home", new { @class = "btn btn-warning" }) <input type="button" id="btnCreate" value="Create" class="btn btn-success" /> </p>
+
+                            </div>
+                            <!-- /.portlet-body -->
+                        </div>
+                        <!-- /.portlet -->
+
+                    </div>
+                    <!-- /.col-lg-12 -->
+
+                </div>
+
+
+</div>
+</div>
+
+</div>
+
+@*<script type="text/javascript">
+        console.log("OK");
+        $(document).ready(function () {
+            $('#table').DataTable();
+        });
+</script>*@

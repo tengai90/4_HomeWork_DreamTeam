@@ -7,6 +7,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using LanguagesEncyclopedia.Models;
 
 
 namespace LanguagesEncyclopedia.Controllers
@@ -37,30 +38,58 @@ namespace LanguagesEncyclopedia.Controllers
             return View(solution);
         }
 
+
+        public List<SelectListItem> GetLanguageTasks()
+        {
+
+            List<SelectListItem> items = new List<SelectListItem>();
+
+            foreach (var obj in db.LanguageTasks)
+            {
+                SelectListItem item = new SelectListItem();
+
+                item.Value = obj.LanguageTaskID.ToString();
+                item.Text = obj.Task.Name;
+
+                items.Add(item);
+            }
+
+            return items;
+
+        }
+
         //
         // GET: /Solution/Create
 
         public ActionResult Create()
         {
             ViewBag.LanguageTaskID = new SelectList(db.LanguageTasks, "LanguageTaskID", "LanguageTaskID");
-            return View();
+
+            List<SelectListItem> items = GetLanguageTasks();
+
+            MergedSolutionModel model = new MergedSolutionModel(items);
+
+            return View(model);
         }
 
         //
         // POST: /Solution/Create
 
         [HttpPost]
-        public ActionResult Create(Solution solution)
+        public ActionResult Create(MergedSolutionModel model)
         {
             if (ModelState.IsValid)
             {
-                db.Solutions.AddObject(solution);
+                db.Solutions.AddObject(model.solution);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.LanguageTaskID = new SelectList(db.LanguageTasks, "LanguageTaskID", "LanguageTaskID", solution.LanguageTaskID);
-            return View(solution);
+            ViewBag.LanguageTaskID = new SelectList(db.LanguageTasks, "LanguageTaskID", "LanguageTaskID", model.solution.LanguageTaskID);
+
+            List<SelectListItem> items = GetLanguageTasks();
+
+            return View(model);
         }
 
         //
@@ -76,27 +105,34 @@ namespace LanguagesEncyclopedia.Controllers
 
             ViewBag.LanguageTaskID = new SelectList(db.LanguageTasks, "LanguageTaskID", "LanguageTaskID", solution.LanguageTaskID);
 
+            List<SelectListItem> items = GetLanguageTasks();
 
-            return View(solution);
+            MergedSolutionModel model = new MergedSolutionModel(items);
+
+            model.solution = solution;
+
+            return View(model);
         }
 
         //
         // POST: /Solution/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Solution solution)
+        public ActionResult Edit(MergedSolutionModel model)
         {
             if (ModelState.IsValid)
             {
-                db.Solutions.Attach(solution);
-                db.ObjectStateManager.ChangeObjectState(solution, EntityState.Modified);
+                db.Solutions.Attach(model.solution);
+                db.ObjectStateManager.ChangeObjectState(model.solution, EntityState.Modified);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.LanguageTaskID = new SelectList(db.LanguageTasks, "LanguageTaskID", "LanguageTaskID", solution.LanguageTaskID);
-          
-            return View(solution);
+            ViewBag.LanguageTaskID = new SelectList(db.LanguageTasks, "LanguageTaskID", "LanguageTaskID", model.solution.LanguageTaskID);
+
+            List<SelectListItem> items = GetLanguageTasks();
+
+            return View(model);
         }
 
         //

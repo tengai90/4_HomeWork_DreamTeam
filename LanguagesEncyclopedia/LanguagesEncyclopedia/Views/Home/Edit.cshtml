@@ -16,7 +16,7 @@
 
             var pass = 0;
             var nam = document.getElementById('e_license').value;
-            if (nam == '') { alert("Name is empty"); pass = 1; }
+            if (nam == '') { alert("Name is empty"); pass = 1; document.getElementById("btnEdit").disabled = false;}
             if(pass==0){
                 $.ajax(
                 {
@@ -38,18 +38,66 @@
 </script>
 
 <div id="page-wrapper">
-  <div class="container-fluid">
+  <div class="page-content page-content-ease-in">
        <div class="row">
            <div class="col-mg-12">
-                <h1 class="page-header">Edit Licences</h1>
+            <div class="page-title">
+               <h1> Edit license </h1>
+                            <ol class="breadcrumb">
+                                <li><i class="fa fa-dashboard"></i>  <a href="@Url.Action("Service", "Home")"> Service </a>
+                                </li>
+                                <li class="active">Edit license</li>
+                            </ol>
             </div>
        </div>
+
+
+
+    <div class="row">
+
+                    <div class="col-mg-12">
+
+                        <div class="tableportlet portlet-default">
+                            <div class="portlet-heading">
+                                <div class="portlet-title">
+                                    <h4>License data table</h4>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="portlet-tablebody">
+
+
+<div class="form-group">
+        <div class="row">
+            <div class="col-xs-4 has-feedback">
+                <label class="control-label">Name</label><span style="color: red;"> *</span>
+                <input type="text" class="form-control" name="name" value="@ViewBag.Name" id="e_license"/>
+               <small class="help-block">The name is required</small></div>
+           
+        </div>
     </div>
-Hello Dream Team!!
-</br>
-Name: <div style="color: red;">*</div><input type="text" value="@ViewBag.Name" id="e_license"></br><input type="button" id="btnEdit" value="Edit" />
+
+
+@*Name: <div style="color: red;">*</div><input type="text" value="@ViewBag.Name" id="e_license"></br><input type="button" id="btnEdit" value="Edit" />
 
 </br></br>
-@Html.ActionLink("Return to Licenses", "Licenses", "Home"); 
+@Html.ActionLink("Return to Licenses", "Licenses", "Home"); *@
 
-    </div>
+ <p> @Html.ActionLink("Back", "Licenses", "Home", new { @class = "btn btn-warning" })  <input type="button" id="btnEdit" value="Edit" class="btn btn-success"/> </p>
+
+                            </div>
+                            <!-- /.portlet-body -->
+                        </div>
+                        <!-- /.portlet -->
+
+                    </div>
+                    <!-- /.col-lg-12 -->
+
+                </div>
+
+
+</div>
+</div>
+
+
+
