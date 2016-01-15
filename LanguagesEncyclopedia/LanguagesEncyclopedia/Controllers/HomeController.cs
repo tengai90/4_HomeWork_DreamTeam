@@ -61,7 +61,6 @@ namespace LanguagesEncyclopedia.Controllers
             foreach(var item in oldParadigms)
             {
                 db.DeleteObject(item);
-                db.SaveChanges();
             }
 
             Paradigm todelete = db.Paradigms.SingleOrDefault(p => p.ParadigmID == idt);
@@ -361,10 +360,18 @@ namespace LanguagesEncyclopedia.Controllers
             {
                 db.LicenseIDEs.DeleteObject(item);
                 db.SaveChanges();
+                
+            }
+           var todeleteL = db.LanguageIDEs.Where(p => p.IDEID == idt).ToList();
+            foreach (var item in todeleteL)
+            {
+                db.LanguageIDEs.DeleteObject(item);
+                db.SaveChanges();
             }
 
             IDE dIDE = db.IDEs.SingleOrDefault(p => p.IDEID == idt);
             db.IDEs.DeleteObject(dIDE);
+
             db.SaveChanges();
             return RedirectToAction("IDE", "Home");
         }
